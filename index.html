@@ -185,6 +185,158 @@
       width: 100% !important;
     }
     
+    mjx-math {
+      display: inline-block;
+      text-align: left;
+      line-height: 0;
+      text-indent: 0;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 100%;
+      font-size-adjust: none;
+      letter-spacing: normal;
+      border-collapse: collapse;
+      word-wrap: normal;
+      word-spacing: normal;
+      white-space: nowrap;
+      direction: ltr;
+      padding: 1px 0;
+    }
+    
+    mjx-container[jax="CHTML"][display="true"] {
+      display: block;
+      text-align: center;
+      margin: 1em 0;
+    }
+    
+    mjx-container[jax="CHTML"][display="true"][width="full"] {
+      display: flex;
+    }
+    
+    mjx-container[jax="CHTML"][display="true"] mjx-math {
+      padding: 0;
+    }
+    
+    mjx-container[jax="CHTML"][justify="left"] {
+      text-align: left;
+    }
+    
+    mjx-container[jax="CHTML"][justify="right"] {
+      text-align: right;
+    }
+    
+    mjx-mi {
+      display: inline-block;
+      text-align: left;
+    }
+    
+    mjx-c {
+      display: inline-block;
+    }
+    
+    mjx-utext {
+      display: inline-block;
+      padding: .75em 0 .2em 0;
+    }
+    
+    mjx-mo {
+      display: inline-block;
+      text-align: left;
+    }
+    
+    mjx-stretchy-h {
+      display: inline-table;
+      width: 100%;
+    }
+    
+    mjx-stretchy-h > * {
+      display: table-cell;
+      width: 0;
+    }
+    
+    mjx-stretchy-h > * > mjx-c {
+      display: inline-block;
+      transform: scalex(1.0000001);
+    }
+    
+    mjx-stretchy-h > * > mjx-c::before {
+      display: inline-block;
+      width: initial;
+    }
+    
+    mjx-stretchy-h > mjx-ext {
+      /* IE */ overflow: hidden;
+      /* others */ overflow: clip visible;
+      width: 100%;
+    }
+    
+    mjx-stretchy-h > mjx-ext > mjx-c::before {
+      transform: scalex(500);
+    }
+    
+    mjx-stretchy-h > mjx-ext > mjx-c {
+      width: 0;
+    }
+    
+    mjx-stretchy-h > mjx-beg > mjx-c {
+      margin-right: -.1em;
+    }
+    
+    mjx-stretchy-h > mjx-end > mjx-c {
+      margin-left: -.1em;
+    }
+    
+    mjx-stretchy-v {
+      display: inline-block;
+    }
+    
+    mjx-stretchy-v > * {
+      display: block;
+    }
+    
+    mjx-stretchy-v > mjx-beg {
+      height: 0;
+    }
+    
+    mjx-stretchy-v > mjx-end > mjx-c {
+      display: block;
+    }
+    
+    mjx-stretchy-v > * > mjx-c {
+      transform: scaley(1.0000001);
+      transform-origin: left center;
+      overflow: hidden;
+    }
+    
+    mjx-stretchy-v > mjx-ext {
+      display: block;
+      height: 100%;
+      box-sizing: border-box;
+      border: 0px solid transparent;
+      /* IE */ overflow: hidden;
+      /* others */ overflow: visible clip;
+    }
+    
+    mjx-stretchy-v > mjx-ext > mjx-c::before {
+      width: initial;
+      box-sizing: border-box;
+    }
+    
+    mjx-stretchy-v > mjx-ext > mjx-c {
+      transform: scaleY(500) translateY(.075em);
+      overflow: visible;
+    }
+    
+    mjx-mark {
+      display: inline-block;
+      height: 0px;
+    }
+    
+    mjx-mn {
+      display: inline-block;
+      text-align: left;
+    }
+    
     mjx-c::before {
       display: block;
       width: 0;
@@ -387,6 +539,51 @@
       font-family: MJXTEX-VB;
       src: url("vendor/mathjax/fonts/MathJax_Vector-Bold.woff") format("woff");
     }
+    
+    mjx-c.mjx-c1D43E.TEX-I::before {
+      padding: 0.683em 0.889em 0 0;
+      content: "K";
+    }
+    
+    mjx-c.mjx-c3D::before {
+      padding: 0.583em 0.778em 0.082em 0;
+      content: "=";
+    }
+    
+    mjx-c.mjx-c33::before {
+      padding: 0.665em 0.5em 0.022em 0;
+      content: "3";
+    }
+    
+    mjx-c.mjx-c1D443.TEX-I::before {
+      padding: 0.683em 0.751em 0 0;
+      content: "P";
+    }
+    
+    mjx-c.mjx-c28::before {
+      padding: 0.75em 0.389em 0.25em 0;
+      content: "(";
+    }
+    
+    mjx-c.mjx-c1D44B.TEX-I::before {
+      padding: 0.683em 0.852em 0 0;
+      content: "X";
+    }
+    
+    mjx-c.mjx-c29::before {
+      padding: 0.75em 0.389em 0.25em 0;
+      content: ")";
+    }
+    
+    mjx-c.mjx-c1D43F.TEX-I::before {
+      padding: 0.683em 0.681em 0 0;
+      content: "L";
+    }
+    
+    mjx-c.mjx-c38::before {
+      padding: 0.666em 0.5em 0.022em 0;
+      content: "8";
+    }
     </style></head><body class="_theme-github"><link rel="stylesheet" type="text/css" href="themes/github.css" id="_theme"><link rel="stylesheet" type="text/css" href="vendor/prism.min.css" id="_prism"><div id="_html" class="markdown-body" style="visibility: visible;">
         <meta charset="UTF-8">
         <title>DDN: Discrete Distribution Networks - Novel Generative Model</title>
@@ -404,26 +601,136 @@
     <br>
     
     
-    <p><strong><a href="https://github.com/DIYer22">Lei Yang</a></strong></p>
-    <hr>
-    <h3 id="-paper-coming-soon--codecoming-soon--"><a class="anchor" name="-paper-coming-soon--codecoming-soon--" href="#-paper-coming-soon--codecoming-soon--"><span class="octicon octicon-link"></span></a>| <a href="">Paper</a> <sub>(Coming soon)</sub> | <a href="">Code</a><sub>(Coming soon)</sub>  |</h3>
+    <p><a href="https://github.com/DIYer22">Lei Yang</a></p>
+    <h3 id="-paper-coming-soon--codecoming-soon----talkcoming-soon--"><a class="anchor" name="-paper-coming-soon--codecoming-soon----talkcoming-soon--" href="#-paper-coming-soon--codecoming-soon----talkcoming-soon--"><span class="octicon octicon-link"></span></a>| <a href="">Paper</a> <sub>(Coming soon)</sub> | <a href="">Code</a><sub>(Coming soon)</sub>   | <a href="">Talk</a><sub>(Coming soon)</sub>  |</h3>
     <!-- 
     全新的生成模型, 有着简单的原理和独特的性质
     - Code 分为
         - sddn 库
         - toy
         - pretrain
+        - PPT
+        - 中文分享
      -->
-    
     </div>
     
     
+    <br>
     
-    <h2 id="1-abstract"><a class="anchor" name="1-abstract" href="#1-abstract"><span class="octicon octicon-link"></span></a>1. Abstract</h2>
+    <p><em><strong>Contributions of this paper:</strong></em></p>
+    <ul>
+    <li>We introduce a <strong>novel generative model</strong>, termed Discrete Distribution Networks (DDN), which demonstrates a more straightforward and streamlined principle and form.</li>
+    <li>For training the DDN, we propose the <strong>Split-and-Prune optimization algorithm</strong>, and a range of practical techniques.</li>
+    <li>We conduct preliminary experiments and analysis on the DDN, showcasing its intriguing properties and capabilities, such as <strong>zero-shot conditional generation</strong> and highly <strong>compact representations</strong>.</li>
+    </ul>
+    <div align="center">
+    
+    
+    <br>
+    <a href="img/ddn-intro.png">
+      <img style="width:40%" src="img/ddn-intro.png">
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="img/latent-tree.png">
+      <img style="width:40%" src="img/latent-tree.png">
+    </a>
+    
+    <p style="text-align: justify"> <b>Left:</b> Illustrates the process of image reconstruction and latent acquisition in DDN. Each layer of DDN outputs <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="0" style="font-size: 103.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> distinct images, here <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="1" style="font-size: 103.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>=</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container>, to approximate the distribution <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="2" style="font-size: 103.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container>. The sampler then selects the image most similar to the target from these and feeds it into the next DDN layer. As the number of layers increases, the generated images become increasingly similar to the target. For generation tasks, the sampler is simply replaced with a random choice operation. <br>
+    <b>Right:</b> Shows the tree-structured representation space of DDN's latent variables. Each sample can be mapped to a leaf node on this tree.</p>
+    </div>
+    
+    <hr>
+    <div align="center">
+    
+    <h3 id="abstract"><a class="anchor" name="abstract" href="#abstract"><span class="octicon octicon-link"></span></a>Abstract</h3>
+    </div>
     <p style="text-align: justify"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    We introduce a novel generative model, the Discrete Distribution Networks (DDN), that approximates data distribution using hierarchical discrete distributions. We posit that since the features within a network inherently contain distributional information, liberating the network from a single output to concurrently generate multiple samples proves to be highly effective. Therefore, DDN fits the target distribution, including continuous ones, by generating multiple discrete sample points. To capture finer details of the target data, DDN selects the output that is closest to the Ground Truth (GT) from the coarse results generated in the first layer. This selected output is then fed back into the network as a condition for the second layer, thereby generating new outputs more similar to the GT. As the number of DDN layers increases, the representational space of the outputs expands exponentially, and the generated samples become increasingly similar to the GT. This hierarchical output pattern of discrete distributions endows DDN with two intriguing properties: highly compressed representation and more general zero-shot conditional generation. We demonstrate the efficacy of DDN and these intriguing properties through experiments on CIFAR-10 and FFHQ.
+    We introduce a novel generative model, the Discrete Distribution Networks (DDN), that approximates data distribution using hierarchical discrete distributions. We posit that since the features within a network inherently contain distributional information, liberating the network from a single output to concurrently generate multiple samples proves to be highly effective. Therefore, DDN fits the target distribution, including continuous ones, by generating multiple discrete sample points. To capture finer details of the target data, DDN selects the output that is closest to the Ground Truth (GT) from the coarse results generated in the first layer. This selected output is then fed back into the network as a condition for the second layer, thereby generating new outputs more similar to the GT. As the number of DDN layers increases, the representational space of the outputs expands exponentially, and the generated samples become increasingly similar to the GT. This hierarchical output pattern of discrete distributions endows DDN with two intriguing properties: highly compressed representation and more general <b>zero-shot conditional generation</b>. We demonstrate the efficacy of DDN and these intriguing properties through experiments on CIFAR-10 and FFHQ.
     </em></p>
+    <br>
+    <div align="center">
+    <img src="img/zscg.png" loading="lazy">
     
+    <!--  
+    argmin(|CLIP.image_encode(DDN(z))-CLIP.text_encode("red hat")|) => conditioned_gen
+    z 属于 K^L
+    
+    <div style="position: relative;width: 100%;height: 0;padding-top: calc(100% * (100 / 300)); overflow: hidden;">
+      <img src="img/zscg.png" style="position: absolute; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: top;" loading="lazy">
+    </div> -->
+    
+    <p style="width:90%; text-align: justify"><b>DDN enables zero-shot conditional generation.</b> DDN also supports conditions in non-pixel domains, such as text-to-image with CLIP. Images enclosed in yellow borders serve as the ground truth. The abbreviations in the table header correspond to their respective tasks as follows: “SR” stands for Super-Resolution, with the following digit indicating the resolution of the condition. “ST” denotes Style Transfer, which computes Perceptual Losses with the condition.</p>
+    </div>
+    
+    <hr>
+    <br>
+    <div align="center">
+    
+    <h3 id="overview-of-discrete-distribution-networks"><a class="anchor" name="overview-of-discrete-distribution-networks" href="#overview-of-discrete-distribution-networks"><span class="octicon octicon-link"></span></a>Overview of Discrete Distribution Networks</h3>
+    <br>
+    <img src="img/overview.png" loading="lazy">
+    <p style="width:90%; text-align: justify">
+    (a) The data flow during the training phase of DDN is shown at the top. As the network depth increases, the generated images become increasingly similar to the training images. Within each Discrete Distribution Layer (DDL), <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="3" style="font-size: 103.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> samples are generated, and the one closest to the training sample is selected as the generated image for loss computation. These <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="4" style="font-size: 103.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> output nodes are optimized using Adam with the Split-and-Prune method. The right two figures demonstrate the two model paradigms supported by DDN. (b) Single Shot Generator Paradigm: Each neural network layer and DDL has independent weights. (c) Recurrence Iteration Paradigm: All neural network layers and DDLs share weights. For inference, replacing the Guided Sampler in the DDL with a random choice enables the generation of new images.</p><p>
+    </p></div>
+    
+    <hr>
+    <br>
+    <div align="center">
+    
+    <h3 id="toy-examples-for-two-dimensional-data-generation"><a class="anchor" name="toy-examples-for-two-dimensional-data-generation" href="#toy-examples-for-two-dimensional-data-generation"><span class="octicon octicon-link"></span></a>Toy examples for two-dimensional data generation</h3>
+    <br>
+    <img src="img/2d-density.png" loading="lazy" style="max-width:500px">
+    <p style="width:90%; text-align: justify">The numerical values at the bottom of each figure represent the Kullback-Leibler (KL) divergence. Due to phenomena such as “dead nodes” and “density shift”, the application of Gradient Descent alone fails to properly fit the Ground Truth (GT) density. However, by employing the Split-and-Prune strategy, the KL divergence is reduced to even lower than that of the Real Samples. </p><p>
+    </p></div>
+    
+    <hr>
+    <br>
+    <div align="center">
+    
+    <h3 id="random-samples-from-ddn-trained-on-face-image"><a class="anchor" name="random-samples-from-ddn-trained-on-face-image" href="#random-samples-from-ddn-trained-on-face-image"><span class="octicon octicon-link"></span></a>Random samples from DDN trained on face image</h3>
+    <br>
+    <img src="img/face-gen.png" loading="lazy">
+    </div>
+    
+    <hr>
+    <br>
+    <div align="center">
+    
+    <h3 id="zero-shot-conditional-generation-guided-by-clip"><a class="anchor" name="zero-shot-conditional-generation-guided-by-clip" href="#zero-shot-conditional-generation-guided-by-clip"><span class="octicon octicon-link"></span></a>Zero-Shot Conditional Generation guided by CLIP</h3>
+    <br>
+    <img src="img/clip-exp.jpg" loading="lazy">
+    <p style="width:90%;">The text at the top is the guide text for that column.</p><p>
+    </p></div>
+    
+    <hr>
+    <br>
+    <div align="center">
+    
+    <h3 id="zero-shot-conditional-generation-with-multiple-conditions"><a class="anchor" name="zero-shot-conditional-generation-with-multiple-conditions" href="#zero-shot-conditional-generation-with-multiple-conditions"><span class="octicon octicon-link"></span></a>Zero-Shot Conditional Generation with Multiple Conditions</h3>
+    <br>
+    <img src="img/multi-conditons.png" loading="lazy">
+    <p style="width:90%; text-align: ">The DDN balances the steering forces of CLIP and Inpainting according to their associated weights.</p><p>
+    </p></div>
+    
+    <hr>
+    <br>
+    <div align="center">
+    
+    <h3 id="conditional-ddn-performing-coloring-and-edge-to-rgb-tasks"><a class="anchor" name="conditional-ddn-performing-coloring-and-edge-to-rgb-tasks" href="#conditional-ddn-performing-coloring-and-edge-to-rgb-tasks"><span class="octicon octicon-link"></span></a>Conditional DDN performing coloring and edge-to-RGB tasks</h3>
+    <br>
+    <img src="img/conditional-DDN.png" loading="lazy">
+    <p style="width:90%; text-align: justify">Columns 4 and 5 display the generated results under the guidance of other images, where the produced image strives to adhere to the style of the guided image as closely as possible while ensuring compliance with the condition. The resolution of the generated images is 256x256.</p><p>
+    </p></div>
+    
+    <hr>
+    <br>
+    <div align="center">
+    
+    <h3 id="hierarchical-generation-visualization-of-ddn"><a class="anchor" name="hierarchical-generation-visualization-of-ddn" href="#hierarchical-generation-visualization-of-ddn"><span class="octicon octicon-link"></span></a>Hierarchical Generation Visualization of DDN</h3>
+    <br>
+    <img src="img/tree-latent.mnist-vis-level3.png" loading="lazy">
+    <p style="width:90%; text-align: justify">We trained a DDN with output level <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="5" style="font-size: 103.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mo>=</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container> and output nodes <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="6" style="font-size: 103.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>=</mo><mn>8</mn></math></mjx-assistive-mml></mjx-container> per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images.</p><p>
+    </p></div>
     
     
     <style>
@@ -438,7 +745,7 @@
     }
     .markdown-body {
     min-width: 512px;
-    max-width: 888px;
+    max-width: 1024px;
     background-color: rgb(255, 255, 255);
     overflow: auto;
     border-width: 1px;
