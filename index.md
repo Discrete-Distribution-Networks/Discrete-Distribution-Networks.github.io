@@ -8,6 +8,13 @@
     <meta property="og:title" content="DDN: Discrete Distribution Networks" />
     <meta property="og:description" content="Novel Generative Model with Simple Principles and Unique Properties" />
     <meta property="og:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="discrete-distribution-networks.github.io">
+  <meta property="twitter:url" content="https://discrete-distribution-networks.github.io/">
+  <meta name="twitter:title" content="DDN: Discrete Distribution Networks">
+  <meta name="twitter:description" content="Novel Generative Model with Simple Principles and Unique Properties">
+  <meta name="twitter:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
+
 </head>
 
 <div align="center">
@@ -181,3 +188,13 @@ padding: 45px;
 margin: 20px auto;
 }
 </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9DFYQJQH58"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9DFYQJQH58');
+</script>
