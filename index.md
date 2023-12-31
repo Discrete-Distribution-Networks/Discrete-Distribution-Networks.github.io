@@ -1,10 +1,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>DDN: Discrete Distribution Networks - Novel Generative Model</title>
+    <title>DDN: Discrete Distribution Networks</title>
     <meta name="description" content="Novel Generative Model with Simple Principles and Unique Properties">
     <meta name="keywords" content="DDN, generative model">
     <meta name="image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
+    <meta property="og:title" content="DDN: Discrete Distribution Networks" />
+    <meta property="og:description" content="Novel Generative Model with Simple Principles and Unique Properties" />
     <meta property="og:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png" />
 </head>
 
