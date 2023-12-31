@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>DDN: Discrete Distribution Networks - Novel Generative Model</title>
-    <meta name="description" content="DDN: Discrete Distribution Networks">
+    <meta name="description" content="Novel Generative Model with Simple Principles and Unique Properties">
     <meta name="keywords" content="DDN, generative model">
 </head>
 
