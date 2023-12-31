@@ -1,0 +1,22 @@
+
+*.tmp
+pickle_of_boxx
+tmp_*
+tmp_file*
+*.out
+*.bin
+.vscode
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+.ipynb_checkpoints
+*.py.bak
+*.ignore.*
+
+dataset
+*.ipynb
