@@ -4,7 +4,6 @@
     <title>DDN: Discrete Distribution Networks - Novel Generative Model</title>
     <meta name="description" content="DDN: Discrete Distribution Networks">
     <meta name="keywords" content="DDN, generative model">
-    <link rel="shortcut icon" href="2d_density.1_two-sprials_gen.png">
 </head>
 
 <div align="center">
