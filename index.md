@@ -4,6 +4,7 @@
     <title>DDN: Discrete Distribution Networks - Novel Generative Model</title>
     <meta name="description" content="Novel Generative Model with Simple Principles and Unique Properties">
     <meta name="keywords" content="DDN, generative model">
+    <meta name="image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
 </head>
 
 <div align="center">
