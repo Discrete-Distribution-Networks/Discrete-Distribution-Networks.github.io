@@ -32,7 +32,7 @@
 
 
 
-### | [Paper]() <sub>(Coming soon)</sub> | [Code]()<sub>(Coming soon)</sub>   | [Talk]()<sub>(Coming soon)</sub>  |
+### | [Paper 📄](https://arxiv.org/pdf/2401.00036.pdf) | Code 👨‍💻 <sub>(Coming soon)</sub>   | Talk 🎤 <sub>(Coming soon)</sub>  |
 
 <!-- 
 全新的生成模型, 有着简单的原理和独特的性质
@@ -160,7 +160,7 @@ z 属于 K^L
 
 ### Hierarchical Generation Visualization of DDN
 <br>
-<img src="img/tree-latent.mnist-vis-level3.png" loading="lazy">
+<img src="img/tree-latent.mnist-vis-level3.png" style="max-width:512px" loading="lazy">
 <p style="width:90%; text-align: justify">We trained a DDN with output level $L = 3$ and output nodes $K = 8$ per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images.<p>
 </div>
 
