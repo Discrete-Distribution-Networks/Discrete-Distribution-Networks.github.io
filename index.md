@@ -4,16 +4,17 @@
     <title>DDN: Discrete Distribution Networks</title>
     <meta name="description" content="Novel Generative Model with Simple Principles and Unique Properties">
     <meta name="keywords" content="DDN, generative model">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
     <meta property="og:title" content="DDN: Discrete Distribution Networks" />
     <meta property="og:description" content="Novel Generative Model with Simple Principles and Unique Properties" />
     <meta property="og:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png" />
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="discrete-distribution-networks.github.io">
-  <meta property="twitter:url" content="https://discrete-distribution-networks.github.io/">
-  <meta name="twitter:title" content="DDN: Discrete Distribution Networks">
-  <meta name="twitter:description" content="Novel Generative Model with Simple Principles and Unique Properties">
-  <meta name="twitter:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="discrete-distribution-networks.github.io">
+    <meta property="twitter:url" content="https://discrete-distribution-networks.github.io/">
+    <meta name="twitter:title" content="DDN: Discrete Distribution Networks">
+    <meta name="twitter:description" content="Novel Generative Model with Simple Principles and Unique Properties">
+    <meta name="twitter:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
 
 </head>
 
@@ -32,7 +33,8 @@
 
 
 
-### | [Paper 📄](https://arxiv.org/pdf/2401.00036.pdf) | Code 👨‍💻 <sub>(Coming soon)</sub>   | Talk 🎤 <sub>(Coming soon)</sub>  |
+### | [Paper 📄](https://arxiv.org/pdf/2401.00036.pdf) | Code 👨‍💻 | Talk 🎤 |
+<sub>(Code/Talk Coming soon)</sub> 
 
 <!-- 
 全新的生成模型, 有着简单的原理和独特的性质
@@ -80,7 +82,9 @@ We introduce a novel generative model, the Discrete Distribution Networks (DDN),
 </em></p>
 <br>
 <div align="center">
-<img src="img/zscg.png" loading="lazy">
+<a href="img/zscg.png">
+  <img src="img/zscg.png" loading="lazy">
+</a>
 
 <!--  
 argmin(|CLIP.image_encode(DDN(z))-CLIP.text_encode("red hat")|) => conditioned_gen
@@ -99,7 +103,9 @@ z 属于 K^L
 
 ### Overview of Discrete Distribution Networks
 <br>
-<img src="img/overview.png" loading="lazy">
+<a href="img/overview.png">
+  <img src="img/overview.png" loading="lazy">
+</a>
 <p style="width:90%; text-align: justify">
 (a) The data flow during the training phase of DDN is shown at the top. As the network depth increases, the generated images become increasingly similar to the training images. Within each Discrete Distribution Layer (DDL), $K$ samples are generated, and the one closest to the training sample is selected as the generated image for loss computation. These $K$ output nodes are optimized using Adam with the Split-and-Prune method. The right two figures demonstrate the two model paradigms supported by DDN. (b) Single Shot Generator Paradigm: Each neural network layer and DDL has independent weights. (c) Recurrence Iteration Paradigm: All neural network layers and DDLs share weights. For inference, replacing the Guided Sampler in the DDL with a random choice enables the generation of new images.<p>
 </div>
@@ -120,7 +126,9 @@ z 属于 K^L
 
 ### Random samples from DDN trained on face image
 <br>
-<img src="img/face-gen.png" loading="lazy">
+<a href="img/face-gen.png">
+  <img src="img/face-gen.png" loading="lazy">
+</a>
 </div>
 
 ---
@@ -130,7 +138,9 @@ z 属于 K^L
 
 ### Zero-Shot Conditional Generation guided by CLIP
 <br>
-<img src="img/clip-exp.jpg" loading="lazy">
+<a href="img/clip-exp.jpg">
+  <img src="img/clip-exp.jpg" loading="lazy">
+</a>
 <p style="width:90%;">The text at the top is the guide text for that column.<p>
 </div>
 
@@ -140,7 +150,9 @@ z 属于 K^L
 
 ### Zero-Shot Conditional Generation with Multiple Conditions
 <br>
-<img src="img/multi-conditons.png" loading="lazy">
+<a href="img/multi-conditons.png">
+  <img src="img/multi-conditons.png" loading="lazy">
+</a>
 <p style="width:90%; text-align: ">The DDN balances the steering forces of CLIP and Inpainting according to their associated weights.<p>
 </div>
 
@@ -150,7 +162,9 @@ z 属于 K^L
 
 ### Conditional DDN performing coloring and edge-to-RGB tasks
 <br>
-<img src="img/conditional-DDN.png" loading="lazy">
+<a href="img/conditional-DDN.png">
+  <img src="img/conditional-DDN.png" loading="lazy">
+</a>
 <p style="width:90%; text-align: justify">Columns 4 and 5 display the generated results under the guidance of other images, where the produced image strives to adhere to the style of the guided image as closely as possible while ensuring compliance with the condition. The resolution of the generated images is 256x256.<p>
 </div>
 
@@ -160,7 +174,9 @@ z 属于 K^L
 
 ### Hierarchical Generation Visualization of DDN
 <br>
-<img src="img/tree-latent.mnist-vis-level3.png" style="max-width:512px" loading="lazy">
+<a href="img/tree-latent.mnist-vis-level3.png">
+  <img src="img/tree-latent.mnist-vis-level3.png" style="max-width:512px" loading="lazy">
+</a>
 <p style="width:90%; text-align: justify">We trained a DDN with output level $L = 3$ and output nodes $K = 8$ per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images.<p>
 </div>
 
@@ -176,7 +192,7 @@ margin: 0px !important;
 background-color: rgb(255, 255, 255);
 }
 .markdown-body {
-min-width: 512px;
+min-width: 468px;
 max-width: 1024px;
 background-color: rgb(255, 255, 255);
 overflow: auto;
