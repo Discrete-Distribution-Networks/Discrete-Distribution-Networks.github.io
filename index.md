@@ -29,11 +29,11 @@
 <br>
 
 
-[Lei Yang](https://github.com/DIYer22)
+<!-- [Lei Yang](https://github.com/DIYer22) -->
+Anonymous authors
 
 
-
-### | [Paper 📄](https://arxiv.org/pdf/2401.00036.pdf) | Code 👨‍💻 | Talk 🎤 |
+### | [Paper 📄](https://arxiv.org/abs/2401.00036) | Code 👨‍💻 | Talk 🎤 |
 <sub>(Code/Talk Coming soon)</sub> 
 
 <!-- 
@@ -53,7 +53,7 @@
 ***Contributions of this paper:***
 - We introduce a **novel generative model**, termed Discrete Distribution Networks (DDN), which demonstrates a more straightforward and streamlined principle and form.
 - For training the DDN, we propose the **Split-and-Prune optimization algorithm**, and a range of practical techniques.
-- We conduct preliminary experiments and analysis on the DDN, showcasing its intriguing properties and capabilities, such as **zero-shot conditional generation** and highly **compact representations**.
+- We conduct preliminary experiments and analysis on the DDN, showcasing its intriguing properties and capabilities, such as **zero-shot conditional generation without gradient** and **distinctive discrete representations**.
 
 
 <div align="center">
@@ -94,7 +94,7 @@ z 属于 K^L
   <img src="img/zscg.png" style="position: absolute; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: top;" loading="lazy">
 </div> -->
 
-<p style="width:90%; text-align: justify"><b>DDN enables zero-shot conditional generation.</b> DDN also supports conditions in non-pixel domains, such as text-to-image with CLIP. Images enclosed in yellow borders serve as the ground truth. The abbreviations in the table header correspond to their respective tasks as follows: “SR” stands for Super-Resolution, with the following digit indicating the resolution of the condition. “ST” denotes Style Transfer, which computes Perceptual Losses with the condition.</p>
+<p style="width:90%; text-align: justify"><b>DDN enables more general zero-shot conditional generation.</b> DDN supports zero-shot conditional generation across non-pixel domains, and notably, without relying on gradient, such as text-to-image generation using a black-box CLIP model. Images enclosed in yellow borders serve as the ground truth. The abbreviations in the table header correspond to their respective tasks as follows: “SR” stands for Super-Resolution, with the following digit indicating the resolution of the condition. “ST” denotes Style Transfer, which computes Perceptual Losses with the condition.</p>
 </div>
 
 ---
@@ -109,6 +109,39 @@ z 属于 K^L
 <p style="width:90%; text-align: justify">
 (a) The data flow during the training phase of DDN is shown at the top. As the network depth increases, the generated images become increasingly similar to the training images. Within each Discrete Distribution Layer (DDL), $K$ samples are generated, and the one closest to the training sample is selected as the generated image for loss computation. These $K$ output nodes are optimized using Adam with the Split-and-Prune method. The right two figures demonstrate the two model paradigms supported by DDN. (b) Single Shot Generator Paradigm: Each neural network layer and DDL has independent weights. (c) Recurrence Iteration Paradigm: All neural network layers and DDLs share weights. For inference, replacing the Guided Sampler in the DDL with a random choice enables the generation of new images.<p>
 </div>
+
+---
+<br>
+<div align="center">
+
+### Objective function
+
+The DDN model consists of $L$ layers of Discrete Distribution Layers (DDL). For a given layer $l$, denoted as $f_l$, the input is the selected sample from the previous layer, $\mathbf{x}^*_{l-1}$. The layer generates $K$ new samples, $f_l(\mathbf{x}^*_{l-1})$, from which we select the sample $\mathbf{x}^*_l$ that is closest to the current training sample $\mathbf{x}$, along with its corresponding index $k_{l}^*$. The loss $J_l$ for this layer is then computed only on the selected sample $\mathbf{x}^*_l$.
+
+\begin{equation} \label{eq:k_star}
+k_{l}^* = \underset{k \in \{1, \dots, K\}}{\operatorname{argmin}} \; \left\| f_l(\mathbf{x}^*_{l-1})[k] - \mathbf{x} \right\|^2
+\end{equation}
+\begin{equation} \label{eq:x_star}
+\mathbf{x}^*_l = f_l(\mathbf{x}^*_{l-1})[k_l^*] 
+
+\end{equation}
+\begin{equation}
+J_l = \left\| \mathbf{x}^*_l - \mathbf{x} \right\|^2
+\end{equation}
+
+Here, $\mathbf{x}^*_0 = \mathbf{0}$ represents the initial input to the first layer. For simplicity, we omit the details of input/output feature, neural network blocks and transformation operations in the equations.
+
+By recursively unfolding the above equations, we can derive the latent variable $\mathbf{k}^*_{1:L}$ and the global objective function $J$.
+
+\begin{equation} \label{eq:latent}
+\mathbf{k}^*_{1:L} = \left[k_1^*, k_2^*, \dots, k_L^*\right] = \left[ \underset{k \in \{1, \dots, K\}}{\operatorname{argmin}} \; \left\| \mathcal{F}([\mathbf{k}^*_{1:l-1}, k])  - \mathbf{x} \right\|^2 \right]_{l=1}^{L}
+\end{equation}
+
+\begin{equation} \label{eq:J}
+J =  \frac{1}{L} \sum_{l=1}^{L}  \left\| \mathcal{F}(\mathbf{k}^*_{1:l})   - \mathbf{x} \right\|^2
+\end{equation}
+
+Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined as: $\mathcal{F}(\mathbf{k}_{1:l}) = f_l(f_{l-1}(\dots f_1(\mathbf{x}_0)[k_1] \dots)[k_{l-1}])[k_l]$. Finally, we average the L2 loss across all layers to obtain the final loss for the entire network.
 
 ---
 <br>

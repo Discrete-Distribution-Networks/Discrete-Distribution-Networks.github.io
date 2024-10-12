@@ -337,6 +337,183 @@
     text-align: left;
   }
   
+  mjx-msub {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  mjx-msubsup {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  mjx-script {
+    display: inline-block;
+    padding-right: .05em;
+    padding-left: .033em;
+  }
+  
+  mjx-script > mjx-spacer {
+    display: block;
+  }
+  
+  mjx-TeXAtom {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  mjx-munder {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  mjx-over {
+    text-align: left;
+  }
+  
+  mjx-munder:not([limits="false"]) {
+    display: inline-table;
+  }
+  
+  mjx-munder > mjx-row {
+    text-align: left;
+  }
+  
+  mjx-under {
+    padding-bottom: .1em;
+  }
+  
+  mjx-mrow {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  mjx-mspace {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  mjx-msup {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  mjx-mfrac {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  mjx-frac {
+    display: inline-block;
+    vertical-align: 0.17em;
+    padding: 0 .22em;
+  }
+  
+  mjx-frac[type="d"] {
+    vertical-align: .04em;
+  }
+  
+  mjx-frac[delims] {
+    padding: 0 .1em;
+  }
+  
+  mjx-frac[atop] {
+    padding: 0 .12em;
+  }
+  
+  mjx-frac[atop][delims] {
+    padding: 0;
+  }
+  
+  mjx-dtable {
+    display: inline-table;
+    width: 100%;
+  }
+  
+  mjx-dtable > * {
+    font-size: 2000%;
+  }
+  
+  mjx-dbox {
+    display: block;
+    font-size: 5%;
+  }
+  
+  mjx-num {
+    display: block;
+    text-align: center;
+  }
+  
+  mjx-den {
+    display: block;
+    text-align: center;
+  }
+  
+  mjx-mfrac[bevelled] > mjx-num {
+    display: inline-block;
+  }
+  
+  mjx-mfrac[bevelled] > mjx-den {
+    display: inline-block;
+  }
+  
+  mjx-den[align="right"], mjx-num[align="right"] {
+    text-align: right;
+  }
+  
+  mjx-den[align="left"], mjx-num[align="left"] {
+    text-align: left;
+  }
+  
+  mjx-nstrut {
+    display: inline-block;
+    height: .054em;
+    width: 0;
+    vertical-align: -.054em;
+  }
+  
+  mjx-nstrut[type="d"] {
+    height: .217em;
+    vertical-align: -.217em;
+  }
+  
+  mjx-dstrut {
+    display: inline-block;
+    height: .505em;
+    width: 0;
+  }
+  
+  mjx-dstrut[type="d"] {
+    height: .726em;
+  }
+  
+  mjx-line {
+    display: block;
+    box-sizing: border-box;
+    min-height: 1px;
+    height: .06em;
+    border-top: .06em solid;
+    margin: .06em -.1em;
+    overflow: hidden;
+  }
+  
+  mjx-line[type="d"] {
+    margin: .18em -.1em;
+  }
+  
+  mjx-munderover {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  mjx-munderover:not([limits="false"]) {
+    padding-top: .1em;
+  }
+  
+  mjx-munderover:not([limits="false"]) > * {
+    display: block;
+  }
+  
   mjx-c::before {
     display: block;
     width: 0;
@@ -540,6 +717,11 @@
     src: url("vendor/mathjax/fonts/MathJax_Vector-Bold.woff") format("woff");
   }
   
+  mjx-stretchy-v.mjx-c2016 mjx-ext mjx-c::before {
+    content: "\2225";
+    width: 0.556em;
+  }
+  
   mjx-c.mjx-c1D43E.TEX-I::before {
     padding: 0.683em 0.889em 0 0;
     content: "K";
@@ -580,11 +762,166 @@
     content: "L";
   }
   
+  mjx-c.mjx-c1D459.TEX-I::before {
+    padding: 0.694em 0.298em 0.011em 0;
+    content: "l";
+  }
+  
+  mjx-c.mjx-c1D453.TEX-I::before {
+    padding: 0.705em 0.55em 0.205em 0;
+    content: "f";
+  }
+  
+  mjx-c.mjx-c1D431.TEX-B::before {
+    padding: 0.444em 0.607em 0 0;
+    content: "x";
+  }
+  
+  mjx-c.mjx-c2217::before {
+    padding: 0.465em 0.5em 0 0;
+    content: "\2217";
+  }
+  
+  mjx-c.mjx-c2212::before {
+    padding: 0.583em 0.778em 0.082em 0;
+    content: "\2212";
+  }
+  
+  mjx-c.mjx-c31::before {
+    padding: 0.666em 0.5em 0 0;
+    content: "1";
+  }
+  
+  mjx-c.mjx-c1D458.TEX-I::before {
+    padding: 0.694em 0.521em 0.011em 0;
+    content: "k";
+  }
+  
+  mjx-c.mjx-c1D43D.TEX-I::before {
+    padding: 0.683em 0.633em 0.022em 0;
+    content: "J";
+  }
+  
+  mjx-c.mjx-c61::before {
+    padding: 0.448em 0.5em 0.011em 0;
+    content: "a";
+  }
+  
+  mjx-c.mjx-c72::before {
+    padding: 0.442em 0.392em 0 0;
+    content: "r";
+  }
+  
+  mjx-c.mjx-c67::before {
+    padding: 0.453em 0.5em 0.206em 0;
+    content: "g";
+  }
+  
+  mjx-c.mjx-c6D::before {
+    padding: 0.442em 0.833em 0 0;
+    content: "m";
+  }
+  
+  mjx-c.mjx-c69::before {
+    padding: 0.669em 0.278em 0 0;
+    content: "i";
+  }
+  
+  mjx-c.mjx-c6E::before {
+    padding: 0.442em 0.556em 0 0;
+    content: "n";
+  }
+  
+  mjx-c.mjx-c2208::before {
+    padding: 0.54em 0.667em 0.04em 0;
+    content: "\2208";
+  }
+  
+  mjx-c.mjx-c7B::before {
+    padding: 0.75em 0.5em 0.25em 0;
+    content: "{";
+  }
+  
+  mjx-c.mjx-c2C::before {
+    padding: 0.121em 0.278em 0.194em 0;
+    content: ",";
+  }
+  
+  mjx-c.mjx-c2026::before {
+    padding: 0.12em 1.172em 0 0;
+    content: "\2026";
+  }
+  
+  mjx-c.mjx-c7D::before {
+    padding: 0.75em 0.5em 0.25em 0;
+    content: "}";
+  }
+  
+  mjx-c.mjx-c5B::before {
+    padding: 0.75em 0.278em 0.25em 0;
+    content: "[";
+  }
+  
+  mjx-c.mjx-c5D::before {
+    padding: 0.75em 0.278em 0.25em 0;
+    content: "]";
+  }
+  
+  mjx-c.mjx-c32::before {
+    padding: 0.666em 0.5em 0 0;
+    content: "2";
+  }
+  
+  mjx-c.mjx-c2225::before {
+    padding: 0.75em 0.5em 0.25em 0;
+    content: "\2225";
+  }
+  
+  mjx-c.mjx-c30::before {
+    padding: 0.666em 0.5em 0.022em 0;
+    content: "0";
+  }
+  
+  mjx-c.mjx-c1D7CE.TEX-B::before {
+    padding: 0.654em 0.575em 0.01em 0;
+    content: "0";
+  }
+  
+  mjx-c.mjx-c1D424.TEX-B::before {
+    padding: 0.694em 0.607em 0 0;
+    content: "k";
+  }
+  
+  mjx-c.mjx-c3A::before {
+    padding: 0.43em 0.278em 0 0;
+    content: ":";
+  }
+  
+  mjx-c.mjx-c5B.TEX-S4::before {
+    padding: 1.75em 0.583em 1.249em 0;
+    content: "[";
+  }
+  
+  mjx-c.mjx-c46.TEX-C::before {
+    padding: 0.683em 0.829em 0.032em 0;
+    content: "F";
+  }
+  
+  mjx-c.mjx-c5D.TEX-S4::before {
+    padding: 1.75em 0.583em 1.249em 0;
+    content: "]";
+  }
+  
+  mjx-c.mjx-c2211.TEX-S2::before {
+    padding: 0.95em 1.444em 0.45em 0;
+    content: "\2211";
+  }
+  
   mjx-c.mjx-c38::before {
     padding: 0.666em 0.5em 0.022em 0;
     content: "8";
   }
-  </style></head><body class="_theme-github"><link rel="stylesheet" type="text/css" href="themes/github.css" id="_theme"><link rel="stylesheet" type="text/css" href="vendor/prism.min.css" id="_prism"><div id="_html" class="markdown-body" style="visibility: visible;">
+  </style></head><body class="_theme-github _color-light"><link rel="stylesheet" type="text/css" href="themes/github.css" id="_theme"><link rel="stylesheet" type="text/css" href="vendor/prism.min.css" id="_prism"><div id="_html" class="markdown-body" style="visibility: visible;">
       <meta charset="UTF-8">
       <title>DDN: Discrete Distribution Networks</title>
       <meta name="description" content="Novel Generative Model with Simple Principles and Unique Properties">
@@ -613,8 +950,9 @@
   <br>
   
   
-  <p><a href="https://github.com/DIYer22">Lei Yang</a></p>
-  <h3 id="-paper---code---talk--"><a class="anchor" name="-paper---code---talk--" href="#-paper---code---talk--"><span class="octicon octicon-link"></span></a>| <a href="https://arxiv.org/pdf/2401.00036.pdf">Paper 📄</a> | Code 👨&zwj;💻 | Talk 🎤 |</h3>
+  <!-- [Lei Yang](https://github.com/DIYer22) -->
+  <p>Anonymous authors</p>
+  <h3 id="-paper---code---talk--"><a class="anchor" name="-paper---code---talk--" href="#-paper---code---talk--"><span class="octicon octicon-link"></span></a>| <a href="https://arxiv.org/abs/2401.00036">Paper 📄</a> | Code 👨&zwj;💻 | Talk 🎤 |</h3>
   <p><sub>(Code/Talk Coming soon)</sub> </p>
   <!-- 
   全新的生成模型, 有着简单的原理和独特的性质
@@ -634,7 +972,7 @@
   <ul>
   <li>We introduce a <strong>novel generative model</strong>, termed Discrete Distribution Networks (DDN), which demonstrates a more straightforward and streamlined principle and form.</li>
   <li>For training the DDN, we propose the <strong>Split-and-Prune optimization algorithm</strong>, and a range of practical techniques.</li>
-  <li>We conduct preliminary experiments and analysis on the DDN, showcasing its intriguing properties and capabilities, such as <strong>zero-shot conditional generation</strong> and highly <strong>compact representations</strong>.</li>
+  <li>We conduct preliminary experiments and analysis on the DDN, showcasing its intriguing properties and capabilities, such as <strong>zero-shot conditional generation without gradient</strong> and <strong>distinctive discrete representations</strong>.</li>
   </ul>
   <div align="center">
   
@@ -674,7 +1012,7 @@
     <img src="img/zscg.png" style="position: absolute; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: top;" loading="lazy">
   </div> -->
   
-  <p style="width:90%; text-align: justify"><b>DDN enables zero-shot conditional generation.</b> DDN also supports conditions in non-pixel domains, such as text-to-image with CLIP. Images enclosed in yellow borders serve as the ground truth. The abbreviations in the table header correspond to their respective tasks as follows: “SR” stands for Super-Resolution, with the following digit indicating the resolution of the condition. “ST” denotes Style Transfer, which computes Perceptual Losses with the condition.</p>
+  <p style="width:90%; text-align: justify"><b>DDN enables more general zero-shot conditional generation.</b> DDN supports zero-shot conditional generation across non-pixel domains, and notably, without relying on gradient, such as text-to-image generation using a black-box CLIP model. Images enclosed in yellow borders serve as the ground truth. The abbreviations in the table header correspond to their respective tasks as follows: “SR” stands for Super-Resolution, with the following digit indicating the resolution of the condition. “ST” denotes Style Transfer, which computes Perceptual Losses with the condition.</p>
   </div>
   
   <hr>
@@ -690,6 +1028,20 @@
   (a) The data flow during the training phase of DDN is shown at the top. As the network depth increases, the generated images become increasingly similar to the training images. Within each Discrete Distribution Layer (DDL), <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="3" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> samples are generated, and the one closest to the training sample is selected as the generated image for loss computation. These <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="4" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> output nodes are optimized using Adam with the Split-and-Prune method. The right two figures demonstrate the two model paradigms supported by DDN. (b) Single Shot Generator Paradigm: Each neural network layer and DDL has independent weights. (c) Recurrence Iteration Paradigm: All neural network layers and DDLs share weights. For inference, replacing the Guided Sampler in the DDL with a random choice enables the generation of new images.</p><p>
   </p></div>
   
+  <hr>
+  <br>
+  <div align="center">
+  
+  <h3 id="objective-function"><a class="anchor" name="objective-function" href="#objective-function"><span class="octicon octicon-link"></span></a>Objective function</h3>
+  <p>The DDN model consists of <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="5" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math></mjx-assistive-mml></mjx-container> layers of Discrete Distribution Layers (DDL). For a given layer <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="6" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>l</mi></math></mjx-assistive-mml></mjx-container>, denoted as <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="7" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>f</mi><mi>l</mi></msub></math></mjx-assistive-mml></mjx-container>, the input is the selected sample from the previous layer, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="8" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container>. The layer generates <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="9" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> new samples, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="10" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>f</mi><mi>l</mi></msub><mo stretchy="false">(</mo><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow><mo>∗</mo></msubsup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container>, from which we select the sample <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="11" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mi>l</mi><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container> that is closest to the current training sample <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="12" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow></math></mjx-assistive-mml></mjx-container>, along with its corresponding index <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="13" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>k</mi><mrow data-mjx-texclass="ORD"><mi>l</mi></mrow><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container>. The loss <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="14" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.078em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>J</mi><mi>l</mi></msub></math></mjx-assistive-mml></mjx-container> for this layer is then computed only on the selected sample <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="15" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mi>l</mi><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container>.</p>
+  <p><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="16" style="font-size: 119.5%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.194em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-munder space="4"><mjx-row><mjx-base style="padding-left: 0.346em;"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mi></mjx-base></mjx-row><mjx-row><mjx-under style="padding-top: 0.167em;"><mjx-mrow size="s"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2026"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-mrow></mjx-under></mjx-row></mjx-munder><mjx-mstyle><mjx-mspace style="width: 0.278em;"></mjx-mspace></mjx-mstyle><mjx-msup space="2"><mjx-mrow><mjx-mo class="mjx-n"><mjx-stretchy-v class="mjx-c2016" style="height: 1.11em; vertical-align: -0.305em;"><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.194em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-texatom space="3" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-mo class="mjx-n"><mjx-stretchy-v class="mjx-c2016" style="height: 1.11em; vertical-align: -0.305em;"><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo></mjx-mrow><mjx-script style="vertical-align: 0.532em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msubsup><mi>k</mi><mrow data-mjx-texclass="ORD"><mi>l</mi></mrow><mo>∗</mo></msubsup><mo>=</mo><munder><mi>argmin</mi><mrow><mi>k</mi><mo>∈</mo><mo fence="false" stretchy="false">{</mo><mn>1</mn><mo>,</mo><mo>…</mo><mo>,</mo><mi>K</mi><mo fence="false" stretchy="false">}</mo></mrow></munder><mstyle scriptlevel="0"><mspace width="0.278em"></mspace></mstyle><msup><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN" symmetric="true">‖</mo><msub><mi>f</mi><mi>l</mi></msub><mo stretchy="false">(</mo><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow><mo>∗</mo></msubsup><mo stretchy="false">)</mo><mo stretchy="false">[</mo><mi>k</mi><mo stretchy="false">]</mo><mo>−</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mo data-mjx-texclass="CLOSE" symmetric="true">‖</mo></mrow><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container>
+  <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="17" style="font-size: 119.5%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.194em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.194em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.194em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mi>l</mi><mo>∗</mo></msubsup><mo>=</mo><msub><mi>f</mi><mi>l</mi></msub><mo stretchy="false">(</mo><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow><mo>∗</mo></msubsup><mo stretchy="false">)</mo><mo stretchy="false">[</mo><msubsup><mi>k</mi><mi>l</mi><mo>∗</mo></msubsup><mo stretchy="false">]</mo></math></mjx-assistive-mml></mjx-container>
+  <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="18" style="font-size: 119.5%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.078em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mrow><mjx-mo class="mjx-n"><mjx-c class="mjx-c2225"></mjx-c></mjx-mo><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.194em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-texatom space="3" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c2225"></mjx-c></mjx-mo></mjx-mrow><mjx-script style="vertical-align: 0.477em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msub><mi>J</mi><mi>l</mi></msub><mo>=</mo><msup><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN" symmetric="true">‖</mo><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mi>l</mi><mo>∗</mo></msubsup><mo>−</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mo data-mjx-texclass="CLOSE" symmetric="true">‖</mo></mrow><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></p>
+  <p>Here, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="19" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.263em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-texatom space="4" texclass="ORD"><mjx-mn class="mjx-b"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mn>0</mn><mo>∗</mo></msubsup><mo>=</mo><mrow data-mjx-texclass="ORD"><mn mathvariant="bold">0</mn></mrow></math></mjx-assistive-mml></mjx-container> represents the initial input to the first layer. For simplicity, we omit the details of input/output feature, neural network blocks and transformation operations in the equations.</p>
+  <p>By recursively unfolding the above equations, we can derive the latent variable <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="20" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D424 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.275em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">k</mi></mrow><mrow data-mjx-texclass="ORD"><mn>1</mn><mo>:</mo><mi>L</mi></mrow><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container> and the global objective function <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="21" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>J</mi></math></mjx-assistive-mml></mjx-container>.</p>
+  <p><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="22" style="font-size: 119.5%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D424 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.202em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mrow space="4"><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.214em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msubsup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.214em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2026"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msubsup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.202em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo></mjx-mrow><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msubsup space="4"><mjx-mrow><mjx-mo class="mjx-s4"><mjx-c class="mjx-c5B TEX-S4"></mjx-c></mjx-mo><mjx-munder><mjx-row><mjx-base style="padding-left: 0.346em;"><mjx-mi class="mjx-n"><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mi></mjx-base></mjx-row><mjx-row><mjx-under style="padding-top: 0.167em;"><mjx-mrow size="s"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2026"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-mrow></mjx-under></mjx-row></mjx-munder><mjx-mstyle><mjx-mspace style="width: 0.278em;"></mjx-mspace></mjx-mstyle><mjx-msup space="2"><mjx-mrow><mjx-mo class="mjx-n"><mjx-stretchy-v class="mjx-c2016" style="height: 1.11em; vertical-align: -0.305em;"><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo><mjx-texatom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c46 TEX-C"></mjx-c></mjx-mi></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D424 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.194em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-texatom space="3" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-mo class="mjx-n"><mjx-stretchy-v class="mjx-c2016" style="height: 1.11em; vertical-align: -0.305em;"><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo></mjx-mrow><mjx-script style="vertical-align: 0.532em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-s4"><mjx-c class="mjx-c5D TEX-S4"></mjx-c></mjx-mo></mjx-mrow><mjx-script style="vertical-align: -1.285em; margin-left: 0px;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-texatom><mjx-spacer style="margin-top: 2.271em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">k</mi></mrow><mrow data-mjx-texclass="ORD"><mn>1</mn><mo>:</mo><mi>L</mi></mrow><mo>∗</mo></msubsup><mo>=</mo><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">[</mo><msubsup><mi>k</mi><mn>1</mn><mo>∗</mo></msubsup><mo>,</mo><msubsup><mi>k</mi><mn>2</mn><mo>∗</mo></msubsup><mo>,</mo><mo>…</mo><mo>,</mo><msubsup><mi>k</mi><mi>L</mi><mo>∗</mo></msubsup><mo data-mjx-texclass="CLOSE">]</mo></mrow><mo>=</mo><msubsup><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">[</mo><munder><mi>argmin</mi><mrow><mi>k</mi><mo>∈</mo><mo fence="false" stretchy="false">{</mo><mn>1</mn><mo>,</mo><mo>…</mo><mo>,</mo><mi>K</mi><mo fence="false" stretchy="false">}</mo></mrow></munder><mstyle scriptlevel="0"><mspace width="0.278em"></mspace></mstyle><msup><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN" symmetric="true">‖</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">F</mi></mrow><mo stretchy="false">(</mo><mo stretchy="false">[</mo><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">k</mi></mrow><mrow data-mjx-texclass="ORD"><mn>1</mn><mo>:</mo><mi>l</mi><mo>−</mo><mn>1</mn></mrow><mo>∗</mo></msubsup><mo>,</mo><mi>k</mi><mo stretchy="false">]</mo><mo stretchy="false">)</mo><mo>−</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mo data-mjx-texclass="CLOSE" symmetric="true">‖</mo></mrow><mn>2</mn></msup><mo data-mjx-texclass="CLOSE">]</mo></mrow><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>=</mo><mn>1</mn></mrow><mrow data-mjx-texclass="ORD"><mi>L</mi></mrow></msubsup></math></mjx-assistive-mml></mjx-container></p>
+  <p><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" display="true" tabindex="0" ctxtmenu_counter="23" style="font-size: 119.5%; position: relative;"><mjx-math display="true" class="MJX-TEX" aria-hidden="true" style="margin-left: 0px; margin-right: 0px;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mfrac space="4"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-munderover space="2"><mjx-over style="padding-bottom: 0.2em; padding-left: 0.481em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-over><mjx-box><mjx-munder><mjx-row><mjx-base><mjx-mo class="mjx-lop"><mjx-c class="mjx-c2211 TEX-S2"></mjx-c></mjx-mo></mjx-base></mjx-row><mjx-row><mjx-under style="padding-top: 0.167em; padding-left: 0.165em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-under></mjx-row></mjx-munder></mjx-box></mjx-munderover><mjx-msup space="2"><mjx-mrow><mjx-mo class="mjx-n"><mjx-c class="mjx-c2225"></mjx-c></mjx-mo><mjx-texatom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c46 TEX-C"></mjx-c></mjx-mi></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D424 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.247em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.194em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-texatom space="3" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c2225"></mjx-c></mjx-mo></mjx-mrow><mjx-script style="vertical-align: 0.477em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="block"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>J</mi><mo>=</mo><mfrac><mn>1</mn><mi>L</mi></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>=</mo><mn>1</mn></mrow><mrow data-mjx-texclass="ORD"><mi>L</mi></mrow></munderover><msup><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN" symmetric="true">‖</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">F</mi></mrow><mo stretchy="false">(</mo><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">k</mi></mrow><mrow data-mjx-texclass="ORD"><mn>1</mn><mo>:</mo><mi>l</mi></mrow><mo>∗</mo></msubsup><mo stretchy="false">)</mo><mo>−</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mo data-mjx-texclass="CLOSE" symmetric="true">‖</mo></mrow><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></p>
+  <p>Here, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="24" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c46 TEX-C"></mjx-c></mjx-mi></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">F</mi></mrow></math></mjx-assistive-mml></mjx-container> represents the composite function formed from <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="25" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>f</mi><mi>l</mi></msub></math></mjx-assistive-mml></mjx-container>, defined as: <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="26" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c46 TEX-C"></mjx-c></mjx-mi></mjx-texatom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D424 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2026"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2026"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">F</mi></mrow><mo stretchy="false">(</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">k</mi></mrow><mrow data-mjx-texclass="ORD"><mn>1</mn><mo>:</mo><mi>l</mi></mrow></msub><mo stretchy="false">)</mo><mo>=</mo><msub><mi>f</mi><mi>l</mi></msub><mo stretchy="false">(</mo><msub><mi>f</mi><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">(</mo><mo>…</mo><msub><mi>f</mi><mn>1</mn></msub><mo stretchy="false">(</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mn>0</mn></msub><mo stretchy="false">)</mo><mo stretchy="false">[</mo><msub><mi>k</mi><mn>1</mn></msub><mo stretchy="false">]</mo><mo>…</mo><mo stretchy="false">)</mo><mo stretchy="false">[</mo><msub><mi>k</mi><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">]</mo><mo stretchy="false">)</mo><mo stretchy="false">[</mo><msub><mi>k</mi><mi>l</mi></msub><mo stretchy="false">]</mo></math></mjx-assistive-mml></mjx-container>. Finally, we average the L2 loss across all layers to obtain the final loss for the entire network.</p>
   <hr>
   <br>
   <div align="center">
@@ -756,7 +1108,7 @@
   <a href="img/tree-latent.mnist-vis-level3.png">
     <img src="img/tree-latent.mnist-vis-level3.png" style="max-width:512px" loading="lazy">
   </a>
-  <p style="width:90%; text-align: justify">We trained a DDN with output level <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="5" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mo>=</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container> and output nodes <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="6" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>=</mo><mn>8</mn></math></mjx-assistive-mml></mjx-container> per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images.</p><p>
+  <p style="width:90%; text-align: justify">We trained a DDN with output level <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="27" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mo>=</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container> and output nodes <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="28" style="font-size: 119.5%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>=</mo><mn>8</mn></math></mjx-assistive-mml></mjx-container> per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images.</p><p>
   </p></div>
   
   
@@ -793,4 +1145,4 @@
   
     gtag('config', 'G-9DFYQJQH58');
   </script>
-  </div></body></html>
+  </div></div></body><div style="all: initial;"><div id="__hcfy__" style="all: initial;"></div></div></html>
