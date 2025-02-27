@@ -17,6 +17,13 @@
     <meta name="twitter:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
 
 </head>
+<div style="margin-top:-30px">
+🥳 Accepted by ICLR 2025
+
+ <!-- <img src="img/logo-ICLR.svg" style="max-height:18px; margin-top:10px">   -->
+
+</div>
+<br>
 
 <div align="center">
 
@@ -29,11 +36,23 @@
 <br>
 
 
-<!-- [Lei Yang](https://github.com/DIYer22) -->
-Anonymous authors
+[Lei Yang](https://github.com/DIYer22)  
 
 
-### | [Paper 📄](https://arxiv.org/abs/2401.00036) | Code 👨‍💻 | Talk 🎤 |
+<div style="margin-top:px;font-size:25px">
+  <a href="https://www.stepfun.com/">
+    <img src="img/logo-StepFun.png" style="max-height:20px">
+  </a>
+    &nbsp;
+  <a href="https://en.megvii.com/megvii_research">
+    <img src="img/logo-Megvii.png" style="max-height:20px">
+  </a>
+</div>
+
+
+
+
+### | [Paper 📄](https://openreview.net/forum?id=xNsIfzlefG) | Code 👨‍💻 | Talk 🎤 |
 <sub>(Code/Talk Coming soon)</sub> 
 
 <!-- 
@@ -78,7 +97,7 @@ Anonymous authors
 ### Abstract
 </div>
 <p style="text-align: justify"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-We introduce a novel generative model, the Discrete Distribution Networks (DDN), that approximates data distribution using hierarchical discrete distributions. We posit that since the features within a network inherently contain distributional information, liberating the network from a single output to concurrently generate multiple samples proves to be highly effective. Therefore, DDN fits the target distribution, including continuous ones, by generating multiple discrete sample points. To capture finer details of the target data, DDN selects the output that is closest to the Ground Truth (GT) from the coarse results generated in the first layer. This selected output is then fed back into the network as a condition for the second layer, thereby generating new outputs more similar to the GT. As the number of DDN layers increases, the representational space of the outputs expands exponentially, and the generated samples become increasingly similar to the GT. This hierarchical output pattern of discrete distributions endows DDN with two intriguing properties: highly compressed representation and more general <b>zero-shot conditional generation</b>. We demonstrate the efficacy of DDN and these intriguing properties through experiments on CIFAR-10 and FFHQ.
+We introduce a novel generative model, the Discrete Distribution Networks (DDN), that approximates data distribution using hierarchical discrete distributions. We posit that since the features within a network inherently capture distributional information, enabling the network to generate multiple samples simultaneously, rather than a single output, may offer an effective way to represent distributions. Therefore, DDN fits the target distribution, including continuous ones, by generating multiple discrete sample points. To capture finer details of the target data, DDN selects the output that is closest to the Ground Truth (GT) from the coarse results generated in the first layer. This selected output is then fed back into the network as a condition for the second layer, thereby generating new outputs more similar to the GT. As the number of DDN layers increases, the representational space of the outputs expands exponentially, and the generated samples become increasingly similar to the GT. This hierarchical output pattern of discrete distributions endows DDN with unique property: more general <b>zero-shot conditional generation</b>. We demonstrate the efficacy of DDN and its intriguing properties through experiments on CIFAR-10 and FFHQ.
 </em></p>
 <br>
 <div align="center">
