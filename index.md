@@ -31,7 +31,7 @@
 
 <p style="font-size: 2em; font-weight: bold; margin-top: 20px; margin-bottom: 7px; line-height: 1;">Discrete Distribution Networks</p>
 
-**A Novel Generative Model with Simple Principles and Unique Properties**
+**A novel generative model with simple principles and unique properties**
 
 <br>
 
@@ -40,11 +40,11 @@
 
 
 <div style="margin-top:px;font-size:25px">
-  <a href="https://www.stepfun.com/">
+  <a target="_blank" href="https://www.stepfun.com/">
     <img src="img/logo-StepFun.png" style="max-height:20px">
   </a>
     &nbsp;
-  <a href="https://en.megvii.com/megvii_research">
+  <a target="_blank" href="https://en.megvii.com/megvii_research">
     <img src="img/logo-Megvii.png" style="max-height:20px">
   </a>
 </div>
@@ -72,7 +72,7 @@
 ***Contributions of this paper:***
 - We introduce a **novel generative model**, termed Discrete Distribution Networks (DDN), which demonstrates a more straightforward and streamlined principle and form.
 - For training the DDN, we propose the **Split-and-Prune optimization algorithm**, and a range of practical techniques.
-- We conduct preliminary experiments and analysis on the DDN, showcasing its intriguing properties and capabilities, such as **zero-shot conditional generation without gradient** and **distinctive discrete representations**.
+- We conduct preliminary experiments and analysis on the DDN, showcasing its intriguing properties and capabilities, such as **zero-shot conditional generation without gradient** and **distinctive 1D discrete representations**.
 
 
 <div align="center">
