@@ -91,27 +91,29 @@
 <b>Right:</b> Shows the tree-structured representation space of DDN's latent variables. Each sample can be mapped to a leaf node on this tree.</p>
 </div>
 
+<br>
+<div style="background-color: antiquewhite; padding: 12px; border-radius: 10px; max-width: 1024px;">
+
+***[Reviews](https://openreview.net/forum?id=xNsIfzlefG&noteId=h0B0GaonHv) from ICLR:***
+> I find the method novel and elegant. The novelty is very strong, and this should not be overlooked. This is a whole new method, very different from any of the existing generative models.
+
+> This is a very good paper that can open a door to new directions in generative modeling.
+</div>
+
 ---
+<br>
 <div align="center">
 
 ### Abstract
 </div>
 <p style="text-align: justify"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-We introduce a novel generative model, the Discrete Distribution Networks (DDN), that approximates data distribution using hierarchical discrete distributions. We posit that since the features within a network inherently capture distributional information, enabling the network to generate multiple samples simultaneously, rather than a single output, may offer an effective way to represent distributions. Therefore, DDN fits the target distribution, including continuous ones, by generating multiple discrete sample points. To capture finer details of the target data, DDN selects the output that is closest to the Ground Truth (GT) from the coarse results generated in the first layer. This selected output is then fed back into the network as a condition for the second layer, thereby generating new outputs more similar to the GT. As the number of DDN layers increases, the representational space of the outputs expands exponentially, and the generated samples become increasingly similar to the GT. This hierarchical output pattern of discrete distributions endows DDN with unique property: more general <b>zero-shot conditional generation</b>. We demonstrate the efficacy of DDN and its intriguing properties through experiments on CIFAR-10 and FFHQ.
+We introduce a novel generative model, the Discrete Distribution Networks (DDN), that approximates data distribution using hierarchical discrete distributions. We posit that since the features within a network inherently capture distributional information, enabling the network to generate multiple samples simultaneously, rather than a single output, may offer an effective way to represent distributions. Therefore, DDN fits the target distribution, including continuous ones, by generating multiple discrete sample points. To capture finer details of the target data, DDN selects the output that is closest to the Ground Truth (GT) from the coarse results generated in the first layer. This selected output is then fed back into the network as a condition for the second layer, thereby generating new outputs more similar to the GT. As the number of DDN layers increases, the representational space of the outputs expands exponentially, and the generated samples become increasingly similar to the GT. This hierarchical output pattern of discrete distributions endows DDN with unique properties: more general zero-shot conditional generation and 1D latent representation. We demonstrate the efficacy of DDN and its intriguing properties through experiments on CIFAR-10 and FFHQ.
 </em></p>
 <br>
 <div align="center">
 <a href="img/zscg.png">
   <img src="img/zscg.png" loading="lazy">
 </a>
-
-<!--  
-argmin(|CLIP.image_encode(DDN(z))-CLIP.text_encode("red hat")|) => conditioned_gen
-z 属于 K^L
-
-<div style="position: relative;width: 100%;height: 0;padding-top: calc(100% * (100 / 300)); overflow: hidden;">
-  <img src="img/zscg.png" style="position: absolute; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: top;" loading="lazy">
-</div> -->
 
 <p style="width:90%; text-align: justify"><b>DDN enables more general zero-shot conditional generation.</b> DDN supports zero-shot conditional generation across non-pixel domains, and notably, without relying on gradient, such as text-to-image generation using a black-box CLIP model. Images enclosed in yellow borders serve as the ground truth. The abbreviations in the table header correspond to their respective tasks as follows: “SR” stands for Super-Resolution, with the following digit indicating the resolution of the condition. “ST” denotes Style Transfer, which computes Perceptual Losses with the condition.</p>
 </div>
