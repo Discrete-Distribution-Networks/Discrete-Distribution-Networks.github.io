@@ -52,8 +52,9 @@
 
 
 
-### | [Paper 📄](https://openreview.net/forum?id=xNsIfzlefG) | Code 👨‍💻 | Talk 🎤 |
-<sub>(Code/Talk Coming soon)</sub> 
+### | [Paper 📄](https://arxiv.org/abs/2401.00036) | Code 👨‍💻 | [OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) |
+
+<!-- <sub>(Code/Talk Coming soon)</sub>  -->
 
 <!-- 
 全新的生成模型, 有着简单的原理和独特的性质
