@@ -52,7 +52,7 @@
 
 
 
-### | [Paper 📄](https://arxiv.org/abs/2401.00036) | Code 👨‍💻 | [OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) |
+### [Paper 📄](https://arxiv.org/abs/2401.00036) | Code 👨‍💻 | [OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
 
 <!-- <sub>(Code/Talk Coming soon)</sub>  -->
 
