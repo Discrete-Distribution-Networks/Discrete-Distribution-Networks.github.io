@@ -54,7 +54,7 @@
 
 ### [Paper 📄](https://arxiv.org/abs/2401.00036) | Code 👨‍💻 | [OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
 
-<!-- <sub>(Code/Talk Coming soon)</sub>  -->
+<sub>(Code is being prepared for release before May 6th)</sub> 
 
 <!-- 
 全新的生成模型, 有着简单的原理和独特的性质
@@ -138,9 +138,21 @@ We introduce a novel generative model, the Discrete Distribution Networks (DDN),
 
 ### Objective function
 
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 The DDN model consists of $L$ layers of Discrete Distribution Layers (DDL). For a given layer $l$, denoted as $f_l$, the input is the selected sample from the previous layer, $\mathbf{x}^*_{l-1}$. The layer generates $K$ new samples, $f_l(\mathbf{x}^*_{l-1})$, from which we select the sample $\mathbf{x}^*_l$ that is closest to the current training sample $\mathbf{x}$, along with its corresponding index $k_{l}^*$. The loss $J_l$ for this layer is then computed only on the selected sample $\mathbf{x}^*_l$.
 
-\begin{equation} \label{eq:k_star}
+
+<div align="center">
+
+<br>
+<a href="img/loss.png">
+  <img src="img/loss.png" loading="lazy">
+</a>
+</div>
+
+
+<!-- \begin{equation} \label{eq:k_star}
 k_{l}^* = \underset{k \in \{1, \dots, K\}}{\operatorname{argmin}} \; \left\| f_l(\mathbf{x}^*_{l-1})[k] - \mathbf{x} \right\|^2
 \end{equation}
 \begin{equation} \label{eq:x_star}
@@ -149,11 +161,11 @@ k_{l}^* = \underset{k \in \{1, \dots, K\}}{\operatorname{argmin}} \; \left\| f_l
 \end{equation}
 \begin{equation}
 J_l = \left\| \mathbf{x}^*_l - \mathbf{x} \right\|^2
-\end{equation}
+\end{equation} -->
 
 Here, $\mathbf{x}^*_0 = \mathbf{0}$ represents the initial input to the first layer. For simplicity, we omit the details of input/output feature, neural network blocks and transformation operations in the equations.
 
-By recursively unfolding the above equations, we can derive the latent variable $\mathbf{k}^*_{1:L}$ and the global objective function $J$.
+<!-- By recursively unfolding the above equations, we can derive the latent variable $\mathbf{k}^*_{1:L}$ and the global objective function $J$.
 
 \begin{equation} \label{eq:latent}
 \mathbf{k}^*_{1:L} = \left[k_1^*, k_2^*, \dots, k_L^*\right] = \left[ \underset{k \in \{1, \dots, K\}}{\operatorname{argmin}} \; \left\| \mathcal{F}([\mathbf{k}^*_{1:l-1}, k])  - \mathbf{x} \right\|^2 \right]_{l=1}^{L}
@@ -163,7 +175,7 @@ By recursively unfolding the above equations, we can derive the latent variable 
 J =  \frac{1}{L} \sum_{l=1}^{L}  \left\| \mathcal{F}(\mathbf{k}^*_{1:l})   - \mathbf{x} \right\|^2
 \end{equation}
 
-Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined as: $\mathcal{F}(\mathbf{k}_{1:l}) = f_l(f_{l-1}(\dots f_1(\mathbf{x}_0)[k_1] \dots)[k_{l-1}])[k_l]$. Finally, we average the L2 loss across all layers to obtain the final loss for the entire network.
+Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined as: $\mathcal{F}(\mathbf{k}_{1:l}) = f_l(f_{l-1}(\dots f_1(\mathbf{x}_0)[k_1] \dots)[k_{l-1}])[k_l]$. Finally, we average the L2 loss across all layers to obtain the final loss for the entire network. -->
 
 ---
 <br>
