@@ -18,7 +18,9 @@
 
 </head>
 <div style="margin-top:-30px">
-🥳 Accepted by ICLR 2025
+
+🥳 Accepted by ICLR 2025  
+🚀 The code has been [released](https://github.com/DIYer22/discrete_distribution_networks)  
 
  <!-- <img src="img/logo-ICLR.svg" style="max-height:18px; margin-top:10px">   -->
 
@@ -52,9 +54,8 @@
 
 
 
-### [Paper 📄](https://arxiv.org/abs/2401.00036) | Code 👨‍💻 | [OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
+### [Paper 📄](https://arxiv.org/abs/2401.00036) | [Code 👨‍💻](https://github.com/DIYer22/discrete_distribution_networks) | [OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
 
-<sub>(Code is being prepared for release before May 6th)</sub> 
 
 <!-- 
 全新的生成模型, 有着简单的原理和独特的性质
@@ -211,7 +212,7 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
 <p style="width:90%;">The text at the top is the guide text for that column.<p>
 </div>
 
----
+<!-- ---
 <br>
 <div align="center">
 
@@ -221,7 +222,7 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
   <img src="img/multi-conditons.png" loading="lazy">
 </a>
 <p style="width:90%; text-align: ">The DDN balances the steering forces of CLIP and Inpainting according to their associated weights.<p>
-</div>
+</div> -->
 
 ---
 <br>
