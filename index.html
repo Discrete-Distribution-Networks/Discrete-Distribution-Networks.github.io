@@ -709,7 +709,7 @@
   
   
   
-  <h3 id="paper---code---openreview---poster-️"><a class="anchor" name="paper---code---openreview---poster-️" href="#paper---code---openreview---poster-️"><span class="octicon octicon-link"></span></a><a href="https://arxiv.org/abs/2401.00036">Paper 📄</a> | <a href="https://github.com/DIYer22/discrete_distribution_networks">Code 👨&zwj;💻</a> | <a href="https://openreview.net/forum?id=xNsIfzlefG">OpenReview 💬</a> | <a href="https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2">Poster 🖼️</a></h3>
+  <h3 id="paper---code---openreview---poster-️"><a class="anchor" name="paper---code---openreview---poster-️" href="#paper---code---openreview---poster-️"><span class="octicon octicon-link"></span></a><a href="https://arxiv.org/abs/2401.00036">Paper 📄</a> | <a href="https://github.com/DIYer22/discrete_distribution_networks">Code 👨‍💻</a> | <a href="https://openreview.net/forum?id=xNsIfzlefG">OpenReview 💬</a> | <a href="https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2">Poster 🖼️</a></h3>
   <!-- 
   全新的生成模型, 有着简单的原理和独特的性质
   - Code 分为
@@ -719,10 +719,45 @@
       - PPT
       - 中文分享
    -->
+  
+  <!-- <img src="img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif" alt="2D density estimation DDN" width=418px height=212px> -->
+  
+  <a target="_blank" href="2d-density-estimation-gif-with-10000-nodes-ddn.html">
+    <img src="img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif" alt="2D density estimation DDN">
+  </a>
+  
+  <details>
+  <summary style="margin-top:-4px;color: grey;font-size:15px">
+  Details of density estimation
+  </summary>
+  <div align="left" style="background-color: #eee; color: grey;padding: 12px; border-radius: 10px; width: ;">
+  
+  <!-- 这段 GIF 展示了 DDN 做二维概率密度估计时的优化过程
+  - 左图：当前能生成的所有样本
+  - 右图：目标概率密度图
+  - 为了展示效果，会周期性切换目标概率密度图
+  - 目标概率图名称和顺序：`gaussian` -> `blur_circles` -> `QR_code` -> `sprial` -> `words` -> `gaussian` -> `uniform` -> `gaussian` (首尾相同，完成闭环)
+  - 因此 DDN 也会持续优化参数来拟合新的分布
+  - 优化器：Gradient Descent with Split-and-Prune
+  - 这里只展示 1000 nodes 的实验结果，为了更加清晰和全面地展示优化过程，请看 [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) 页面
+  - 实验代码在 [sddn/toy_exp.py](https://github.com/DIYer22/sddn/blob/master/toy_exp.py)，实验环境由 [distribution_playground](https://github.com/DIYer22/distribution_playground) 库提供，欢迎自行把玩 -->
+  
+  <p>This GIF demonstrates the optimization process of DDN for 2D probability density estimation:</p>
+  <ul>
+  <li>Left image: All samples that can currently be generated</li>
+  <li>Right image: Target probability density map</li>
+  <li>For demonstration purposes, the target probability density maps switch periodically</li>
+  <li>Names and sequence of target probability maps: <code>blur_circles</code> -&gt; <code>QR_code</code> -&gt; <code>spiral</code> -&gt; <code>words</code> -&gt; <code>gaussian</code> -&gt; <code>blur_circles</code> (same at beginning and end, completing a cycle)</li>
+  <li>Therefore DDN continuously optimizes parameters to fit new distributions</li>
+  <li>Optimizer: Gradient Descent with Split-and-Prune</li>
+  <li>This only shows experimental results with 1000 nodes; for a clearer and more comprehensive view of the optimization process, see the <a href="2d-density-estimation-gif-with-10000-nodes-ddn.html">2D Density Estimation with 10,000 Nodes DDN</a> page</li>
+  <li>The experiment code is in <a href="https://github.com/DIYer22/sddn/blob/master/toy_exp.py">sddn/toy_exp.py</a>, and the experimental environment is provided by the <a href="https://github.com/DIYer22/distribution_playground">distribution_playground</a> library, feel free to play with it yourself</li>
+  </ul>
   </div>
-  
-  
   <br>
+  </details>
+  
+  </div>
   
   <p><em><strong>Contributions of this paper:</strong></em></p>
   <ul>

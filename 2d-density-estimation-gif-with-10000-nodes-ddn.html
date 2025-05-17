@@ -1,0 +1,120 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>2D Density Estimation with 10,000 Nodes DDN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .nearest {
+            /* 放大方式：可以直接写 width/height，也可以用 transform:scale() */
+            width: 627px;
+            /* 209 x N */
+            height: auto;
+
+            /* 让浏览器用最近邻而不是双线性 */
+            image-rendering: pixelated;
+            /* Chrome / Edge / Safari 17+ */
+            image-rendering: crisp-edges;
+            /* Firefox */
+            /* 旧版浏览器（可选，几乎不再需要）：*/
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -o-crisp-edges;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        li::before {
+            content: "• ";
+            color: #007BFF;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>2D Density Estimation with 10,000 Nodes DDN</h1>
+        <p>This GIF demonstrates the optimization process of 2D probability density estimationn using a <a
+                href="https://discrete-distribution-networks.github.io/" style="color:;">DDN model</a> with 10,000
+            nodes.</p>
+        <img src="img/frames_bin100_k10000_itern10000_batch10_maxp1.5x_gap1_uniform_2d-density-estimation-DDN.gif"
+            alt="2D Density Estimation DDN" class="nearest">
+        <ul align="left">
+            <li>Left image: All samples that can currently be generated</li>
+            <li>Right image: Target probability density map</li>
+            <li>For demonstration purposes, the target probability density maps switch periodically</li>
+            <li>Names and sequence of target probability maps: <code>gaussian</code> -&gt; <code>blur_circles</code>
+                -&gt; <code>QR_code</code> -&gt; <code>spiral</code> -&gt; <code>words</code> -&gt;
+                <code>gaussian</code> -&gt; <code>uniform</code> -&gt; <code>gaussian</code> (same at beginning and end,
+                completing a cycle)</li>
+            <li>Therefore DDN continuously optimizes parameters to fit new distributions</li>
+            <li>Optimizer: Gradient Descent with Split-and-Prune</li>
+            <li>The experiment code is in <a
+                    href="https://github.com/DIYer22/sddn/blob/master/toy_exp.py">sddn/toy_exp.py</a>, and the
+                experimental environment is provided by the <a
+                    href="https://github.com/DIYer22/distribution_playground">distribution_playground</a> library, feel
+                free to play with it yourself</li>
+            <li>Tips: You can use a phone camera to scan out the QR code distribution fitted by DDN at a suitable screen distance</li>
+        </ul>
+        <br>
+        <br>
+        <br>
+        <div class="footer">
+            <a href="https://discrete-distribution-networks.github.io/" style="color: #333;">
+                <p>Back to Discrete Distribution Networks page</p>
+            </a>
+        </div>
+    </div>
+
+</html>

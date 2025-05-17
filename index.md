@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="UTF-8">
     <title>DDN: Discrete Distribution Networks</title>
@@ -66,10 +65,44 @@
     - PPT
     - 中文分享
  -->
+
+<!-- <img src="img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif" alt="2D density estimation DDN" width=418px height=212px> -->
+
+<a target="_blank" href="2d-density-estimation-gif-with-10000-nodes-ddn.html">
+  <img src="img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif" alt="2D density estimation DDN">
+</a>
+
+<details>
+<summary style="margin-top:-4px;color: grey;font-size:15px">
+Details of density estimation
+</summary>
+<div align="left" style="background-color: #eee; color: grey;padding: 12px; border-radius: 10px; width: ;">
+
+<!-- 这段 GIF 展示了 DDN 做二维概率密度估计时的优化过程
+- 左图：当前能生成的所有样本
+- 右图：目标概率密度图
+- 为了展示效果，会周期性切换目标概率密度图
+- 目标概率图名称和顺序：`gaussian` -> `blur_circles` -> `QR_code` -> `sprial` -> `words` -> `gaussian` -> `uniform` -> `gaussian` (首尾相同，完成闭环)
+- 因此 DDN 也会持续优化参数来拟合新的分布
+- 优化器：Gradient Descent with Split-and-Prune
+- 这里只展示 1000 nodes 的实验结果，为了更加清晰和全面地展示优化过程，请看 [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) 页面
+- 实验代码在 [sddn/toy_exp.py](https://github.com/DIYer22/sddn/blob/master/toy_exp.py)，实验环境由 [distribution_playground](https://github.com/DIYer22/distribution_playground) 库提供，欢迎自行把玩 -->
+
+This GIF demonstrates the optimization process of DDN for 2D probability density estimation:
+- Left image: All samples that can currently be generated
+- Right image: Target probability density map
+- For demonstration purposes, the target probability density maps switch periodically
+- Names and sequence of target probability maps: `blur_circles` -> `QR_code` -> `spiral` -> `words` -> `gaussian` -> `blur_circles` (same at beginning and end, completing a cycle)
+- Therefore DDN continuously optimizes parameters to fit new distributions
+- Optimizer: Gradient Descent with Split-and-Prune
+- This only shows experimental results with 1000 nodes; for a clearer and more comprehensive view of the optimization process, see the [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) page
+- The experiment code is in [sddn/toy_exp.py](https://github.com/DIYer22/sddn/blob/master/toy_exp.py), and the experimental environment is provided by the [distribution_playground](https://github.com/DIYer22/distribution_playground) library, feel free to play with it yourself
+
 </div>
-
-
 <br>
+</details>
+
+</div>
 
 ***Contributions of this paper:***
 - We introduce a **novel generative model**, termed Discrete Distribution Networks (DDN), which demonstrates a more straightforward and streamlined principle and form.
