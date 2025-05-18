@@ -18,7 +18,7 @@
 </head>
 <div style="margin-top:-30px">
 
-🥳 Accepted by ICLR 2025  
+🥳 Accepted by **ICLR 2025**  
 🚀 The code has been [released](https://github.com/DIYer22/discrete_distribution_networks)  
 
  <!-- <img src="img/logo-ICLR.svg" style="max-height:18px; margin-top:10px">   -->
@@ -82,7 +82,7 @@ Details of density estimation
 - 左图：当前能生成的所有样本
 - 右图：目标概率密度图
 - 为了展示效果，会周期性切换目标概率密度图
-- 目标概率图名称和顺序：`gaussian` -> `blur_circles` -> `QR_code` -> `sprial` -> `words` -> `gaussian` -> `uniform` -> `gaussian` (首尾相同，完成闭环)
+  - 目标概率图名称和顺序：`gaussian` -> `blur_circles` -> `QR_code` -> `sprial` -> `words` -> `gaussian` -> `uniform` -> `gaussian` (首尾相同，完成闭环)
 - 因此 DDN 也会持续优化参数来拟合新的分布
 - 优化器：Gradient Descent with Split-and-Prune
 - 这里只展示 1000 nodes 的实验结果，为了更加清晰和全面地展示优化过程，请看 [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) 页面
@@ -91,8 +91,8 @@ Details of density estimation
 This GIF demonstrates the optimization process of DDN for 2D probability density estimation:
 - Left image: All samples that can currently be generated
 - Right image: Target probability density map
-- For demonstration purposes, the target probability density maps switch periodically
-- Names and sequence of target probability maps: `blur_circles` -> `QR_code` -> `spiral` -> `words` -> `gaussian` -> `blur_circles` (same at beginning and end, completing a cycle)
+- For demonstration purposes, the target probability density maps switch periodically. Names and sequence of target probability maps: 
+  - `blur_circles` -> `QR_code` -> `spiral` -> `words` -> `gaussian` -> `blur_circles` (same at beginning and end, completing a cycle)
 - Therefore DDN continuously optimizes parameters to fit new distributions
 - Optimizer: Gradient Descent with Split-and-Prune
 - This only shows experimental results with 1000 nodes; for a clearer and more comprehensive view of the optimization process, see the [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) page
@@ -218,7 +218,8 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
 ### Toy examples for two-dimensional data generation
 <br>
 <img src="img/2d-density.png" loading="lazy" style="max-width:500px">
-<p style="width:90%; text-align: justify">The numerical values at the bottom of each figure represent the Kullback-Leibler (KL) divergence. Due to phenomena such as “dead nodes” and “density shift”, the application of Gradient Descent alone fails to properly fit the Ground Truth (GT) density. However, by employing the Split-and-Prune strategy, the KL divergence is reduced to even lower than that of the Real Samples. <p>
+<p style="width:90%; text-align: justify">The numerical values at the bottom of each figure represent the Kullback-Leibler (KL) divergence. Due to phenomena such as “dead nodes” and “density shift”, the application of Gradient Descent alone fails to properly fit the Ground Truth (GT) density. However, by employing the Split-and-Prune strategy, the KL divergence is reduced to even lower than that of the Real Samples. 
+ For a clearer and more comprehensive view of the optimization process, see the <a target="_blank" href="2d-density-estimation-gif-with-10000-nodes-ddn.html">2D Density Estimation with 10,000 Nodes DDN</a> page.</p>
 </div>
 
 ---

@@ -52,32 +52,41 @@
             image-rendering: -moz-crisp-edges;
             image-rendering: -o-crisp-edges;
         }
+
         code {
             background-color: #f4f4f4;
             padding: 2px 4px;
             border-radius: 4px;
             font-family: monospace;
         }
+
         a {
             text-decoration: none;
             color: #007BFF;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         ul {
             text-align: left;
             list-style-type: none;
             padding: 0;
         }
+
         li {
             margin: 5px 0;
         }
+
         li::before {
             content: "• ";
             color: #007BFF;
             font-weight: bold;
             margin-right: 5px;
+        }
+        li ul {
+            margin-left: 30px;
         }
     </style>
 </head>
@@ -93,11 +102,17 @@
         <ul align="left">
             <li>Left image: All samples that can currently be generated</li>
             <li>Right image: Target probability density map</li>
-            <li>For demonstration purposes, the target probability density maps switch periodically</li>
-            <li>Names and sequence of target probability maps: <code>gaussian</code> -&gt; <code>blur_circles</code>
-                -&gt; <code>QR_code</code> -&gt; <code>spiral</code> -&gt; <code>words</code> -&gt;
-                <code>gaussian</code> -&gt; <code>uniform</code> -&gt; <code>gaussian</code> (same at beginning and end,
-                completing a cycle)</li>
+            <li>For demonstration purposes, the target probability density maps switch periodically. Names and sequence
+                of target probability maps:
+                <ul>
+                    <li><code>gaussian</code> -&gt; <code>blur_circles</code>
+                        -&gt; <code>QR_code</code> -&gt; <code>spiral</code> -&gt; <code>words</code> -&gt;
+                        <code>gaussian</code> -&gt; <code>uniform</code> -&gt; <code>gaussian</code> (same at beginning
+                        and end,
+                        completing a cycle)
+                    </li>
+                </ul>
+            </li>
             <li>Therefore DDN continuously optimizes parameters to fit new distributions</li>
             <li>Optimizer: Gradient Descent with Split-and-Prune</li>
             <li>The experiment code is in <a
@@ -105,7 +120,8 @@
                 experimental environment is provided by the <a
                     href="https://github.com/DIYer22/distribution_playground">distribution_playground</a> library, feel
                 free to play with it yourself</li>
-            <li>Tips: You can use a phone camera to scan out the QR code distribution fitted by DDN at a suitable screen distance</li>
+            <li>Tips: You can use a phone camera to scan out the QR code distribution fitted by DDN at a suitable screen
+                distance</li>
         </ul>
         <br>
         <br>

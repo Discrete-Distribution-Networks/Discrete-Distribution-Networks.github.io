@@ -679,7 +679,7 @@
   
   <div style="margin-top:-30px">
   
-  <p>🥳 Accepted by ICLR 2025<br>🚀 The code has been <a href="https://github.com/DIYer22/discrete_distribution_networks">released</a>  </p>
+  <p>🥳 Accepted by <strong>ICLR 2025</strong><br>🚀 The code has been <a href="https://github.com/DIYer22/discrete_distribution_networks">released</a>  </p>
    <!-- <img src="img/logo-ICLR.svg" style="max-height:18px; margin-top:10px">   -->
   
   </div>
@@ -736,7 +736,7 @@
   - 左图：当前能生成的所有样本
   - 右图：目标概率密度图
   - 为了展示效果，会周期性切换目标概率密度图
-  - 目标概率图名称和顺序：`gaussian` -> `blur_circles` -> `QR_code` -> `sprial` -> `words` -> `gaussian` -> `uniform` -> `gaussian` (首尾相同，完成闭环)
+    - 目标概率图名称和顺序：`gaussian` -> `blur_circles` -> `QR_code` -> `sprial` -> `words` -> `gaussian` -> `uniform` -> `gaussian` (首尾相同，完成闭环)
   - 因此 DDN 也会持续优化参数来拟合新的分布
   - 优化器：Gradient Descent with Split-and-Prune
   - 这里只展示 1000 nodes 的实验结果，为了更加清晰和全面地展示优化过程，请看 [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) 页面
@@ -746,8 +746,10 @@
   <ul>
   <li>Left image: All samples that can currently be generated</li>
   <li>Right image: Target probability density map</li>
-  <li>For demonstration purposes, the target probability density maps switch periodically</li>
-  <li>Names and sequence of target probability maps: <code>blur_circles</code> -&gt; <code>QR_code</code> -&gt; <code>spiral</code> -&gt; <code>words</code> -&gt; <code>gaussian</code> -&gt; <code>blur_circles</code> (same at beginning and end, completing a cycle)</li>
+  <li>For demonstration purposes, the target probability density maps switch periodically. Names and sequence of target probability maps: <ul>
+  <li><code>blur_circles</code> -&gt; <code>QR_code</code> -&gt; <code>spiral</code> -&gt; <code>words</code> -&gt; <code>gaussian</code> -&gt; <code>blur_circles</code> (same at beginning and end, completing a cycle)</li>
+  </ul>
+  </li>
   <li>Therefore DDN continuously optimizes parameters to fit new distributions</li>
   <li>Optimizer: Gradient Descent with Split-and-Prune</li>
   <li>This only shows experimental results with 1000 nodes; for a clearer and more comprehensive view of the optimization process, see the <a href="2d-density-estimation-gif-with-10000-nodes-ddn.html">2D Density Estimation with 10,000 Nodes DDN</a> page</li>
@@ -874,8 +876,8 @@
   <h3 id="toy-examples-for-two-dimensional-data-generation"><a class="anchor" name="toy-examples-for-two-dimensional-data-generation" href="#toy-examples-for-two-dimensional-data-generation"><span class="octicon octicon-link"></span></a>Toy examples for two-dimensional data generation</h3>
   <br>
   <img src="img/2d-density.png" loading="lazy" style="max-width:500px">
-  <p style="width:90%; text-align: justify">The numerical values at the bottom of each figure represent the Kullback-Leibler (KL) divergence. Due to phenomena such as “dead nodes” and “density shift”, the application of Gradient Descent alone fails to properly fit the Ground Truth (GT) density. However, by employing the Split-and-Prune strategy, the KL divergence is reduced to even lower than that of the Real Samples. </p><p>
-  </p></div>
+  <p style="width:90%; text-align: justify">The numerical values at the bottom of each figure represent the Kullback-Leibler (KL) divergence. Due to phenomena such as “dead nodes” and “density shift”, the application of Gradient Descent alone fails to properly fit the Ground Truth (GT) density. However, by employing the Split-and-Prune strategy, the KL divergence is reduced to even lower than that of the Real Samples. 
+   For a clearer and more comprehensive view of the optimization process, see the <a target="_blank" href="2d-density-estimation-gif-with-10000-nodes-ddn.html">2D Density Estimation with 10,000 Nodes DDN</a> page.</p></div>
   
   <hr>
   <br>
