@@ -95,7 +95,7 @@ This GIF demonstrates the optimization process of DDN for 2D probability density
   - `blur_circles` -> `QR_code` -> `spiral` -> `words` -> `gaussian` -> `blur_circles` (same at beginning and end, completing a cycle)
 - Therefore DDN continuously optimizes parameters to fit new distributions
 - Optimizer: Gradient Descent with Split-and-Prune
-- This only shows experimental results with 1000 nodes; for a clearer and more comprehensive view of the optimization process, see the [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) page
+- This only shows experimental results with 1,000 nodes; for a clearer and more comprehensive view of the optimization process, see the [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) page
 - The experiment code is in [sddn/toy_exp.py](https://github.com/DIYer22/sddn/blob/master/toy_exp.py), and the experimental environment is provided by the [distribution_playground](https://github.com/DIYer22/distribution_playground) library, feel free to play with it yourself
 
 </div>
@@ -276,10 +276,10 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
 
 ### Hierarchical Generation Visualization of DDN
 <br>
-<a href="img/tree-latent.mnist-vis-level3.png">
+<a href="img/tree-latent.mnist-vis-level4.png">
   <img src="img/tree-latent.mnist-vis-level3.png" style="max-width:512px" loading="lazy">
 </a>
-<p style="width:90%; text-align: justify">We trained a DDN with output level $L = 3$ and output nodes $K = 8$ per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images.<p>
+<p style="width:90%; text-align: justify">We trained a DDN with output level $L = 3$ and output nodes $K = 8$ per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images. More detailed visualization of $L = 4$ is presented <a target="_blank" href="img/tree-latent.mnist-vis-level4.png">here</a>.<p>
 </div>
 
 
