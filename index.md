@@ -279,8 +279,19 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
 <a href="img/tree-latent.mnist-vis-level4.png">
   <img src="img/tree-latent.mnist-vis-level3.png" style="max-width:512px" loading="lazy">
 </a>
-<p style="width:90%; text-align: justify">We trained a DDN with output level $L = 3$ and output nodes $K = 8$ per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images. More detailed visualization of $L = 4$ is presented <a target="_blank" href="img/tree-latent.mnist-vis-level4.png">here</a>.<p>
+<p style="width:90%; text-align: justify">We trained a DDN with output level $L = 3$ and output nodes $K = 8$ per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images. More detailed visualization of $L = 4$ is presented <a target="_blank" href="img/tree-latent.mnist-vis-level4.png">here</a>. We also provide a video version of the image above, which dynamically showcases the optimization process during DDN training:
+<p>
+
+<div class="video-container">
+    <iframe 
+        src="https://www.youtube.com/embed/J4aOdyb7A58" 
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
 </div>
+</div>
+
 
 
 <style>
@@ -305,6 +316,21 @@ border-image: initial;
 padding: 45px;
 margin: 20px auto;
 }
+
+
+.video-container {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    margin: auto;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 </style>
 
 <!-- Google tag (gtag.js) -->
