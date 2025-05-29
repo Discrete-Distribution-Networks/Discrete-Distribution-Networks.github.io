@@ -212,7 +212,7 @@ Interestingly, when I introduce DDN to researchers from different fields, many f
 **arXiv:** https://arxiv.org/abs/2401.00036  
 **Project Page:** https://discrete-distribution-networks.github.io/
 
-### Common Questions About DDN
+## Common Questions About DDN
 
 Q1: Will DDN require a lot of GPU memory?
 

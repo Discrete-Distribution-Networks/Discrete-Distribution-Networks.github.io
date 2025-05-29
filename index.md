@@ -293,6 +293,58 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
 </div>
 
 
+----
+*The following content contains personal opinions and is not included in the original paper*
+
+## Future Research Directions
+
+Based on the current state of DDN (May 2025), I speculate on several possible future research directions. These include improvements to DDN itself and tasks suitable for the current version of DDN. Due to my limited perspective, some of these speculations might not be accurate:
+
+- **Improving DDN through hyperparameter tuning, exploratory experiments, and theoretical analysis:**  
+  The total time spent developing DDN was less than three months, mostly by a single person. Therefore, experiments were rough, and there was limited time for detailed analysis and tuning. There is significant room for improvement.
+
+- **Scaling up to ImageNet-level complexity:**  
+  Building a practical generative model with Zero-Shot Conditional Generation as a key feature.
+
+- **Applying DDN to domains with relatively small generation spaces:**  
+  - Conditional training tasks where the condition provides rich information, such as image colorization and super-resolution.
+  - Generative models for discriminative tasks, such as depth estimation, optical flow estimation, and pose estimation.
+  - Robotics applications, where DDN could replace diffusion models in [Diffusion Policy](https://anuragajay.github.io/decision-diffuser/) and [Decision Diffuser](https://arxiv.org/abs/2211.15657) frameworks.
+  - In these domains, DDN has advantages over diffusion models:
+    - Single forward pass to obtain results, no iterative denoising required.
+    - If multiple samples are needed (e.g., for uncertainty estimation), DDN can directly produce multiple outputs in one forward pass.
+    - Easy to impose constraints during generation due to DDN's Zero-Shot Conditional Generation capability.
+
+- **Applying DDN to non-generative tasks:**  
+  - DDN naturally supports unsupervised clustering. And its unique latent representation could be useful in data compression, similarity retrieval, and other areas.
+
+- **Using DDN's design ideas to improve existing generative models:**  
+  - For example, the first paper citing DDN, [DDCM](https://arxiv.org/abs/2502.01189), applied DDN's idea of constructing a 1D discrete latent to diffusion models.
+
+- **Applying DDN to language modeling tasks:**  
+  - I made an initial attempt to combine [DDN with GPT](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/1), aiming to remove tokenizers and let LLMs directly model binary strings. In each forward pass, the model adaptively adjusts the byte length of generated content based on generation difficulty (naturally supporting speculative sampling).
+
+
+
+## Common Questions About DDN
+
+Q1: Will DDN require a lot of GPU memory?
+
+> DDN's GPU memory requirements are slightly higher than same architecture of conventional GAN generator, but the difference is negligible.
+> 
+> During training, generating $K$ samples is only to identify the one closest to the ground truth, and the $K-1$ unchosen samples do not retain gradients, so they are immediately discarded after sampling at the current layer, freeing up memory.
+> 
+> In the generation phase, we randomly sample one number from range($K$) as an index and only generate the sample at the chosen index, avoiding the need to generate the other $K-1$ samples, thus not occupying additional memory or computation.
+
+Q2: Will there be a mode collapse issue?
+
+> No. DDN selects the output most similar to the current GT and then uses the L2 loss to make it even more similar to the GT. This operation naturally has a diverse tendency, which can "expand" the entire generation space.
+> 
+> Additionally, DDN supports reconstruction. Figure 14 in the original paper shows that DDN has good reconstruction performance on the test set, meaning that DDN can fully cover the target distribution.
+> 
+> The real issue with DDN is not mode collapse but attempting to cover a high-dimensional target distribution that exceeds its own complexity, leading to the generation of blurry samples.
+
+
 
 <style>
 html, body {
