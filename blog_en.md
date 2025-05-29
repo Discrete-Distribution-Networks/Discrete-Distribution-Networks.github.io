@@ -211,3 +211,21 @@ Interestingly, when I introduce DDN to researchers from different fields, many f
 
 **arXiv:** https://arxiv.org/abs/2401.00036  
 **Project Page:** https://discrete-distribution-networks.github.io/
+
+### Common Questions About DDN
+
+Q1: Will DDN require a lot of GPU memory?
+
+> DDN's GPU memory requirements are slightly higher than same architecture of conventional GAN generator, but the difference is negligible.
+> 
+> During training, generating $K$ samples is only to identify the one closest to the ground truth, and the $K-1$ unchosen samples do not retain gradients, so they are immediately discarded after sampling at the current layer, freeing up memory.
+> 
+> In the generation phase, we randomly sample one number from range($K$) as an index and only generate the sample at the chosen index, avoiding the need to generate the other $K-1$ samples, thus not occupying additional memory or computation.
+
+Q2: Will there be a mode collapse issue?
+
+> No. DDN selects the output most similar to the current GT and then uses the L2 loss to make it even more similar to the GT. This operation naturally has a diverse tendency, which can "expand" the entire generation space.
+> 
+> Additionally, DDN supports reconstruction. Figure 14 in the original paper shows that DDN has good reconstruction performance on the test set, meaning that DDN can fully cover the target distribution.
+> 
+> The real issue with DDN is not mode collapse but attempting to cover a high-dimensional target distribution that exceeds its own complexity, leading to the generation of blurry samples.
