@@ -130,7 +130,7 @@ Although Zero-Shot Conditional Generation (ZSCG) is an exciting feature, inputti
 1. Conditions significantly reduce the size of the generation space, simplifying the modeling task and allowing the network to generate higher-quality samples.
 2. In ZSCG, each layer's outputs must be transformed into the condition space, resulting in a total of $K \times L$ transformations. For computationally expensive transformations (such as CLIP embeddings), this can consume substantial computational resources.
 
-Training a conditional DDN is straightforward: simply feed the condition (or its features) into the network. The network will automatically learn the conditional distribution $ P(X|Y) $.
+Training a conditional DDN is straightforward: simply feed the condition (or its features) into the network. The network will automatically learn the conditional distribution $P(X|Y)$.
 
 Moreover, conditional DDN can be combined with ZSCG to enhance controllability during generation. The fourth and fifth columns in the figure below demonstrate conditional DDN generation guided by other images through ZSCG. The generated images match the given condition while closely following the color tones of the guided images.
 
@@ -139,18 +139,18 @@ Moreover, conditional DDN can be combined with ZSCG to enhance controllability d
 
 ## Unique 1D Discrete Latent Representation
 
-DDN naturally provides a one-dimensional discrete latent representation. Because each layer's outputs depend on the previously selected outputs, the latent space forms a tree structure. The tree has a branching factor of $ K $ and depth $ L $, with each leaf node corresponding to a generated sample.
+DDN naturally provides a one-dimensional discrete latent representation. Because each layer's outputs depend on the previously selected outputs, the latent space forms a tree structure. The tree has a branching factor of $K$ and depth $L$, with each leaf node corresponding to a generated sample.
 
 ![](img/latent-tree.png)  
 *DDN's latent space forms a tree structure. The green path shows the latent corresponding to the target image in Figure 1.*
 
-DDN has strong data compression capabilities (lossy compression). Its latent representation is a list of integers, providing a highly compressed discrete representation. The information content of a latent is $ \log_2(K) \times L $ bits. For example, with our default human-face image experiment settings ($ K=512, L=128 $), each sample can be compressed to just 1152 bits.
+DDN has strong data compression capabilities (lossy compression). Its latent representation is a list of integers, providing a highly compressed discrete representation. The information content of a latent is $\log_2(K) \times L$ bits. For example, with our default human-face image experiment settings ($K=512, L=128$), each sample can be compressed to just 1152 bits.
 
-In our experiments, we chose $ K=512 $ for a balance between generation quality and training efficiency. However, from a purely data-compression perspective, setting $ K=2 $ and increasing $ L $ can better balance representation space and compression efficiency. We call this special case "Taiji-DDN." Taiji-DDN is the first generative model capable of directly converting data into semantically meaningful binary strings, where each binary string represents a leaf node in a balanced binary tree.
+In our experiments, we chose $K=512$ for a balance between generation quality and training efficiency. However, from a purely data-compression perspective, setting $K=2$ and increasing $L$ can better balance representation space and compression efficiency. We call this special case "Taiji-DDN." Taiji-DDN is the first generative model capable of directly converting data into semantically meaningful binary strings, where each binary string represents a leaf node in a balanced binary tree.
 
 ## Latent Visualization
 
-To visualize the latent structure, we trained a DDN on MNIST with $ L=3 $ layers and $ K=8 $ outputs per layer. We visualize the latent tree structure using a recursive 3×3 grid. The center cell of each 3×3 grid is the condition (the selected output from the previous layer), and the surrounding eight cells represent the new outputs generated based on this condition.
+To visualize the latent structure, we trained a DDN on MNIST with $L=3$ layers and $K=8$ outputs per layer. We visualize the latent tree structure using a recursive 3×3 grid. The center cell of each 3×3 grid is the condition (the selected output from the previous layer), and the surrounding eight cells represent the new outputs generated based on this condition.
 
 In the figure below, each colored-bordered image is an intermediate generated sample. The eight images surrounding it are finer samples generated conditioned on it. Images without colored borders are final generated images. Larger images represent earlier (coarser) generation stages. The largest images with blue borders are the first layer's eight outputs, and the green-bordered images are the second layer's $8^2=64$ outputs. Images within the same grid are visually similar due to their shared ancestors. The large central image is the average of all generated images.
 
@@ -158,7 +158,7 @@ In the figure below, each colored-bordered image is an intermediate generated sa
 *Hierarchical Generation Visualization of DDN.*
 
 We also provide a video version of the above visualization, dynamically showing the optimization process during DDN training: [YouTube](https://youtu.be/J4aOdyb7A58), [BiliBili](https://www.bilibili.com/video/BV11tjdzbEoD/).   
-Additionally, we offer a more detailed latent visualization with $ L=4 $ layers [here](https://discrete-distribution-networks.github.io/img/tree-latent.mnist-vis-level4.png).
+Additionally, we offer a more detailed latent visualization with $L=4$ layers [here](https://discrete-distribution-networks.github.io/img/tree-latent.mnist-vis-level4.png).
 
 
 
@@ -166,9 +166,9 @@ Additionally, we offer a more detailed latent visualization with $ L=4 $ layers 
 
 Currently, I think the main limitations of DDN are:
 
-1. **The latent space size $ K^L $ may not be large enough to represent highly complex distributions:**  
+1. **The latent space size $K^L$ may not be large enough to represent highly complex distributions:**  
    While the exponential complexity is sufficient to reconstruct identity-preserving face images, it is still insufficient for more complex natural images like ImageNet.
-   - **Possible improvement:** Expand the latent space from $ K^L $ to a larger scale. For example, we could divide an image into $ N $ patches, independently select the best patch from the $ K $ outputs for each patch, and then combine these selected patches into a single image as the condition for the next layer. This would increase the latent space to $ (K^N)^L $.
+   - **Possible improvement:** Expand the latent space from $K^L$ to a larger scale. For example, we could divide an image into $N$ patches, independently select the best patch from the $K$ outputs for each patch, and then combine these selected patches into a single image as the condition for the next layer. This would increase the latent space to $(K^N)^L$.
    - Another potential solution is inspired by Latent Diffusion: introducing an additional autoencoder to allow DDN to model distributions in a lower-complexity latent space.
 
 2. **The Prune operation in Split-and-Prune discards trained parameters:**  
