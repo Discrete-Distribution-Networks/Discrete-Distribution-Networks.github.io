@@ -67,7 +67,7 @@ The DDN model consists of $L$ DDL layers. For a given layer $l$, denoted as $f_l
 
 ![](img/loss.png)
 
-Here, $\mathbf{x}^*_0 = \mathbf{0}$ represents the initial input to the first layer. The total loss of DDN is simply the average of losses from all layers.
+Here, $\mathbf{x}^ * _ 0 = \mathbf{0}$ represents the initial input to the first layer. The total loss of DDN is simply the average of losses from all layers.
 
 ### Optimization with Split-and-Prune
 
