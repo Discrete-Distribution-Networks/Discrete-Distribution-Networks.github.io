@@ -95,12 +95,14 @@ Additionally, we provide a GIF animation to dynamically illustrate the optimizat
 *Detailed explanation of this GIF can be found at [URL](https://discrete-distribution-networks.github.io/2d-density-estimation-gif-with-10000-nodes-ddn.html).*  
 *The experimental code is available at [toy_exp.py](https://github.com/diyer22/sddn?tab=readme-ov-file#-toy-example-for-2d-density-estimation).*
 
-## Random Sampling Results
+
+## Experiments and Property Demonstrations
+### Random Sampling Results
 
 ![](img/face-gen.png)  
-*Random sampling results on a face dataset.*
+*Random sampling results on face datasets.*
 
-## Zero-Shot Conditional Generation
+### Zero-Shot Conditional Generation
 
 We first describe the task of "Zero-Shot Conditional Generation" (ZSCG):
 
@@ -123,7 +125,7 @@ In contrast, DDN only requires a discriminative model to perform a forward pass 
 This unique capability allows users to efficiently filter and manipulate the entire distribution space. This property is fascinating and highly versatile. We believe "Zero-Shot Conditional Generation" will find many practical applications in the future.
 
 
-## Conditional Training
+### Conditional Training
 
 Although Zero-Shot Conditional Generation (ZSCG) is an exciting feature, inputting conditions during model training has several advantages:
 
@@ -137,7 +139,7 @@ Moreover, conditional DDN can be combined with ZSCG to enhance controllability d
 ![](img/conditional-DDN.png)  
 *Conditional-DDNs performing colorization and edge-to-RGB tasks. Columns 4 and 5 demonstrate Zero-Shot Conditional Generation guided by other images. The generated images match the given condition while closely following the color tones of the guided images.*
 
-## Unique 1D Discrete Latent Representation
+### Unique 1D Discrete Latent Representation
 
 DDN naturally provides a one-dimensional discrete latent representation. Because each layer's outputs depend on the previously selected outputs, the latent space forms a tree structure. The tree has a branching factor of $K$ and depth $L$, with each leaf node corresponding to a generated sample.
 
@@ -148,7 +150,7 @@ DDN has strong data compression capabilities (lossy compression). Its latent rep
 
 In our experiments, we chose $K=512$ for a balance between generation quality and training efficiency. However, from a purely data-compression perspective, setting $K=2$ and increasing $L$ can better balance representation space and compression efficiency. We call this special case "Taiji-DDN." Taiji-DDN is the first generative model capable of directly converting data into semantically meaningful binary strings, where each binary string represents a leaf node in a balanced binary tree.
 
-## Latent Visualization
+### Latent Visualization
 
 To visualize the latent structure, we trained a DDN on MNIST with $L=3$ layers and $K=8$ outputs per layer. We visualize the latent tree structure using a recursive 3×3 grid. The center cell of each 3×3 grid is the condition (the selected output from the previous layer), and the surrounding eight cells represent the new outputs generated based on this condition.
 
