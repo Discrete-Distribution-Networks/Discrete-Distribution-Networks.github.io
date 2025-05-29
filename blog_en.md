@@ -63,7 +63,7 @@ For computational efficiency, DDN by default adopts the single-shot generator pa
 
 ### Loss Function
 
-The DDN model consists of $L$ DDL layers. For a given layer $l$, denoted as $f_l$, the input is the selected sample from the previous layer, $\mathbf{x}^ * _ {l-1}$. The layer generates $K$ new samples, $f_l(\mathbf{x}^ * _ {l-1})$, from which we select the sample $\mathbf{x}^ * _l$ that is closest to the current training sample $\mathbf{x}$, along with its corresponding index $k_ {l}^ * $. The loss $J_l$ for this layer is then computed only on the selected sample $\mathbf{x}^ * _l$. The formula and explanation are as follows:
+The DDN model consists of $L$ DDL layers. For a given layer $l$, denoted as $f_l$, the input is the selected sample from the previous layer, $\mathbf{x}^ * _ {l-1}$. The layer generates $K$ new samples, $f_l(\mathbf{x}^ * _ {l-1})$, from which we select the sample $\mathbf{x}^ * _ l$ that is closest to the current training sample $\mathbf{x}$, along with its corresponding index $k_l^ * $. The loss $J_l$ for this layer is then computed only on the selected sample $\mathbf{x}^ * _ l$. The formula and explanation are as follows:
 
 ![](img/loss.png)
 
