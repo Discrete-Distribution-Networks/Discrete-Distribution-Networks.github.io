@@ -53,10 +53,12 @@
 
 
 
-### [Paper 📄](https://arxiv.org/abs/2401.00036) | [Code 👨‍💻](https://github.com/DIYer22/discrete_distribution_networks) | [OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
+### [Paper 📄](https://arxiv.org/abs/2401.00036) | [Code 👨‍💻](https://github.com/DIYer22/discrete_distribution_networks) | [Demo 🎮](http://113.44.140.251:17860/) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
 
 
 <!-- 
+[OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) | 
+
 全新的生成模型, 有着简单的原理和独特的性质
 - Code 分为
     - sddn 库
@@ -268,6 +270,18 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
   <img src="img/conditional-DDN.png" loading="lazy">
 </a>
 <p style="width:90%; text-align: justify">Columns 4 and 5 display the generated results under the guidance of other images, where the produced image strives to adhere to the style of the guided image as closely as possible while ensuring compliance with the condition. The resolution of the generated images is 256x256.<p>
+
+---
+<br>
+
+<a href="http://113.44.140.251:17860/">
+  <img style="margin-bottom:-25px" src="img/astronaut_coloring.gif" loading="lazy">
+</a>
+
+### [**Online DDN coloring demo**](http://113.44.140.251:17860/)  
+<p style="margin-top:-15px">To demonstrate the features of DDN conditional generation and Zero-Shot Conditional Generation.</p>
+
+
 </div>
 
 ---
