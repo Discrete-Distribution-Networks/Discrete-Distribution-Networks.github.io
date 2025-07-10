@@ -308,6 +308,9 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
         allowfullscreen>
     </iframe>
 </div>
+
+Uncompressed raw backup of this video is here: [DDN_latent_video](https://github.com/Discrete-Distribution-Networks/DDN_latent_video)
+
 </div>
 
 
