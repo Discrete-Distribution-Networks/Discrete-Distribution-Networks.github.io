@@ -274,13 +274,13 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
 ---
 <br>
 
-<a href="img/astronaut_coloring.gif">
-  <img style="margin-bottom:-25px" src="img/astronaut_coloring.gif" loading="lazy">
+<a href="http://113.44.140.251:17860/">
+  <img style="margin-bottom:-20px" src="img/astronaut_coloring.gif" loading="lazy">
 </a>
   
-<a href="img/coloring_self.gif">
-  <img style="margin-bottom:-25px;margin-left:50px" src="img/coloring_self.gif" loading="lazy">
-</a>
+<!-- <a href="img/coloring_self.gif">
+  <img style="margin-bottom:-20px;margin-left:50px" src="img/coloring_self.gif" loading="lazy">
+</a> -->
 
 ### [**Online DDN coloring demo**](http://113.44.140.251:17860/)  
 <p style="margin-top:-15px">To demonstrate the features of DDN conditional generation and Zero-Shot Conditional Generation.</p>
