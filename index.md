@@ -53,7 +53,7 @@
 
 
 
-### [Paper 📄](https://arxiv.org/abs/2401.00036) | [Code 👨‍💻](https://github.com/DIYer22/discrete_distribution_networks) | [Demo 🎮](http://113.44.140.251:17860/) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
+### [Paper 📄](https://arxiv.org/abs/2401.00036) | [Code 👨‍💻](https://github.com/DIYer22/discrete_distribution_networks) | [Demo 🎮](https://ddn-coloring-demo.diyer22.com/) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
 
 
 <!-- 
@@ -274,7 +274,7 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
 ---
 <br>
 
-<a href="http://113.44.140.251:17860/">
+<a href="https://ddn-coloring-demo.diyer22.com/">
   <img style="margin-bottom:-20px" src="img/astronaut_coloring.gif" loading="lazy">
 </a>
   
@@ -282,7 +282,7 @@ Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined
   <img style="margin-bottom:-20px;margin-left:50px" src="img/coloring_self.gif" loading="lazy">
 </a> -->
 
-### [**Online DDN coloring demo**](http://113.44.140.251:17860/)  
+### [**Online DDN coloring demo**](https://ddn-coloring-demo.diyer22.com/)  
 <p style="margin-top:-15px">To demonstrate the features of DDN conditional generation and Zero-Shot Conditional Generation.</p>
 
 
