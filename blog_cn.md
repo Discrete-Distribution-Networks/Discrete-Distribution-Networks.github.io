@@ -8,7 +8,7 @@ DDN 采用一种简洁且独特的机制来建模目标分布：
 2. 这些输出共同构成一个包含 $K$ 个等权重（概率均为 $1/K$）样本点的离散分布，这也是“离散分布网络”名称的由来。
 3. 训练目标是通过优化样本点的位置，使网络输出的离散分布尽可能逼近训练数据的真实分布。
 
-每种生成模型都有其独特的性质，DDN 也不例外。我们将在后文重点介绍 DDN 的三个特性：
+每一类生成模型都有其独特的性质，DDN 也不例外。我们将重点介绍 DDN 的三个特性：
 
 - 零样本条件生成 (Zero-Shot Conditional Generation, ZSCG)
 - 树状结构的一维离散潜变量 (Tree-Structured 1D Discrete Latent)
@@ -18,7 +18,7 @@ DDN 采用一种简洁且独特的机制来建模目标分布：
 ![](img/ddn-intro.png)  
 *图1：DDN 的重建过程示意图*
 
-首先，我们借助上图所示的 DDN 重建流程作为切入点来一窥其原理。与 diffusion 和 GAN 不同，它们无法重建数据，DDN 能像 VAE 一样实现数据重建：先将数据映射为 latent ，再由 latent 生成与原始图像高度相似的重建图像。
+首先，我们借助上图所示的 DDN 重建流程作为切入点来一窥其原理。与 diffusion 和 GAN 不同，它们无法重建数据，DDN 能像 VAE 一样具有数据重建能力：先将数据映射为 latent ，再由 latent 生成与原始图像高度相似的重建图像。
 
 上图展示了 DDN 重建 target 并获得其 latent 的过程。一般 DDN 内部包含多个层级结构，其层数为 $L$，示意图里 $L=3$。但先让我们把目光集中在最左侧的第一层。
 
@@ -95,7 +95,7 @@ DDN 是由 $L$ 层 DDL 组成，以第 $l$ 层 DDL $f_l$ 为例，输入上一�
 - 任务目标：让已经 unconditional 训练好的生成模型能根据 condition 生成符合对应 condition 的图像。
 - 因为在训练阶段，模型没见过任何的 condition 信号，所以叫 Zero-Shot Conditional Generation。  
 ![](img/zscg.png)  
-*用 Unconditional DDN 做零样本条件生成效果：DDN 能在不需要梯度的情况下，使不同模态的 Condition(比如 text prompt 加 CLIP)来引导 Unconditional trained DDN 做条件生成。黄色框圈起来部分就是用于参考的 GT。SR 代表超分辨率、ST 代表 Style Transfer*
+*用 Unconditional DDN 做零样本条件生成效果：DDN 能在不需要梯度的情况下，使不同模态的 Condition (比如 text prompt 加 CLIP) 来引导 Unconditional trained DDN 做条件生成。黄色框圈起来部分就是用于参考的 GT。SR 代表超分辨率、ST 代表 Style Transfer*
 
 如上图所示，DDN 支持丰富的零样本条件生成任务，其做法和图1中的 DDN 重建过程几乎一样。具体而言，只需把图1 中的 target 替换为对应的 condition，并且，把采样逻辑调整为从每一层的多个 outputs 中选出最符合当前 condition 的那一个 output 作为当前层的输出。这样随着层数的增加，生成的 output 越来越符合 condition。
 
@@ -126,12 +126,13 @@ DDN 是由 $L$ 层 DDL 组成，以第 $l$ 层 DDL $f_l$ 为例，输入上一�
 *DDN 上色 demo 效果.gif*
 
 我们部署了一个用 DDN 做人脸上色任务的在线 demo ([国际网络](https://ddn-coloring-demo.diyer22.com/)、[国内网络](http://113.44.140.251:17860/))。
-- Demo 主要展示 DDN 的 Zero-Shot Conditional Generation 能力和 Conditional Training 效果
+
+- 该 Demo 主要展示 DDN 的 Zero-Shot Conditional Generation 能力和 Conditional Training 效果
 - 用户可以使用颜色笔划和 CLIP prompt 两种 conditon 来做 ZSCG
 
 
 ### 端到端可微分
-DDN 生成的样本对产生该样本的计算图完全可微，使用标准链式法则就能对所有参数做端到端优化。这种梯度全链路畅通的性质，主要体现在两方面：
+DDN 生成的样本对产生该样本的计算图完全可微，使用标准链式法则就能对所有参数做端到端优化。这种梯度全链路畅通的性质，体现在了两个方面：
 
 1. DDN 有个一脉相承的主干 feature，梯度能沿着主干 feature 高效反传。而 diffusion 在传递梯度时，需多次将梯度转换到带噪声的样本空间进行反传。
 2. DDN 的采样过程不会阻断梯度，意味着网络中间生成的 outputs 也是完全可微的，不需要近似操作，也不会引入噪声。
@@ -141,16 +142,17 @@ DDN 生成的样本对产生该样本的计算图完全可微，使用标准链�
 ### 独特的一维离散 latent 
 DDN 天然具有一维的离散 latent。由于每一层 outputs 都 condition on 前面所有的results，所以其 latent space 是一个树状结构。树的度为 $K$，层数为 $L$，每一个叶子节点都对应一个 DDN 的采样结果。  
 ![](img/latent-tree.png)  
-*DDN 的 latent 空间为树状结构，绿色路径展示了图一中的 target 所对应的 latent*
+*DDN 的 latent 空间为树状结构，绿色路径展示了图1中的 target 所对应的 latent*
 
-DDN 具有较强的数据压缩能力（有损压缩）。DDN 的 latent 是一列整数(list of ints)，属于高度压缩的离散表征。一个 latent 有 $log_2(K) \times L$ 个 bits 的信息量，以人脸图像实验默认的 $K=512$，$L=128$ 为例，一个样本可以被压缩到 1152 bits。
+DDN 具有较强的数据压缩能力（有损压缩）。DDN 的 latent 是一列整数(list of ints)，属于高度压缩的离散表征。一个 DDN latent 有 $log_2(K) \times L$ 个 bits 的信息量，以人脸图像实验默认的 $K=512$，$L=128$ 为例，一个样本可以被压缩到 1152 bits。
 
 我们考虑到生成效果和训练效率而选择 $K=512$，如果仅从数据压缩角度考虑，$K$ 设置为 2 并增大 $L$，能更好地平衡表示空间和压缩效率. 我们把 $K=2$ 的 DDN 称为 Taiji-DDN。Taiji-DDN 是首个能够将数据直接转换为具有语义的二进制串的生成式模型。而这个二进制串就代表一颗平衡二叉树上的某个叶子节点。
 
 ### Latent 可视化
 为了可视化 latent 的结构，我们在 MNIST 上训练了一个 output level 层数 $L=3$，每一层 output nodes 数目 $K=8$ 的 DDN，并以递归九宫格的形式来展示其 latent 的树形结构。九宫格的中心格子就是 condition，即上一层被采样到的 output，相邻的 8 个格子都代表基于中心格子为 condition 生成的 8 个新 outputs。  
 ![](img/tree-latent.mnist-vis-level3.png)  
-*Hierarchical Generation Visualization of DDN*
+*Hierarchical Generation Visualization of DDN*  
+
 - 每个带有彩色边框的样本都是一个中间生成产物，在它周围一圈九宫格内的八个样本都是以它自己为条件生成的更精细的样本(被相同颜色的框圈起来的范围)。
 - 未带彩色边框的样本为最终生成的图像。图像越大，表示其为越早期的生成产物，也意味着图像越模糊。
 - 尺寸较大且带有蓝色边框的样本是第一层的 8 个输出，而带有绿色边框的样本是第二层的 $8^2=64$ 个输出。
@@ -161,10 +163,10 @@ DDN 具有较强的数据压缩能力（有损压缩）。DDN 的 latent 是一�
 此外，我们也提供 output level 层数 $L=4$ 时 [更细致的 latent 可视化图](https://discrete-distribution-networks.github.io/img/tree-latent.mnist-vis-level4.png)。
 
 ## 不足和改进
-我个人认为，目前的 DDN 最主要的不足之处包括：
+作为一个全新的生成模型，DDN 的效果还很糟糕，有非常多的优化空间。我个人认为，当前 DDN 最主要的不足之处包括：
 
 1. $K^L$ 的 latent space 不够大，不足以表示复杂分布：
-    - 尽管指数复杂度足以重建保 ID 的人脸图像，但对于 ImageNet 中的自然图像，其复杂度远远不足
+    - 尽管指数复杂度足以重建保 ID 的人脸图像，但对于 ImageNet 这种自然图像，其复杂度远远不足
     - 一个可能的改进是扩展 $K^L$ 的 latent 空间。大致做法是把一张图分为 N 块 patch，每个 patch 内部都从 K 个 outputs 的对应 patch 中独立选择最优 patch，再把选出的最优 patches 拼为一张完整的图，以作为当前层的输出和下一层的 condition。如此 latent 的空间将会增大至 $(K^ N) ^ L$
     - 另外一个潜在的解决方案是参考 Latent Diffusion，额外添置一个 AutoEncoder 让 DDN 在复杂度更低的 latent 空间做生成建模
 2. Split-and-Prune 中的 Prune 操作会持续丢弃训练参数：
@@ -202,7 +204,7 @@ DDN 具有较强的数据压缩能力（有损压缩）。DDN 的 latent 是一�
 一个有趣的现象是，当我向不同领域的人介绍 DDN 时，很多人会觉得 DDN 与他们领域中的某些概念相似。有人觉得 DDN 像 VQ-VAE，有人觉得像扩散模型，还有人觉得像强化学习，甚至有人认为它类似于 LLM 中的 MoE（混合专家系统）。一个算法能让如此多不同领域的人产生共鸣，实属难得。作为全新的生成模型，DDN 还有许多值得分享的内容，但受篇幅限制，这里就不一一展开了。欢迎感兴趣的读者阅读原论文，或在评论区留言交流。
 
 
-**arxiv：** https://arxiv.org/abs/2401.00036  
+**arXiv：** https://arxiv.org/abs/2401.00036  
 **Project Page：** https://discrete-distribution-networks.github.io/
 
 
