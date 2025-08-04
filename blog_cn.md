@@ -8,10 +8,11 @@ DDN 采用一种简洁且独特的机制来建模目标分布：
 2. 这些输出共同构成一个包含 $K$ 个等权重（概率均为 $1/K$）样本点的离散分布，这也是“离散分布网络”名称的由来。
 3. 训练目标是通过优化样本点的位置，使网络输出的离散分布尽可能逼近训练数据的真实分布。
 
-每个生成模型都有其独特的性质，DDN 也不例外。我们将在后文重点介绍 DDN 的两个特有能力：
+每种生成模型都有其独特的性质，DDN 也不例外。我们将在后文重点介绍 DDN 的三个特性：
 
-- 无需计算梯度即可实现零样本条件生成（Zero-Shot Conditional Generation, ZSCG）。
-- 具有树状结构的一维离散潜变量（Tree-Structured 1D Discrete Latent）。
+- 零样本条件生成 (Zero-Shot Conditional Generation, ZSCG)
+- 树状结构的一维离散潜变量 (Tree-Structured 1D Discrete Latent)
+- 完全的端到端可微分 (Fully End-to-End Differentiable)
 
 ## 离散分布网络原理
 ![](img/ddn-intro.png)  
