@@ -205,6 +205,7 @@ DDN 具有较强的数据压缩能力（有损压缩）。DDN 的 latent 是一�
 
 
 **arXiv：** https://arxiv.org/abs/2401.00036  
+**GitHub：** https://github.com/DIYer22/discrete_distribution_networks  
 **Project Page：** https://discrete-distribution-networks.github.io/
 
 
