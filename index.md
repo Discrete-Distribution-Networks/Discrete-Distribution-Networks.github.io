@@ -53,7 +53,7 @@
 
 
 
-### [Paper 📄](https://arxiv.org/abs/2401.00036) | [Code 👨‍💻](https://github.com/DIYer22/discrete_distribution_networks) | [Demo 🎮](https://ddn-coloring-demo.diyer22.com/) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
+### [Paper 📄](https://arxiv.org/abs/2401.00036) | [Code 👨‍💻](https://github.com/DIYer22/discrete_distribution_networks) | [Demo 🎮](https://ddn-coloring-demo.diyer22.com/) | [Blog 📝](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/blob/main/blog_en.md) | [Poster 🖼️](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2)
 
 
 <!-- 
