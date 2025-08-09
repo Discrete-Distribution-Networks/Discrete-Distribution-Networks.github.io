@@ -1,7 +1,7 @@
 
 <small>
 
-This is English version blog, Chinese version here: [ICLR 2025 | 全新的生成模型，带来独一无二的能力](https://www.zhihu.com/question/65707892) @ 知乎 (推荐看中文版本，有更多的思考)
+This is English version blog, Chinese version here: [ICLR 2025 | 全新的生成模型，带来独一无二的能力 @ 知乎](https://www.zhihu.com/question/65707892) (推荐看中文版本，有更多的思考)
 
 </small>
 
