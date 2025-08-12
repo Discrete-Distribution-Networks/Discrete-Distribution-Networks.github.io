@@ -1,3 +1,10 @@
+```bash
+pandoc wechat_manuscript.md -o 离散分布网络.docx --resource-path=.:./img
+```
+
+
+
+
 # ICLR 2025 | 全新的生成模型，带来独一无二的能力
 
 我们提出了一种全新的生成模型：离散分布网络（Discrete Distribution Networks），简称 DDN。相关论文已发表于 ICLR 2025。
@@ -59,33 +66,15 @@ DDN 是由 $L$ 层 DDL 组成，以第 $l$ 层 DDL $f_l$ 为例，输入上一�
 
 其中, $\mathbf{x}^ * _ 0 = \mathbf{0}$ 代表第一层 DDL 的输入为 zero tensor。DDN 的总 loss 就是每一层的 loss $J_l$ 取平均。
 
-### Split-and-Prune 优化算法
+此外，我们还提出了 Split-and-Prune 优化算法来使得训练时每个节点被 GT 匹配上的概率均匀，都是 $1/K$
 
-若按上文所说，每一层 DDN 都只和 GT 最相似的输出样本上计算 loss，这会导致两个问题：
-
-1. **Dead nodes：** 类似于 VQ-VAE 中的"dead codebooks"，即长期未被选中的输出节点没有获得梯度的机会。 而在生成的时候，这些未被优化过的 dead nodes 仍会以同样的概率被选中并输出糟糕的结果。
-2. **概率密度偏移：** 打个比方，一些节点运气好，初始化参数时“出生”在了概率密度高的区域，使其在训练的时候有很大概率被 GT 匹配上。而运气差的节点则“出生”在了低密度区域，意味着其被 GT 匹配上的概率非常低。这造成了训练时，节点与节点之间，被 GT 匹配上的概率极不均匀。然而在生成阶段，节点之间一视同仁，采样概率都是 $1/K$。训练和采样之间出现了巨大的脱节。
-
-
-受进化论启发，我们针对上述问题提出了 Split-and-Prune 优化算法。Split 操作针对被 GT 频繁匹配的节点，而 Prune 操作则解决"dead nodes"的问题。这些节点类比于进化论中的物种，会分化和灭绝。
-
-在训练过程中，我们会统计每个节点被 GT 匹配到的频率，对于频率过大的节点我们会执行 Split 操作，将该节点克隆为两个新节点，两者各继承旧节点一半的统计频次。而对于被匹配频率过小的节点(dead nodes)，我们对其执行 Prune 操作，直接将其删除。在下图中，通过二维概率密度估计的例子证实了 Split-and-Prune 算法的有效性。  
-![](img/2d-density.png)  
-*DDN 做二维概率密度估计:*  
-*第二行：由于 dead nodes 和概率密度偏移问题，单纯的梯度下降无法完成拟合。*  
-*第三行：搭配了 Split-and-Prune 的梯度下降能有效拟合目标分布。*  
-*本实验的具体设置在原论文中的 Figure 17。*
-
-此外，我们还用 GIF 图动态地展示了上述实验中 DDN 的优化过程：  
+DDN 做二维概率密度估计的优化过程可视化：  
 ![](img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif)  
-*GIF 详细说明见 [URL](https://discrete-distribution-networks.github.io/2d-density-estimation-gif-with-10000-nodes-ddn.html)，实验代码在 [toy_exp.py](https://github.com/diyer22/sddn?tab=readme-ov-file#-toy-example-for-2d-density-estimation)*
 
 ## 实验与特性展示
 ### 随机采样效果展示  
 ![](img/face-gen.png)  
 *在人脸数据集上的随机采样效果*
-
-初代 DDN 能勉强建模人脸图像。原论文中还包含了 CIFAR10 和 MNIST 的随机采样效果。
 
 ### 更通用的零样本条件生成
 我们先描述一下“零样本条件生成”（Zero-Shot Conditional Generation, ZSCG）这个任务：
@@ -97,38 +86,19 @@ DDN 是由 $L$ 层 DDL 组成，以第 $l$ 层 DDL $f_l$ 为例，输入上一�
 ![](img/zscg.png)  
 *用 Unconditional DDN 做零样本条件生成效果：DDN 能在不需要梯度的情况下，使不同模态的 Condition (比如 text prompt 加 CLIP) 来引导 Unconditional trained DDN 做条件生成。黄色框圈起来部分就是用于参考的 GT。SR 代表超分辨率、ST 代表 Style Transfer*
 
-如上图所示，DDN 支持丰富的零样本条件生成任务，其做法和图1中的 DDN 重建过程几乎一样。具体而言，只需把图1 中的 target 替换为对应的 condition，并且，把采样逻辑调整为从每一层的多个 outputs 中选出最符合当前 condition 的那一个 output 作为当前层的输出。这样随着层数的增加，生成的 output 越来越符合 condition。
-
-实际上，图1 中展示的重建过程也是一种以 target 为引导的零样本条件生成过程，因为 target 只影响采样过程，自始至终都没有直接输入网络。
-
-**ZSCG 相关工作：** [SDEdit](https://arxiv.org/abs/2108.01073) 论证了 diffusion 模型也能支持零样本条件生成任务。但是，因为需要在 condition 上添加噪声，SDEdit 的 condition 被限制在了 pixel domain。[FreeDoM](https://arxiv.org/abs/2303.09833) 进一步让 diffusion 能支持 non-pixel domain 的 condition，但依赖判别模型提供梯度，来引导 diffusion 的噪声方向。
-
-而 DDN 只需要判别模型对每个 output 做一次 forward，计算出和当前 condition 的 distance， 再用这个 distance 对 outputs 做筛选即可完成零样本条件生成任务。整个过程中不需要计算任何梯度，仅靠一个黑盒判别模型就能引导网络做零样本条件生成。DDN 是第一个支持如此特性的生成模型。换为更专业的术语描述便是：  
+如上图所示，DDN 支持丰富的零样本条件生成任务，其做法和图1中的 DDN 重建过程几乎一样。具体而言，只需把图1 中的 target 替换为对应的 condition，并且，把采样逻辑调整为从每一层的多个 outputs 中选出最符合当前 condition 的那一个 output 作为当前层的输出。这样随着层数的增加，生成的 output 越来越符合 condition。整个过程中不需要计算任何梯度，仅靠一个黑盒判别模型就能引导网络做零样本条件生成。DDN 是第一个支持如此特性的生成模型。换为更专业的术语描述便是：  
 > DDN 是首个支持用纯粹判别模型引导采样过程的生成模型，  
 > 某种意义上促进了生成模型和判别模型的大一统。
 
 这也意味着用户能够通过 DDN 高效地对整个分布空间进行筛选和操作。这个性质非常有趣，可玩性很高，个人感觉“零样本条件生成”将会得到广泛的应用。
 
 ### Conditional Training
-尽管 Zero-Shot Conditional Generation (ZSCG) 作为特色非常有趣，但将 condition 输入网络进行训练有以下好处:
-
-1. Condition 极大限制了生成空间的大小，进而缩减了建模难度，使得网络能够生成更高质量的样本。
-2. ZSCG 中，每层 outputs 都需要 transform to condition space，总共运算 $K \times L$ 次，对于那些计算量大的 transform (如 CLIP) 会消耗很多算力。
-
 训练 conditional DDN 非常简单，只需要把 condition 或者 condition 的特征直接输入网络中，网络便自动学会了 $P(X|Y)$。
 
 此外，conditional DDN 也可以和 ZSCG 结合以增强生成过程的可控性，下图的第四/五列就展示了以其它图像为 ZSCG 引导的情况下 conditional DDN 的生成效果。  
 ![](img/conditional-DDN.png)  
 *Conditional-DDNs 做上色和边缘转RGB任务. 第四、五列展示了以其它图像为引导的情况下，零样本条件生成的效果，生成的图像会在保证符合 condition 的情况下尽可能靠近 guided 图像的色调。*
 
-### Online demo  
-![](img/astronaut_coloring.gif)  
-*DDN 上色 demo 效果.gif*
-
-我们部署了一个用 DDN 做人脸上色任务的在线 demo ([国际网络](https://ddn-coloring-demo.diyer22.com/)、[国内网络](http://113.44.140.251:17860/))。
-
-- 该 Demo 主要展示 DDN 的 Zero-Shot Conditional Generation 能力和 Conditional Training 效果
-- 用户可以使用颜色笔划和 CLIP prompt 两种 conditon 来做 ZSCG
 
 
 ### 端到端可微分
@@ -146,62 +116,21 @@ DDN 天然具有一维的离散 latent。由于每一层 outputs 都 condition o
 
 DDN 具有较强的数据压缩能力（有损压缩）。DDN 的 latent 是一列整数(list of ints)，属于高度压缩的离散表征。一个 DDN latent 有 $log_2(K) \times L$ 个 bits 的信息量，以人脸图像实验默认的 $K=512$, $L=128$ 为例，一个样本可以被压缩到 1152 bits。
 
-我们考虑到生成效果和训练效率而选择 $K=512$，如果仅从数据压缩角度考虑, $K$ 设置为 2 并增大 $L$，能更好地平衡表示空间和压缩效率. 我们把 $K=2$ 的 DDN 称为 Taiji-DDN。Taiji-DDN 是首个能够将数据直接转换为具有语义的二进制串的生成式模型。而这个二进制串就代表一颗平衡二叉树上的某个叶子节点。
-
 ### Latent 可视化
 为了可视化 latent 的结构，我们在 MNIST 上训练了一个 output level 层数 $L=3$，每一层 output nodes 数目 $K=8$ 的 DDN，并以递归九宫格的形式来展示其 latent 的树形结构。九宫格的中心格子就是 condition，即上一层被采样到的 output，相邻的 8 个格子都代表基于中心格子为 condition 生成的 8 个新 outputs。  
 ![](img/tree-latent.mnist-vis-level3.png)  
 *Hierarchical Generation Visualization of DDN*  
 
-- 每个带有彩色边框的样本都是一个中间生成产物，在它周围一圈九宫格内的八个样本都是以它自己为条件生成的更精细的样本(被相同颜色的框圈起来的范围)。
-- 未带彩色边框的样本为最终生成的图像。图像越大，表示其为越早期的生成产物，也意味着图像越模糊。
-- 尺寸较大且带有蓝色边框的样本是第一层的 8 个输出，而带有绿色边框的样本是第二层的 $8^2=64$ 个输出。
-- 可以观察到，同一个格子内的图像间具有更高的相似性，这源于它们有更多的共同祖先。
-- 中间的那张大图是所有生成图像的平均。
 
-我们还提供上图的视频版，以动态地展示 DDN 训练时的优化过程：[BiliBili](https://www.bilibili.com/video/BV11tjdzbEoD/)、[YouTube](https://youtu.be/J4aOdyb7A58)。  
-此外，我们也提供 output level 层数 $L=4$ 时 [更细致的 latent 可视化图](https://discrete-distribution-networks.github.io/img/tree-latent.mnist-vis-level4.png)。
+我们还提供上图的视频版，以动态地展示 DDN 训练时的优化过程：[BiliBili](https://www.bilibili.com/video/BV11tjdzbEoD/)
 
-## 不足和改进
-作为一个全新的生成模型，DDN 的效果还很糟糕，有非常多的优化空间。我个人认为，当前 DDN 最主要的不足之处包括：
 
-1. $K^L$ 的 latent space 不够大，不足以表示复杂分布：
-    - 尽管指数复杂度足以重建保 ID 的人脸图像，但对于 ImageNet 这种自然图像，其复杂度远远不足
-    - 一个可能的改进是扩展 $K^L$ 的 latent 空间。大致做法是把一张图分为 N 块 patch，每个 patch 内部都从 K 个 outputs 的对应 patch 中独立选择最优 patch，再把选出的最优 patches 拼为一张完整的图，以作为当前层的输出和下一层的 condition。如此 latent 的空间将会增大至 $(K^ N) ^ L$
-    - 另外一个潜在的解决方案是参考 Latent Diffusion，额外添置一个 AutoEncoder 让 DDN 在复杂度更低的 latent 空间做生成建模
-2. Split-and-Prune 中的 Prune 操作会持续丢弃训练参数：
-    - 尤其是在 scaling up 模型的时候，丢弃经过长期训练过的参数不是明智的做法
-    - Split-and-Prune 算法的目标是平衡训练时，各个节点被采样到的频率。这个目标和 Mixture-of-Experts (MoE) models 在训练时候保持 experts 的 load balance 相似，因此，可以采用 [Loss-Free Balancing](https://arxiv.org/abs/2408.15664) 中加 bias 的方式，来平衡各个节点被采样到的频率
-3. 在原论文的 limitations and future work 章节有更多的扩展，这里就不一一展开了
-
-## 未来研究方向
-以下是我根据现阶段 DDN 的情况，推测未来可能的研究方向，包括 DDN 自身的改进以及适合现阶段 DDN 的任务。但由于个人视野有限，所以很多推测可能并不靠谱
-
-- 通过调参工作、探索实验、理论分析以改进 DDN 自身
-    - 做 DDN 的总时长不到三个月，而且大多数时候都是一个人。所以，实验很粗糙，也没精力调参和分析，有大量待完善空间
-- Scaling up 到 ImageNet 级别，打造出能实际使用、以零样本条件生成为特色的生成模型
-- 把 DDN 应用在生成空间不大的领域，我想了这几个适合的：
-    - Condition 自带丰富信息，生成空间复杂度较小的 conditional training 任务，例如图像上色、图像去噪
-    - Generative model for discriminative tasks 例如用生成模型来做深度估计、光流估计、位姿估计等
-    - Robot Learning 领域，接替 [Diffusion Policy](https://anuragajay.github.io/decision-diffuser/)，[Decision Diffuser](https://arxiv.org/abs/2211.15657) 中的 diffusion 模型
-    - 在上述这些领域中，相比 diffusion，DDN 可能有以下优势：
-        - 单次 forward 即可获得结果，不需要多步迭代降噪过程
-        - 若需要多次采样，比如求 uncertainty，DDN 可以在一次前向传播中直接获得多个结果，而不用做多次独立采样
-        - 可以借助 DDN 零样本条件生成的特性，在生成过程中方便地施加各种约束 (constraints) 
-        - DDN 支持更高效的 end-to-end 优化，可能更适合和判别模型、强化学习相配合
-- 把 DDN 应用在非生成类任务上
-    - 比如 DDN 天然支持无监督聚类，或者将其特殊的 latent 应用在数据压缩、相似性检索等领域 
-- 用 DDN 的设计思想来改进现有生成模型
-    - 比如第一篇引用了 DDN 的工作 [DDCM](https://arxiv.org/abs/2502.01189) 将 DDN 构造一维离散 latent 的思想用在了 diffusion 中
-- 和其它生成模型相结合，做到优势互补
-    - 和 AutoEncoder 结合：类似于 latent diffusion，让 DDN 在复杂度低的 latent 空间做生成任务
-    - 和 GAN 结合：DDN 擅长建模完整分布，但建模不好高频信号，GAN 性质正好相反。且 DDN 长得就像个生成器，还端到端可微，看起来 DDN 和 GAN 的判别器十分般配
+## 未来可能的研究方向
+- 通过调参工作、探索实验、理论分析以改进 DDN 自身，Scaling up 到 ImageNet 级别，打造出能实际使用、以零样本条件生成为特色的生成模型
+- 把 DDN 应用在生成空间不大的领域，例如图像上色、图像去噪。又或者 Robot Learning 领域的 Diffusion Policy
+- 把 DDN 应用在非生成类任务上，比如 DDN 天然支持无监督聚类，或者将其特殊的 latent 应用在数据压缩、相似性检索等领域 
+- 用 DDN 的设计思想来改进现有生成模型，或者和其它生成模型相结合，做到优势互补
 - 将 DDN 应用在 LLM 的文本建模任务上
-    - 我做了一个初步的尝试，[将 DDN 融入 GPT](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/1)，旨在去掉 tokenizer，并让 LLM 直接建模二进制串。
-    - 而且希望在每次前向传播中，模型会根据生成难度自适应调整生成内容的 byte 长度(可以理解为天然支持 speculative sampling)
-
-## 后记
-一个有趣的现象是，当我向不同领域的人介绍 DDN 时，很多人会觉得 DDN 与他们领域中的某些概念相似。有人觉得 DDN 像 VQ-VAE，有人觉得像扩散模型，还有人觉得像强化学习，甚至有人认为它类似于 LLM 中的 MoE（混合专家系统）。一个算法能让如此多不同领域的人产生共鸣，实属难得。作为全新的生成模型，DDN 还有许多值得分享的内容，但受篇幅限制，这里就不一一展开了。欢迎感兴趣的读者阅读原论文，或在评论区留言交流。
 
 
 **arXiv：** https://arxiv.org/abs/2401.00036  
@@ -209,20 +138,3 @@ DDN 具有较强的数据压缩能力（有损压缩）。DDN 的 latent 是一�
 **Project Page：** https://discrete-distribution-networks.github.io/
 
 
-## 附录：关于 DDN 的常见疑问
-
-Q1: DDN 显存占用会不会很大？  
-
-> DDN 的显存占用只比同架构的 GAN generator 多了一点，几乎没有差别。
->
-> 在训练阶段，生成 $K$ 个样本仅用于找出和 GT 最相似的那个样本，而没被选中的 $K-1$ 个样本不会计算梯度，所以在当前层采样完成后，它们会立即释放，不会占用显存。  
-> 
-> 在生成阶段，提前从 $[1, K]$ 中随机采样一个数作为 index ，只需生成被选择的 index 处的 output，而无需生成其它 $K-1$ 个 outputs，这样既不会占用显存，也不会有额外的计算。
-
-Q2: 会不会有模式塌陷问题?  
-
-> 不会。DDN 会找出和当前 GT 最相似的 output，再用 L2 loss 使其和当前 GT 更加相似，这个操作天然具有 diverse 倾向，能够“撑开”整个生成空间。
->
-> 此外，DDN 支持样本重建，原论文中的 Figure 14 展示了 DDN 在测试集上具有良好的重建效果，这意味着 DDN 能够完整地覆盖目标分布。
-> 
-> DDN 真正的问题不是模式塌陷，而是试图覆盖超出自身复杂度的高维目标分布，从而导致生成模糊的样本。
