@@ -5,9 +5,11 @@ pandoc wechat_manuscript.md -o 离散分布网络.docx --resource-path=.:./img
 
 
 
-# ICLR 2025 | 全新的生成模型，带来独一无二的能力
+# 全新的生成模型：“离散分布网络”，其原理简单、性质独特
 
-我们提出了一种全新的生成模型：离散分布网络（Discrete Distribution Networks），简称 DDN。相关论文已发表于 ICLR 2025。
+基础生成模型大概有五大类，分别是 ：Energy-Based Model、GAN、Autoregressive、VAE 和 Flow-Based Model。
+
+本项工作提出了一种全新的生成模型：离散分布网络（Discrete Distribution Networks），简称 DDN。相关论文已发表于 ICLR 2025。
 
 DDN 采用一种简洁且独特的机制来建模目标分布：
 
@@ -15,23 +17,30 @@ DDN 采用一种简洁且独特的机制来建模目标分布：
 2. 这些输出共同构成一个包含 $K$ 个等权重（概率均为 $1/K$）样本点的离散分布，这也是“离散分布网络”名称的由来。
 3. 训练目标是通过优化样本点的位置，使网络输出的离散分布尽可能逼近训练数据的真实分布。
 
-每一类生成模型都有其独特的性质，DDN 也不例外。我们将重点介绍 DDN 的三个特性：
+每一类生成模型都有其独特的性质，DDN 也不例外。本文将重点介绍 DDN 的三个特性：
 
 - 零样本条件生成 (Zero-Shot Conditional Generation, ZSCG)
 - 树状结构的一维离散潜变量 (Tree-Structured 1D Discrete Latent)
 - 完全的端到端可微分 (Fully End-to-End Differentiable)
 
+
+**论文标题：** Discrete Distribution Networks  
+**论文链接：** https://arxiv.org/abs/2401.00036  
+**项目链接：** https://discrete-distribution-networks.github.io/  
+**代码地址：** https://github.com/DIYer22/discrete_distribution_networks  
+**发文单位：** 阶跃星辰、旷视科技  
+
 ## 离散分布网络原理
 ![](img/ddn-intro.png)  
 *图1：DDN 的重建过程示意图*
 
-首先，我们借助上图所示的 DDN 重建流程作为切入点来一窥其原理。与 diffusion 和 GAN 不同，它们无法重建数据，DDN 能像 VAE 一样具有数据重建能力：先将数据映射为 latent ，再由 latent 生成与原始图像高度相似的重建图像。
+首先，借助上图所示的 DDN 重建流程作为切入点来一窥其原理。与 diffusion 和 GAN 不同，它们无法重建数据，DDN 能像 VAE 一样具有数据重建能力：先将数据映射为 latent ，再由 latent 生成与原始图像高度相似的重建图像。
 
 上图展示了 DDN 重建 target 并获得其 latent 的过程。一般 DDN 内部包含多个层级结构，其层数为 $L$，示意图里 $L=3$。但先让我们把目光集中在最左侧的第一层。
 
 **离散分布：** 正如上文所言，DDN 的核心思想在于让网络同时生成 $K$ 个输出，从而表示 “网络输出了一个离散分布”。因此每一层 DDN 都有 $K$ 个 outputs，即一次性输出 $K$ 张不同的图像，示意图中 $K=3$。每个 output 都代表了这个离散分布中的一个样本点，每个样本点的概率质量相等，均为 $1/K$。
 
-**层次化生成：** 我们的目标是让这个离散分布 ($K$ 个 outputs)，和我们的目标分布（训练集）越接近越好，显然，单靠第一层的 $K$ 个 outputs 无法清晰地刻画整个 MNIST 数据集。第一层获得的 $K$ 张图像更像是将 MNIST 聚为 $K$ 类后得到的平均图像。因此，我们引入“层次化生成”设计以获得更加清晰的图像。
+**层次化生成：** 最终目标是让这个离散分布 ($K$ 个 outputs)，和目标分布（训练集）越接近越好，显然，单靠第一层的 $K$ 个 outputs 无法清晰地刻画整个 MNIST 数据集。第一层获得的 $K$ 张图像更像是将 MNIST 聚为 $K$ 类后得到的平均图像。因此，我们引入“层次化生成”设计以获得更加清晰的图像。
 
 在第一层，橙色 Sampler 根据 $L_2$ 距离从 $K$ 个 outputs 中选出和重建 target 最相似的一张 output。再把被选中的 output 图输入回网络，作为第二层 DDN 的 condition。这样，第二层 DDN 就会基于 condition（被选中的图）生成新的 $K$ 张和 target 更相似的 outputs。接着，从第二层的 outputs 中继续选择出和 target 最相似的一张作为第三层的 condition，并重复上述过程。随着层数增加, 生成的图像和 target 会越来越相似，最终完成对 target 的重建。
 
@@ -46,7 +55,7 @@ DDN 采用一种简洁且独特的机制来建模目标分布：
 ![](img/overview.png)  
 *DDN 网络结构示意图和支持的两种网络结构形式*
 
-在图 (a) 中，我们把生成相关的设计整合为 Discrete Distribution Layer(DDL)， 把仅提供基础计算的模块封装为了 NN Block，并重点展示训练时 DDL 内部的数据流。主要关注以下几点：
+在图 (a) 中，把生成相关的设计整合为 Discrete Distribution Layer(DDL)， 把仅提供基础计算的模块封装为了 NN Block，并重点展示训练时 DDL 内部的数据流。主要关注以下几点：
 
 - 第一层 DDN 的输入为 zero tensor，不需要任何 condition
 - DDL 内部通过 $K$ 个 conv1x1 来同时生成 $K$ 个 outputs
@@ -66,10 +75,10 @@ DDN 是由 $L$ 层 DDL 组成，以第 $l$ 层 DDL $f_l$ 为例，输入上一�
 
 其中, $\mathbf{x}^ * _ 0 = \mathbf{0}$ 代表第一层 DDL 的输入为 zero tensor。DDN 的总 loss 就是每一层的 loss $J_l$ 取平均。
 
-此外，我们还提出了 Split-and-Prune 优化算法来使得训练时每个节点被 GT 匹配上的概率均匀，都是 $1/K$
+此外，本文还提出了 Split-and-Prune 优化算法来使得训练时每个节点被 GT 匹配上的概率均匀，都是 $1/K$。
 
-DDN 做二维概率密度估计的优化过程可视化：  
-![](img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif)  
+下图展示了 DDN 做二维概率密度估计的优化过程：  
+![](img_for_other_repo/2d-density-for-wechat.gif)  
 
 ## 实验与特性展示
 ### 随机采样效果展示  
@@ -77,7 +86,7 @@ DDN 做二维概率密度估计的优化过程可视化：
 *在人脸数据集上的随机采样效果*
 
 ### 更通用的零样本条件生成
-我们先描述一下“零样本条件生成”（Zero-Shot Conditional Generation, ZSCG）这个任务：
+先描述一下“零样本条件生成”（Zero-Shot Conditional Generation, ZSCG）这个任务：
 
 - 首先，Unconditional 地训练一个生成模型，即训练阶段，模型只见过图像，没有见过任何 condition 信号。
 - 在生成阶段，用户会提供 condition，比如 text prompt、低分辨率图像、黑白图像。
@@ -122,19 +131,12 @@ DDN 具有较强的数据压缩能力（有损压缩）。DDN 的 latent 是一�
 *Hierarchical Generation Visualization of DDN*  
 
 
-我们还提供上图的视频版，以动态地展示 DDN 训练时的优化过程：[BiliBili](https://www.bilibili.com/video/BV11tjdzbEoD/)
-
-
 ## 未来可能的研究方向
 - 通过调参工作、探索实验、理论分析以改进 DDN 自身，Scaling up 到 ImageNet 级别，打造出能实际使用、以零样本条件生成为特色的生成模型
 - 把 DDN 应用在生成空间不大的领域，例如图像上色、图像去噪。又或者 Robot Learning 领域的 Diffusion Policy
 - 把 DDN 应用在非生成类任务上，比如 DDN 天然支持无监督聚类，或者将其特殊的 latent 应用在数据压缩、相似性检索等领域 
 - 用 DDN 的设计思想来改进现有生成模型，或者和其它生成模型相结合，做到优势互补
-- 将 DDN 应用在 LLM 的文本建模任务上
+- 将 DDN 应用在 LLM 领域，做序列建模任务
 
-
-**arXiv：** https://arxiv.org/abs/2401.00036  
-**GitHub：** https://github.com/DIYer22/discrete_distribution_networks  
-**Project Page：** https://discrete-distribution-networks.github.io/
 
 
