@@ -1,8 +1,12 @@
+<!-- 
+
 ```bash
 pandoc wechat_manuscript.md -o 离散分布网络.docx --resource-path=.:./img
 ```
 
-
+作者简介：
+本文作者杨磊，目前在大模型初创公司阶跃星辰担任后训练算法工程师，其研究领域包括生成模型和语言模型后训练。在这之前，他曾在旷视科技担任六年计算机视觉算法工程师，从事三维视觉、数据合成等方向。他于2018年本科毕业于北京化工大学。
+-->
 
 
 # 全新的生成模型：“离散分布网络”，其原理简单、性质独特
@@ -24,7 +28,7 @@ DDN 采用一种简洁且独特的机制来建模目标分布：
 - 完全的端到端可微分 (Fully End-to-End Differentiable)
 
 
-**论文标题：** Discrete Distribution Networks  
+**论文标题：** 《Discrete Distribution Networks》  
 **论文链接：** https://arxiv.org/abs/2401.00036  
 **项目链接：** https://discrete-distribution-networks.github.io/  
 **代码地址：** https://github.com/DIYer22/discrete_distribution_networks  
