@@ -4,14 +4,12 @@
 pandoc wechat_manuscript.md -o 离散分布网络.docx --resource-path=.:./img
 ```
 
-作者简介：
-本文作者杨磊，目前在大模型初创公司阶跃星辰担任后训练算法工程师，其研究领域包括生成模型和语言模型后训练。在这之前，他曾在旷视科技担任六年计算机视觉算法工程师，从事三维视觉、数据合成等方向。他于2018年本科毕业于北京化工大学。
 -->
 
 
 # 全新的生成模型：“离散分布网络”，其原理简单、性质独特
 
-基础生成模型大概有五大类，分别是 ：Energy-Based Model、GAN、Autoregressive、VAE 和 Flow-Based Model。
+基础生成模型大概有五大类，分别是 ：Energy-Based Models(Diffusion)、GAN、Autoregressive、VAE 和 Flow-Based Models。
 
 本项工作提出了一种全新的生成模型：离散分布网络（Discrete Distribution Networks），简称 DDN。相关论文已发表于 ICLR 2025。
 
