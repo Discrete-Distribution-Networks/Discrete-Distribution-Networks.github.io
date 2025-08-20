@@ -18,7 +18,7 @@ DDN 采用一种简洁且独特的机制来建模目标分布：
 ![](img/ddn-intro.png)  
 *图1：DDN 的重建过程示意图*
 
-首先，我们借助上图所示的 DDN 重建流程作为切入点来一窥其原理。与 diffusion 和 GAN 不同，它们无法重建数据，DDN 能像 VAE 一样具有数据重建能力：先将数据映射为 latent ，再由 latent 生成与原始图像高度相似的重建图像。
+首先，我们借助上图所示的 DDN 重建流程作为切入点来一窥其原理。与 diffusion 和 GAN 不同，它们无法重建数据，DDN 能像 VAE 一样具有数据重建能力：先将数据映射为低维 latent ，再由 latent 生成与原始图像高度相似的重建图像。
 
 上图展示了 DDN 重建 target 并获得其 latent 的过程。一般 DDN 内部包含多个层级结构，其层数为 $L$，示意图里 $L=3$。但先让我们把目光集中在最左侧的第一层。
 
@@ -181,7 +181,7 @@ DDN 具有较强的数据压缩能力（有损压缩）。DDN 的 latent 是一�
     - 做 DDN 的总时长不到三个月，而且大多数时候都是一个人。所以，实验很粗糙，也没精力调参和分析，有大量待完善空间
 - Scaling up 到 ImageNet 级别，打造出能实际使用、以零样本条件生成为特色的生成模型
 - 把 DDN 应用在生成空间不大的领域，我想了这几个适合的：
-    - Condition 自带丰富信息，生成空间复杂度较小的 conditional training 任务，例如图像上色、图像去噪
+    - Condition 自带丰富信息，生成空间复杂度较小的 conditional training 任务，例如图像上色、TTS (text-to-speech)
     - Generative model for discriminative tasks 例如用生成模型来做深度估计、光流估计、位姿估计等
     - Robot Learning 领域，接替 [Diffusion Policy](https://anuragajay.github.io/decision-diffuser/)，[Decision Diffuser](https://arxiv.org/abs/2211.15657) 中的 diffusion 模型
     - 在上述这些领域中，相比 diffusion，DDN 可能有以下优势：
