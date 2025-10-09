@@ -259,3 +259,30 @@ Q2: Will there be a mode collapse issue?
 > Additionally, DDN supports reconstruction. Figure 14 in the original paper shows that DDN has good reconstruction performance on the test set, meaning that DDN can fully cover the target distribution.
 > 
 > The real issue with DDN is not mode collapse but attempting to cover a high-dimensional target distribution that exceeds its own complexity, leading to the generation of blurry samples.
+
+
+
+<style>
+html, body {
+width: auto !important;
+max-width: 100% !important;
+padding: 0px !important;
+margin: 0px !important;
+}
+._theme-github {
+background-color: rgb(255, 255, 255);
+}
+.markdown-body {
+min-width: 468px;
+max-width: 1024px;
+background-color: rgb(255, 255, 255);
+overflow: auto;
+border-width: 1px;
+border-style: solid;
+border-color: rgb(221, 221, 221);
+border-image: initial;
+padding: 45px;
+margin: 20px auto;
+}
+
+</style>
