@@ -19,8 +19,9 @@
 <div style="margin-top:-30px">
 
 🥳 Accepted by **ICLR 2025**  
-🚀 The code has been [released](https://github.com/DIYer22/discrete_distribution_networks)  
+📝 Released a [blog](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/blob/main/blog_en.md) with added insights
 
+<!-- 🚀 The code has been [released](https://github.com/DIYer22/discrete_distribution_networks)   -->
  <!-- <img src="img/logo-ICLR.svg" style="max-height:18px; margin-top:10px">   -->
 
 </div>
