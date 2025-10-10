@@ -224,7 +224,7 @@ Based on the current state of DDN, we speculate on several possible future resea
     - Single forward pass to obtain results, no iterative denoising required.
     - If multiple samples are needed (e.g., for uncertainty estimation), DDN can directly produce multiple outputs in one forward pass.
     - Easy to impose constraints during generation due to DDN's Zero-Shot Conditional Generation capability.
-    - DDN supports more efficient end-to-end optimization, thus more suitable for integration with discriminative models and reinforcement learning.
+    - DDN is fully [end-to-end differentiable](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/blob/main/blog_en.md#end-to-end-differentiable), enabling more efficient optimization when integrated with discriminative models or reinforcement learning.
 
 - **Applying DDN to non-generative tasks:**  
   - DDN naturally supports unsupervised clustering. And its unique latent representation could be useful in data compression, similarity retrieval, and other areas.

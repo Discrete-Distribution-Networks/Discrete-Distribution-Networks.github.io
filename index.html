@@ -1,1073 +1,1089 @@
 <html><head><meta name="color-scheme" content="light dark"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
-  .CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
-  .CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
-  .CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
-  </style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
-  .CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
-  .CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
-  .CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
-  .CtxtMenu_MenuClose:hover:focus {  outline:none}
-  </style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
-  .CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
-  .CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
-  .CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
-  .CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
-  .CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
-  .CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
-  .CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
-  .CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
-  .CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
-  .CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
-  .CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
-  .CtxtMenu_MenuSlider {  left: .1em;}
-  .CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
-  .CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
-  .CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
-  .CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
-  .CtxtMenu_MenuDisabled {  color:GrayText}
-  .CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
-  .CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
-  .CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
-  .CtxtMenu_ContextMenu:focus {  outline:none}
-  .CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
-  .CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
-  .CtxtMenu_SelectionItem {  padding-right: 1em;}
-  .CtxtMenu_Selection {  right: 40%; width:50%; }
-  .CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
-  .CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
-  .CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
-  </style><link rel="icon" href="icons/dark/16x16.png"><style id="MJX-CHTML-styles">
-  mjx-container[jax="CHTML"] {
-    line-height: 0;
-  }
-  
-  mjx-container [space="1"] {
-    margin-left: .111em;
-  }
-  
-  mjx-container [space="2"] {
-    margin-left: .167em;
-  }
-  
-  mjx-container [space="3"] {
-    margin-left: .222em;
-  }
-  
-  mjx-container [space="4"] {
-    margin-left: .278em;
-  }
-  
-  mjx-container [space="5"] {
-    margin-left: .333em;
-  }
-  
-  mjx-container [rspace="1"] {
-    margin-right: .111em;
-  }
-  
-  mjx-container [rspace="2"] {
-    margin-right: .167em;
-  }
-  
-  mjx-container [rspace="3"] {
-    margin-right: .222em;
-  }
-  
-  mjx-container [rspace="4"] {
-    margin-right: .278em;
-  }
-  
-  mjx-container [rspace="5"] {
-    margin-right: .333em;
-  }
-  
-  mjx-container [size="s"] {
-    font-size: 70.7%;
-  }
-  
-  mjx-container [size="ss"] {
-    font-size: 50%;
-  }
-  
-  mjx-container [size="Tn"] {
-    font-size: 60%;
-  }
-  
-  mjx-container [size="sm"] {
-    font-size: 85%;
-  }
-  
-  mjx-container [size="lg"] {
-    font-size: 120%;
-  }
-  
-  mjx-container [size="Lg"] {
-    font-size: 144%;
-  }
-  
-  mjx-container [size="LG"] {
-    font-size: 173%;
-  }
-  
-  mjx-container [size="hg"] {
-    font-size: 207%;
-  }
-  
-  mjx-container [size="HG"] {
-    font-size: 249%;
-  }
-  
-  mjx-container [width="full"] {
-    width: 100%;
-  }
-  
-  mjx-box {
-    display: inline-block;
-  }
-  
-  mjx-block {
-    display: block;
-  }
-  
-  mjx-itable {
-    display: inline-table;
-  }
-  
-  mjx-row {
-    display: table-row;
-  }
-  
-  mjx-row > * {
-    display: table-cell;
-  }
-  
-  mjx-mtext {
-    display: inline-block;
-  }
-  
-  mjx-mstyle {
-    display: inline-block;
-  }
-  
-  mjx-merror {
-    display: inline-block;
-    color: red;
-    background-color: yellow;
-  }
-  
-  mjx-mphantom {
-    visibility: hidden;
-  }
-  
-  _::-webkit-full-page-media, _:future, :root mjx-container {
-    will-change: opacity;
-  }
-  
-  mjx-assistive-mml {
-    position: absolute !important;
-    top: 0px;
-    left: 0px;
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 1px 0px 0px 0px !important;
-    border: 0px !important;
-    display: block !important;
-    width: auto !important;
-    overflow: hidden !important;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  mjx-assistive-mml[display="block"] {
-    width: 100% !important;
-  }
-  
-  mjx-math {
-    display: inline-block;
-    text-align: left;
-    line-height: 0;
-    text-indent: 0;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 100%;
-    font-size-adjust: none;
-    letter-spacing: normal;
-    border-collapse: collapse;
-    word-wrap: normal;
-    word-spacing: normal;
-    white-space: nowrap;
-    direction: ltr;
-    padding: 1px 0;
-  }
-  
-  mjx-container[jax="CHTML"][display="true"] {
-    display: block;
-    text-align: center;
-    margin: 1em 0;
-  }
-  
-  mjx-container[jax="CHTML"][display="true"][width="full"] {
-    display: flex;
-  }
-  
-  mjx-container[jax="CHTML"][display="true"] mjx-math {
-    padding: 0;
-  }
-  
-  mjx-container[jax="CHTML"][justify="left"] {
-    text-align: left;
-  }
-  
-  mjx-container[jax="CHTML"][justify="right"] {
-    text-align: right;
-  }
-  
-  mjx-mi {
-    display: inline-block;
-    text-align: left;
-  }
-  
-  mjx-c {
-    display: inline-block;
-  }
-  
-  mjx-utext {
-    display: inline-block;
-    padding: .75em 0 .2em 0;
-  }
-  
-  mjx-mo {
-    display: inline-block;
-    text-align: left;
-  }
-  
-  mjx-stretchy-h {
-    display: inline-table;
-    width: 100%;
-  }
-  
-  mjx-stretchy-h > * {
-    display: table-cell;
-    width: 0;
-  }
-  
-  mjx-stretchy-h > * > mjx-c {
-    display: inline-block;
-    transform: scalex(1.0000001);
-  }
-  
-  mjx-stretchy-h > * > mjx-c::before {
-    display: inline-block;
-    width: initial;
-  }
-  
-  mjx-stretchy-h > mjx-ext {
-    /* IE */ overflow: hidden;
-    /* others */ overflow: clip visible;
-    width: 100%;
-  }
-  
-  mjx-stretchy-h > mjx-ext > mjx-c::before {
-    transform: scalex(500);
-  }
-  
-  mjx-stretchy-h > mjx-ext > mjx-c {
-    width: 0;
-  }
-  
-  mjx-stretchy-h > mjx-beg > mjx-c {
-    margin-right: -.1em;
-  }
-  
-  mjx-stretchy-h > mjx-end > mjx-c {
-    margin-left: -.1em;
-  }
-  
-  mjx-stretchy-v {
-    display: inline-block;
-  }
-  
-  mjx-stretchy-v > * {
-    display: block;
-  }
-  
-  mjx-stretchy-v > mjx-beg {
-    height: 0;
-  }
-  
-  mjx-stretchy-v > mjx-end > mjx-c {
-    display: block;
-  }
-  
-  mjx-stretchy-v > * > mjx-c {
-    transform: scaley(1.0000001);
-    transform-origin: left center;
-    overflow: hidden;
-  }
-  
-  mjx-stretchy-v > mjx-ext {
-    display: block;
-    height: 100%;
-    box-sizing: border-box;
-    border: 0px solid transparent;
-    /* IE */ overflow: hidden;
-    /* others */ overflow: visible clip;
-  }
-  
-  mjx-stretchy-v > mjx-ext > mjx-c::before {
-    width: initial;
-    box-sizing: border-box;
-  }
-  
-  mjx-stretchy-v > mjx-ext > mjx-c {
-    transform: scaleY(500) translateY(.075em);
-    overflow: visible;
-  }
-  
-  mjx-mark {
-    display: inline-block;
-    height: 0px;
-  }
-  
-  mjx-mn {
-    display: inline-block;
-    text-align: left;
-  }
-  
-  mjx-msub {
-    display: inline-block;
-    text-align: left;
-  }
-  
-  mjx-msubsup {
-    display: inline-block;
-    text-align: left;
-  }
-  
-  mjx-script {
-    display: inline-block;
-    padding-right: .05em;
-    padding-left: .033em;
-  }
-  
-  mjx-script > mjx-spacer {
-    display: block;
-  }
-  
-  mjx-TeXAtom {
-    display: inline-block;
-    text-align: left;
-  }
-  
-  mjx-c::before {
-    display: block;
-    width: 0;
-  }
-  
-  .MJX-TEX {
-    font-family: MJXZERO, MJXTEX;
-  }
-  
-  .TEX-B {
-    font-family: MJXZERO, MJXTEX-B;
-  }
-  
-  .TEX-I {
-    font-family: MJXZERO, MJXTEX-I;
-  }
-  
-  .TEX-MI {
-    font-family: MJXZERO, MJXTEX-MI;
-  }
-  
-  .TEX-BI {
-    font-family: MJXZERO, MJXTEX-BI;
-  }
-  
-  .TEX-S1 {
-    font-family: MJXZERO, MJXTEX-S1;
-  }
-  
-  .TEX-S2 {
-    font-family: MJXZERO, MJXTEX-S2;
-  }
-  
-  .TEX-S3 {
-    font-family: MJXZERO, MJXTEX-S3;
-  }
-  
-  .TEX-S4 {
-    font-family: MJXZERO, MJXTEX-S4;
-  }
-  
-  .TEX-A {
-    font-family: MJXZERO, MJXTEX-A;
-  }
-  
-  .TEX-C {
-    font-family: MJXZERO, MJXTEX-C;
-  }
-  
-  .TEX-CB {
-    font-family: MJXZERO, MJXTEX-CB;
-  }
-  
-  .TEX-FR {
-    font-family: MJXZERO, MJXTEX-FR;
-  }
-  
-  .TEX-FRB {
-    font-family: MJXZERO, MJXTEX-FRB;
-  }
-  
-  .TEX-SS {
-    font-family: MJXZERO, MJXTEX-SS;
-  }
-  
-  .TEX-SSB {
-    font-family: MJXZERO, MJXTEX-SSB;
-  }
-  
-  .TEX-SSI {
-    font-family: MJXZERO, MJXTEX-SSI;
-  }
-  
-  .TEX-SC {
-    font-family: MJXZERO, MJXTEX-SC;
-  }
-  
-  .TEX-T {
-    font-family: MJXZERO, MJXTEX-T;
-  }
-  
-  .TEX-V {
-    font-family: MJXZERO, MJXTEX-V;
-  }
-  
-  .TEX-VB {
-    font-family: MJXZERO, MJXTEX-VB;
-  }
-  
-  mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
-    font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
-  }
-  
-  @font-face /* 0 */ {
-    font-family: MJXZERO;
-    src: url("vendor/mathjax/fonts/MathJax_Zero.woff") format("woff");
-  }
-  
-  @font-face /* 1 */ {
-    font-family: MJXTEX;
-    src: url("vendor/mathjax/fonts/MathJax_Main-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 2 */ {
-    font-family: MJXTEX-B;
-    src: url("vendor/mathjax/fonts/MathJax_Main-Bold.woff") format("woff");
-  }
-  
-  @font-face /* 3 */ {
-    font-family: MJXTEX-I;
-    src: url("vendor/mathjax/fonts/MathJax_Math-Italic.woff") format("woff");
-  }
-  
-  @font-face /* 4 */ {
-    font-family: MJXTEX-MI;
-    src: url("vendor/mathjax/fonts/MathJax_Main-Italic.woff") format("woff");
-  }
-  
-  @font-face /* 5 */ {
-    font-family: MJXTEX-BI;
-    src: url("vendor/mathjax/fonts/MathJax_Math-BoldItalic.woff") format("woff");
-  }
-  
-  @font-face /* 6 */ {
-    font-family: MJXTEX-S1;
-    src: url("vendor/mathjax/fonts/MathJax_Size1-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 7 */ {
-    font-family: MJXTEX-S2;
-    src: url("vendor/mathjax/fonts/MathJax_Size2-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 8 */ {
-    font-family: MJXTEX-S3;
-    src: url("vendor/mathjax/fonts/MathJax_Size3-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 9 */ {
-    font-family: MJXTEX-S4;
-    src: url("vendor/mathjax/fonts/MathJax_Size4-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 10 */ {
-    font-family: MJXTEX-A;
-    src: url("vendor/mathjax/fonts/MathJax_AMS-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 11 */ {
-    font-family: MJXTEX-C;
-    src: url("vendor/mathjax/fonts/MathJax_Calligraphic-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 12 */ {
-    font-family: MJXTEX-CB;
-    src: url("vendor/mathjax/fonts/MathJax_Calligraphic-Bold.woff") format("woff");
-  }
-  
-  @font-face /* 13 */ {
-    font-family: MJXTEX-FR;
-    src: url("vendor/mathjax/fonts/MathJax_Fraktur-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 14 */ {
-    font-family: MJXTEX-FRB;
-    src: url("vendor/mathjax/fonts/MathJax_Fraktur-Bold.woff") format("woff");
-  }
-  
-  @font-face /* 15 */ {
-    font-family: MJXTEX-SS;
-    src: url("vendor/mathjax/fonts/MathJax_SansSerif-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 16 */ {
-    font-family: MJXTEX-SSB;
-    src: url("vendor/mathjax/fonts/MathJax_SansSerif-Bold.woff") format("woff");
-  }
-  
-  @font-face /* 17 */ {
-    font-family: MJXTEX-SSI;
-    src: url("vendor/mathjax/fonts/MathJax_SansSerif-Italic.woff") format("woff");
-  }
-  
-  @font-face /* 18 */ {
-    font-family: MJXTEX-SC;
-    src: url("vendor/mathjax/fonts/MathJax_Script-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 19 */ {
-    font-family: MJXTEX-T;
-    src: url("vendor/mathjax/fonts/MathJax_Typewriter-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 20 */ {
-    font-family: MJXTEX-V;
-    src: url("vendor/mathjax/fonts/MathJax_Vector-Regular.woff") format("woff");
-  }
-  
-  @font-face /* 21 */ {
-    font-family: MJXTEX-VB;
-    src: url("vendor/mathjax/fonts/MathJax_Vector-Bold.woff") format("woff");
-  }
-  
-  mjx-c.mjx-c1D43E.TEX-I::before {
-    padding: 0.683em 0.889em 0 0;
-    content: "K";
-  }
-  
-  mjx-c.mjx-c3D::before {
-    padding: 0.583em 0.778em 0.082em 0;
-    content: "=";
-  }
-  
-  mjx-c.mjx-c33::before {
-    padding: 0.665em 0.5em 0.022em 0;
-    content: "3";
-  }
-  
-  mjx-c.mjx-c1D443.TEX-I::before {
-    padding: 0.683em 0.751em 0 0;
-    content: "P";
-  }
-  
-  mjx-c.mjx-c28::before {
-    padding: 0.75em 0.389em 0.25em 0;
-    content: "(";
-  }
-  
-  mjx-c.mjx-c1D44B.TEX-I::before {
-    padding: 0.683em 0.852em 0 0;
-    content: "X";
-  }
-  
-  mjx-c.mjx-c29::before {
-    padding: 0.75em 0.389em 0.25em 0;
-    content: ")";
-  }
-  
-  mjx-c.mjx-c1D43F.TEX-I::before {
-    padding: 0.683em 0.681em 0 0;
-    content: "L";
-  }
-  
-  mjx-c.mjx-c1D459.TEX-I::before {
-    padding: 0.694em 0.298em 0.011em 0;
-    content: "l";
-  }
-  
-  mjx-c.mjx-c1D453.TEX-I::before {
-    padding: 0.705em 0.55em 0.205em 0;
-    content: "f";
-  }
-  
-  mjx-c.mjx-c1D431.TEX-B::before {
-    padding: 0.444em 0.607em 0 0;
-    content: "x";
-  }
-  
-  mjx-c.mjx-c2217::before {
-    padding: 0.465em 0.5em 0 0;
-    content: "\2217";
-  }
-  
-  mjx-c.mjx-c2212::before {
-    padding: 0.583em 0.778em 0.082em 0;
-    content: "\2212";
-  }
-  
-  mjx-c.mjx-c31::before {
-    padding: 0.666em 0.5em 0 0;
-    content: "1";
-  }
-  
-  mjx-c.mjx-c1D458.TEX-I::before {
-    padding: 0.694em 0.521em 0.011em 0;
-    content: "k";
-  }
-  
-  mjx-c.mjx-c1D43D.TEX-I::before {
-    padding: 0.683em 0.633em 0.022em 0;
-    content: "J";
-  }
-  
-  mjx-c.mjx-c30::before {
-    padding: 0.666em 0.5em 0.022em 0;
-    content: "0";
-  }
-  
-  mjx-c.mjx-c1D7CE.TEX-B::before {
-    padding: 0.654em 0.575em 0.01em 0;
-    content: "0";
-  }
-  
-  mjx-c.mjx-c38::before {
-    padding: 0.666em 0.5em 0.022em 0;
-    content: "8";
-  }
-  
-  mjx-c.mjx-c34::before {
-    padding: 0.677em 0.5em 0 0;
-    content: "4";
-  }
-  </style></head><body class="_theme-github _color-light"><link rel="stylesheet" type="text/css" href="themes/github.css" id="_theme"><link rel="stylesheet" type="text/css" href="vendor/prism.min.css" id="_prism"><div id="_html" class="markdown-body" style="visibility: visible;">
-      <meta charset="UTF-8">
-      <title>DDN: Discrete Distribution Networks</title>
-      <meta name="description" content="Novel Generative Model with Simple Principles and Unique Properties">
-      <meta name="keywords" content="DDN, generative model">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
-      <meta property="og:title" content="DDN: Discrete Distribution Networks">
-      <meta property="og:description" content="Novel Generative Model with Simple Principles and Unique Properties">
-      <meta property="og:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
-      <meta name="twitter:card" content="summary_large_image">
-      <meta property="twitter:domain" content="discrete-distribution-networks.github.io">
-      <meta property="twitter:url" content="https://discrete-distribution-networks.github.io/">
-      <meta name="twitter:title" content="DDN: Discrete Distribution Networks">
-      <meta name="twitter:description" content="Novel Generative Model with Simple Principles and Unique Properties">
-      <meta name="twitter:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
-  
-  
-  <div style="margin-top:-30px">
-  
-  <p>🥳 Accepted by <strong>ICLR 2025</strong><br>🚀 The code has been <a href="https://github.com/DIYer22/discrete_distribution_networks">released</a>  </p>
-   <!-- <img src="img/logo-ICLR.svg" style="max-height:18px; margin-top:10px">   -->
-  
-  </div>
-  <br>
-  
-  <div align="center">
-  
-  <!-- # Discrete Distribution Networks -->
-  
-  <p style="font-size: 2em; font-weight: bold; margin-top: 20px; margin-bottom: 7px; line-height: 1;">Discrete Distribution Networks</p>
-  
-  <p><strong>A novel generative model with simple principles and unique properties</strong></p>
-  <br>
-  
-  
-  <p><a href="https://github.com/DIYer22">Lei Yang</a>  </p>
-  <div style="margin-top:px;font-size:25px">
-    <a target="_blank" href="https://www.stepfun.com/">
-      <img src="img/logo-StepFun.png" style="max-height:20px">
-    </a>
-      &nbsp;
-    <a target="_blank" href="https://en.megvii.com/megvii_research">
-      <img src="img/logo-Megvii.png" style="max-height:20px">
-    </a>
-  </div>
-  
-  
-  
-  
-  <h3 id="paper---code---demo---blog---poster-️"><a class="anchor" name="paper---code---demo---blog---poster-️" href="#paper---code---demo---blog---poster-️"><span class="octicon octicon-link"></span></a><a href="https://arxiv.org/abs/2401.00036">Paper 📄</a> | <a href="https://github.com/DIYer22/discrete_distribution_networks">Code 👨‍💻</a> | <a href="https://ddn-coloring-demo.diyer22.com/">Demo 🎮</a> | <a href="https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/blob/main/blog_en.md">Blog 📝</a> | <a href="https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2">Poster 🖼️</a></h3>
-  <!-- 
-  [OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) | 
-  
-  全新的生成模型, 有着简单的原理和独特的性质
-  - Code 分为
-      - sddn 库
-      - toy
-      - pretrain
-      - PPT
-      - 中文分享
-   -->
-  
-  <!-- <img src="img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif" alt="2D density estimation DDN" width=418px height=212px> -->
-  
-  <a target="_blank" href="2d-density-estimation-gif-with-10000-nodes-ddn.html">
-    <img src="img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif" alt="2D density estimation DDN">
-  </a>
-  
-  <details>
-  <summary style="margin-top:-4px;color: grey;font-size:15px">
-  Details of density estimation
-  </summary>
-  <div align="left" style="background-color: #eee; color: grey;padding: 12px; border-radius: 10px; width: ;">
-  
-  <!-- 这段 GIF 展示了 DDN 做二维概率密度估计时的优化过程
-  - 左图：当前能生成的所有样本
-  - 右图：目标概率密度图
-  - 为了展示效果，会周期性切换目标概率密度图
-    - 目标概率图名称和顺序：`gaussian` -> `blur_circles` -> `QR_code` -> `sprial` -> `words` -> `gaussian` -> `uniform` -> `gaussian` (首尾相同，完成闭环)
-  - 因此 DDN 也会持续优化参数来拟合新的分布
-  - 优化器：Gradient Descent with Split-and-Prune
-  - 这里只展示 1000 nodes 的实验结果，为了更加清晰和全面地展示优化过程，请看 [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) 页面
-  - 实验代码在 [sddn/toy_exp.py](https://github.com/DIYer22/sddn/blob/master/toy_exp.py)，实验环境由 [distribution_playground](https://github.com/DIYer22/distribution_playground) 库提供，欢迎自行把玩 -->
-  
-  <p>This GIF demonstrates the optimization process of DDN for 2D probability density estimation:</p>
-  <ul>
-  <li>Left image: All samples that can currently be generated</li>
-  <li>Right image: Target probability density map</li>
-  <li>For demonstration purposes, the target probability density maps switch periodically. Names and sequence of target probability maps: <ul>
-  <li><code>blur_circles</code> -&gt; <code>QR_code</code> -&gt; <code>spiral</code> -&gt; <code>words</code> -&gt; <code>gaussian</code> -&gt; <code>blur_circles</code> (same at beginning and end, completing a cycle)</li>
-  </ul>
-  </li>
-  <li>Therefore DDN continuously optimizes parameters to fit new distributions</li>
-  <li>Optimizer: Gradient Descent with Split-and-Prune</li>
-  <li>This only shows experimental results with 1,000 nodes; for a clearer and more comprehensive view of the optimization process, see the <a href="2d-density-estimation-gif-with-10000-nodes-ddn.html">2D Density Estimation with 10,000 Nodes DDN</a> page</li>
-  <li>The experiment code is in <a href="https://github.com/DIYer22/sddn/blob/master/toy_exp.py">sddn/toy_exp.py</a>, and the experimental environment is provided by the <a href="https://github.com/DIYer22/distribution_playground">distribution_playground</a> library, feel free to play with it yourself</li>
-  </ul>
-  </div>
-  <br>
-  </details>
-  
-  </div>
-  
-  <p><em><strong>Contributions of this paper:</strong></em></p>
-  <ul>
-  <li>We introduce a <strong>novel generative model</strong>, termed Discrete Distribution Networks (DDN), which demonstrates a more straightforward and streamlined principle and form.</li>
-  <li>For training the DDN, we propose the <strong>Split-and-Prune optimization algorithm</strong>, and a range of practical techniques.</li>
-  <li>We conduct preliminary experiments and analysis on the DDN, showcasing its intriguing properties and capabilities, such as <strong>zero-shot conditional generation without gradient</strong> and <strong>distinctive 1D discrete representations</strong>.</li>
-  </ul>
-  <div align="center">
-  
-  
-  <br>
-  <a href="img/ddn-intro.png">
-    <img style="width:40%" src="img/ddn-intro.png">
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="img/latent-tree.png">
-    <img style="width:40%" src="img/latent-tree.png">
-  </a>
-  
-  <p style="text-align: justify"> <b>Left:</b> Illustrates the process of image reconstruction and latent acquisition in DDN. Each layer of DDN outputs <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="0" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> distinct images, here <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="1" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>=</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container>, to approximate the distribution <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="2" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container>. The sampler then selects the image most similar to the target from these and feeds it into the next DDN layer. As the number of layers increases, the generated images become increasingly similar to the target. For generation tasks, the sampler is simply replaced with a random choice operation. <br>
-  <b>Right:</b> Shows the tree-structured representation space of DDN's latent variables. Each sample can be mapped to a leaf node on this tree.</p>
-  </div>
-  
-  <br>
-  <div style="background-color: antiquewhite; padding: 12px; border-radius: 10px; max-width: 1024px;">
-  
-  <p><em><strong><a href="https://openreview.net/forum?id=xNsIfzlefG&amp;noteId=h0B0GaonHv">Reviews</a> from ICLR:</strong></em></p>
-  <blockquote>
-  <p>I find the method novel and elegant. The novelty is very strong, and this should not be overlooked. This is a whole new method, very different from any of the existing generative models.</p>
-  </blockquote>
-  <blockquote>
-  <p>This is a very good paper that can open a door to new directions in generative modeling.</p>
-  </blockquote>
-  </div>
-  
-  <hr>
-  <br>
-  <div align="center">
-  
-  <h3 id="abstract"><a class="anchor" name="abstract" href="#abstract"><span class="octicon octicon-link"></span></a>Abstract</h3>
-  </div>
-  <p style="text-align: justify"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  We introduce a novel generative model, the Discrete Distribution Networks (DDN), that approximates data distribution using hierarchical discrete distributions. We posit that since the features within a network inherently capture distributional information, enabling the network to generate multiple samples simultaneously, rather than a single output, may offer an effective way to represent distributions. Therefore, DDN fits the target distribution, including continuous ones, by generating multiple discrete sample points. To capture finer details of the target data, DDN selects the output that is closest to the Ground Truth (GT) from the coarse results generated in the first layer. This selected output is then fed back into the network as a condition for the second layer, thereby generating new outputs more similar to the GT. As the number of DDN layers increases, the representational space of the outputs expands exponentially, and the generated samples become increasingly similar to the GT. This hierarchical output pattern of discrete distributions endows DDN with unique properties: more general zero-shot conditional generation and 1D latent representation. We demonstrate the efficacy of DDN and its intriguing properties through experiments on CIFAR-10 and FFHQ.
-  </em></p>
-  <br>
-  <div align="center">
-  <a href="img/zscg.png">
-    <img src="img/zscg.png" loading="lazy">
-  </a>
-  
-  <p style="width:90%; text-align: justify"><b>DDN enables more general zero-shot conditional generation.</b> DDN supports zero-shot conditional generation across non-pixel domains, and notably, without relying on gradient, such as text-to-image generation using a black-box CLIP model. Images enclosed in yellow borders serve as the ground truth. The abbreviations in the table header correspond to their respective tasks as follows: “SR” stands for Super-Resolution, with the following digit indicating the resolution of the condition. “ST” denotes Style Transfer, which computes Perceptual Losses with the condition.</p>
-  </div>
-  
-  <hr>
-  <br>
-  <div align="center">
-  
-  <h3 id="overview-of-discrete-distribution-networks"><a class="anchor" name="overview-of-discrete-distribution-networks" href="#overview-of-discrete-distribution-networks"><span class="octicon octicon-link"></span></a>Overview of Discrete Distribution Networks</h3>
-  <br>
-  <a href="img/overview.png">
-    <img src="img/overview.png" loading="lazy">
-  </a>
-  <p style="width:90%; text-align: justify">
-  (a) The data flow during the training phase of DDN is shown at the top. As the network depth increases, the generated images become increasingly similar to the training images. Within each Discrete Distribution Layer (DDL), <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="3" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> samples are generated, and the one closest to the training sample is selected as the generated image for loss computation. These <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="4" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> output nodes are optimized using Adam with the Split-and-Prune method. The right two figures demonstrate the two model paradigms supported by DDN. (b) Single Shot Generator Paradigm: Each neural network layer and DDL has independent weights. (c) Recurrence Iteration Paradigm: All neural network layers and DDLs share weights. For inference, replacing the Guided Sampler in the DDL with a random choice enables the generation of new images.</p><p>
-  </p></div>
-  
-  <hr>
-  <br>
-  <div align="center">
-  
-  <h3 id="objective-function"><a class="anchor" name="objective-function" href="#objective-function"><span class="octicon octicon-link"></span></a>Objective function</h3>
-  </div>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  The DDN model consists of <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="5" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math></mjx-assistive-mml></mjx-container> layers of Discrete Distribution Layers (DDL). For a given layer <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="6" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>l</mi></math></mjx-assistive-mml></mjx-container>, denoted as <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="7" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>f</mi><mi>l</mi></msub></math></mjx-assistive-mml></mjx-container>, the input is the selected sample from the previous layer, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="8" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container>. The layer generates <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="9" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> new samples, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="10" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>f</mi><mi>l</mi></msub><mo stretchy="false">(</mo><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow><mo>∗</mo></msubsup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container>, from which we select the sample <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="11" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mi>l</mi><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container> that is closest to the current training sample <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="12" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow></math></mjx-assistive-mml></mjx-container>, along with its corresponding index <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="13" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>k</mi><mrow data-mjx-texclass="ORD"><mi>l</mi></mrow><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container>. The loss <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="14" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.078em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>J</mi><mi>l</mi></msub></math></mjx-assistive-mml></mjx-container> for this layer is then computed only on the selected sample <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="15" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mi>l</mi><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container>.
-  
-  
-  <div align="center">
-  
-  <br>
-  <a href="img/loss.png">
-    <img src="img/loss.png" loading="lazy">
-  </a>
-  </div>
-  
-  
-  <!-- \begin{equation} \label{eq:k_star}
-  k_{l}^* = \underset{k \in \{1, \dots, K\}}{\operatorname{argmin}} \; \left\| f_l(\mathbf{x}^*_{l-1})[k] - \mathbf{x} \right\|^2
-  \end{equation}
-  \begin{equation} \label{eq:x_star}
-  \mathbf{x}^*_l = f_l(\mathbf{x}^*_{l-1})[k_l^*] 
-  
-  \end{equation}
-  \begin{equation}
-  J_l = \left\| \mathbf{x}^*_l - \mathbf{x} \right\|^2
-  \end{equation} -->
-  
-  <p>Here, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="16" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.263em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-texatom space="4" texclass="ORD"><mjx-mn class="mjx-b"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mn>0</mn><mo>∗</mo></msubsup><mo>=</mo><mrow data-mjx-texclass="ORD"><mn mathvariant="bold">0</mn></mrow></math></mjx-assistive-mml></mjx-container> represents the initial input to the first layer. For simplicity, we omit the details of input/output feature, neural network blocks and transformation operations in the equations.</p>
-  <!-- By recursively unfolding the above equations, we can derive the latent variable $\mathbf{k}^*_{1:L}$ and the global objective function $J$.
-  
-  \begin{equation} \label{eq:latent}
-  \mathbf{k}^*_{1:L} = \left[k_1^*, k_2^*, \dots, k_L^*\right] = \left[ \underset{k \in \{1, \dots, K\}}{\operatorname{argmin}} \; \left\| \mathcal{F}([\mathbf{k}^*_{1:l-1}, k])  - \mathbf{x} \right\|^2 \right]_{l=1}^{L}
-  \end{equation}
-  
-  \begin{equation} \label{eq:J}
-  J =  \frac{1}{L} \sum_{l=1}^{L}  \left\| \mathcal{F}(\mathbf{k}^*_{1:l})   - \mathbf{x} \right\|^2
-  \end{equation}
-  
-  Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined as: $\mathcal{F}(\mathbf{k}_{1:l}) = f_l(f_{l-1}(\dots f_1(\mathbf{x}_0)[k_1] \dots)[k_{l-1}])[k_l]$. Finally, we average the L2 loss across all layers to obtain the final loss for the entire network. -->
-  
-  <hr>
-  <br>
-  <div align="center">
-  
-  <h3 id="toy-examples-for-two-dimensional-data-generation"><a class="anchor" name="toy-examples-for-two-dimensional-data-generation" href="#toy-examples-for-two-dimensional-data-generation"><span class="octicon octicon-link"></span></a>Toy examples for two-dimensional data generation</h3>
-  <br>
-  <img src="img/2d-density.png" loading="lazy" style="max-width:500px">
-  <p style="width:90%; text-align: justify">The numerical values at the bottom of each figure represent the Kullback-Leibler (KL) divergence. Due to phenomena such as “dead nodes” and “density shift”, the application of Gradient Descent alone fails to properly fit the Ground Truth (GT) density. However, by employing the Split-and-Prune strategy, the KL divergence is reduced to even lower than that of the Real Samples. 
-   For a clearer and more comprehensive view of the optimization process, see the <a target="_blank" href="2d-density-estimation-gif-with-10000-nodes-ddn.html">2D Density Estimation with 10,000 Nodes DDN</a> page.</p>
-  </div>
-  
-  <hr>
-  <br>
-  <div align="center">
-  
-  <h3 id="random-samples-from-ddn-trained-on-face-image"><a class="anchor" name="random-samples-from-ddn-trained-on-face-image" href="#random-samples-from-ddn-trained-on-face-image"><span class="octicon octicon-link"></span></a>Random samples from DDN trained on face image</h3>
-  <br>
-  <a href="img/face-gen.png">
-    <img src="img/face-gen.png" loading="lazy">
-  </a>
-  </div>
-  
-  <hr>
-  <br>
-  <div align="center">
-  
-  <h3 id="zero-shot-conditional-generation-guided-by-clip"><a class="anchor" name="zero-shot-conditional-generation-guided-by-clip" href="#zero-shot-conditional-generation-guided-by-clip"><span class="octicon octicon-link"></span></a>Zero-Shot Conditional Generation guided by CLIP</h3>
-  <br>
-  <a href="img/clip-exp.jpg">
-    <img src="img/clip-exp.jpg" loading="lazy">
-  </a>
-  <p style="width:90%;">The text at the top is the guide text for that column.</p><p>
-  </p></div>
-  
-  <!-- ---
-  <br>
-  <div align="center">
-  
-  ### Zero-Shot Conditional Generation with Multiple Conditions
-  <br>
-  <a href="img/multi-conditons.png">
-    <img src="img/multi-conditons.png" loading="lazy">
-  </a>
-  <p style="width:90%; text-align: ">The DDN balances the steering forces of CLIP and Inpainting according to their associated weights.<p>
-  </div> -->
-  
-  <hr>
-  <br>
-  <div align="center">
-  
-  <h3 id="conditional-ddn-performing-coloring-and-edge-to-rgb-tasks"><a class="anchor" name="conditional-ddn-performing-coloring-and-edge-to-rgb-tasks" href="#conditional-ddn-performing-coloring-and-edge-to-rgb-tasks"><span class="octicon octicon-link"></span></a>Conditional DDN performing coloring and edge-to-RGB tasks</h3>
-  <br>
-  <a href="img/conditional-DDN.png">
-    <img src="img/conditional-DDN.png" loading="lazy">
-  </a>
-  <p style="width:90%; text-align: justify">Columns 4 and 5 display the generated results under the guidance of other images, where the produced image strives to adhere to the style of the guided image as closely as possible while ensuring compliance with the condition. The resolution of the generated images is 256x256.</p><p>
-  
-  </p><hr>
-  <br>
-  
-  <a href="https://ddn-coloring-demo.diyer22.com/">
-    <img style="margin-bottom:-20px" src="img/astronaut_coloring.gif" loading="lazy">
-  </a>
-    
-  <!-- <a href="img/coloring_self.gif">
-    <img style="margin-bottom:-20px;margin-left:50px" src="img/coloring_self.gif" loading="lazy">
-  </a> -->
-  
-  <h3 id="online-ddn-coloring-demo"><a class="anchor" name="online-ddn-coloring-demo" href="#online-ddn-coloring-demo"><span class="octicon octicon-link"></span></a><a href="https://ddn-coloring-demo.diyer22.com/"><strong>Online DDN coloring demo</strong></a></h3>
-  <p style="margin-top:-15px">To demonstrate the features of DDN conditional generation and Zero-Shot Conditional Generation.</p>
-  
-  
-  </div>
-  
-  <hr>
-  <br>
-  <div align="center">
-  
-  <h3 id="hierarchical-generation-visualization-of-ddn"><a class="anchor" name="hierarchical-generation-visualization-of-ddn" href="#hierarchical-generation-visualization-of-ddn"><span class="octicon octicon-link"></span></a>Hierarchical Generation Visualization of DDN</h3>
-  <br>
-  <a href="img/tree-latent.mnist-vis-level4.png">
-    <img src="img/tree-latent.mnist-vis-level3.png" style="max-width:512px" loading="lazy">
-  </a>
-  <p style="width:90%; text-align: justify">We trained a DDN with output level <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="17" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mo>=</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container> and output nodes <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="18" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>=</mo><mn>8</mn></math></mjx-assistive-mml></mjx-container> per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images. More detailed visualization of <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="19" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mo>=</mo><mn>4</mn></math></mjx-assistive-mml></mjx-container> is presented <a target="_blank" href="img/tree-latent.mnist-vis-level4.png">here</a>. We also provide a video version of the image above, which dynamically showcases the optimization process during DDN training:
-  </p><p>
-  
-  </p><div class="video-container">
-      <iframe src="https://www.youtube.com/embed/J4aOdyb7A58" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
-      </iframe>
-  </div>
-  
-  <p>Uncompressed raw backup of this video is here: <a href="https://github.com/Discrete-Distribution-Networks/DDN_latent_video">DDN_latent_video</a></p>
-  </div>
-  
-  
-  <hr>
-  <p><em>The following content contains personal opinions and is not included in the original paper</em></p>
-  <h2 id="future-research-directions"><a class="anchor" name="future-research-directions" href="#future-research-directions"><span class="octicon octicon-link"></span></a>Future Research Directions</h2>
-  <p>Based on the current state of DDN (May 2025), I speculate on several possible future research directions. These include improvements to DDN itself and tasks suitable for the current version of DDN. Due to my limited perspective, some of these speculations might not be accurate:</p>
-  <ul>
-  <li><p><strong>Improving DDN through hyperparameter tuning, exploratory experiments, and theoretical analysis:</strong><br>The total time spent developing DDN was less than three months, mostly by a single person. Therefore, experiments were rough, and there was limited time for detailed analysis and tuning. There is significant room for improvement.</p>
-  </li>
-  <li><p><strong>Scaling up to ImageNet-level complexity:</strong><br>Building a practical generative model with Zero-Shot Conditional Generation as a key feature.</p>
-  </li>
-  <li><p><strong>Applying DDN to domains with relatively small generation spaces:</strong>  </p>
-  <ul>
-  <li>Conditional training tasks where the condition provides rich information, such as image colorization and super-resolution.</li>
-  <li>Generative models for discriminative tasks, such as depth estimation, optical flow estimation, and pose estimation.</li>
-  <li>Robotics applications, where DDN could replace diffusion models in <a href="https://anuragajay.github.io/decision-diffuser/">Diffusion Policy</a> and <a href="https://arxiv.org/abs/2211.15657">Decision Diffuser</a> frameworks.</li>
-  <li>In these domains, DDN has advantages over diffusion models:<ul>
-  <li>Single forward pass to obtain results, no iterative denoising required.</li>
-  <li>If multiple samples are needed (e.g., for uncertainty estimation), DDN can directly produce multiple outputs in one forward pass.</li>
-  <li>Easy to impose constraints during generation due to DDN's Zero-Shot Conditional Generation capability.</li>
-  </ul>
-  </li>
-  </ul>
-  </li>
-  <li><p><strong>Applying DDN to non-generative tasks:</strong>  </p>
-  <ul>
-  <li>DDN naturally supports unsupervised clustering. And its unique latent representation could be useful in data compression, similarity retrieval, and other areas.</li>
-  </ul>
-  </li>
-  <li><p><strong>Using DDN's design ideas to improve existing generative models:</strong>  </p>
-  <ul>
-  <li>For example, the first paper citing DDN, <a href="https://arxiv.org/abs/2502.01189">DDCM</a>, applied DDN's idea of constructing a 1D discrete latent to diffusion models.</li>
-  </ul>
-  </li>
-  <li><p><strong>Applying DDN to language modeling tasks:</strong>  </p>
-  <ul>
-  <li>I made an initial attempt to combine <a href="https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/1">DDN with GPT</a>, aiming to remove tokenizers and let LLMs directly model binary strings. In each forward pass, the model adaptively adjusts the byte length of generated content based on generation difficulty (naturally supporting speculative sampling).</li>
-  </ul>
-  </li>
-  </ul>
-  <h2 id="common-questions-about-ddn"><a class="anchor" name="common-questions-about-ddn" href="#common-questions-about-ddn"><span class="octicon octicon-link"></span></a>Common Questions About DDN</h2>
-  <p>Q1: Will DDN require a lot of GPU memory?</p>
-  <blockquote>
-  <p>DDN's GPU memory requirements are slightly higher than same architecture of conventional GAN generator, but the difference is negligible.</p>
-  <p>During training, generating <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="20" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> samples is only to identify the one closest to the ground truth, and the <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="21" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container> unchosen samples do not retain gradients, so they are immediately discarded after sampling at the current layer, freeing up memory.</p>
-  <p>In the generation phase, we randomly sample one number from range(<mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="22" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container>) as an index and only generate the sample at the chosen index, avoiding the need to generate the other <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="23" style="font-size: 119%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container> samples, thus not occupying additional memory or computation.</p>
-  </blockquote>
-  <p>Q2: Will there be a mode collapse issue?</p>
-  <blockquote>
-  <p>No. DDN selects the output most similar to the current GT and then uses the L2 loss to make it even more similar to the GT. This operation naturally has a diverse tendency, which can "expand" the entire generation space.</p>
-  <p>Additionally, DDN supports reconstruction. Figure 14 in the original paper shows that DDN has good reconstruction performance on the test set, meaning that DDN can fully cover the target distribution.</p>
-  <p>The real issue with DDN is not mode collapse but attempting to cover a high-dimensional target distribution that exceeds its own complexity, leading to the generation of blurry samples.</p>
-  </blockquote>
-  <style>
-  html, body {
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><link rel="icon" href="icons/dark/16x16.png"><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
   width: auto !important;
-  max-width: 100% !important;
-  padding: 0px !important;
-  margin: 0px !important;
-  }
-  ._theme-github {
-  background-color: rgb(255, 255, 255);
-  }
-  .markdown-body {
-  min-width: 468px;
-  max-width: 1024px;
-  background-color: rgb(255, 255, 255);
-  overflow: auto;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(221, 221, 221);
-  border-image: initial;
-  padding: 45px;
-  margin: 20px auto;
-  }
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  border-collapse: collapse;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  /* IE */ overflow: hidden;
+  /* others */ overflow: clip visible;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  /* IE */ overflow: hidden;
+  /* others */ overflow: visible clip;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msubsup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-script {
+  display: inline-block;
+  padding-right: .05em;
+  padding-left: .033em;
+}
+
+mjx-script > mjx-spacer {
+  display: block;
+}
+
+mjx-TeXAtom {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("vendor/mathjax/fonts/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("vendor/mathjax/fonts/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("vendor/mathjax/fonts/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("vendor/mathjax/fonts/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("vendor/mathjax/fonts/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("vendor/mathjax/fonts/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("vendor/mathjax/fonts/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("vendor/mathjax/fonts/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("vendor/mathjax/fonts/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("vendor/mathjax/fonts/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("vendor/mathjax/fonts/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("vendor/mathjax/fonts/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("vendor/mathjax/fonts/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("vendor/mathjax/fonts/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("vendor/mathjax/fonts/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("vendor/mathjax/fonts/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("vendor/mathjax/fonts/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("vendor/mathjax/fonts/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("vendor/mathjax/fonts/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("vendor/mathjax/fonts/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("vendor/mathjax/fonts/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("vendor/mathjax/fonts/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c1D43E.TEX-I::before {
+  padding: 0.683em 0.889em 0 0;
+  content: "K";
+}
+
+mjx-c.mjx-c3D::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "=";
+}
+
+mjx-c.mjx-c33::before {
+  padding: 0.665em 0.5em 0.022em 0;
+  content: "3";
+}
+
+mjx-c.mjx-c1D443.TEX-I::before {
+  padding: 0.683em 0.751em 0 0;
+  content: "P";
+}
+
+mjx-c.mjx-c28::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: "(";
+}
+
+mjx-c.mjx-c1D44B.TEX-I::before {
+  padding: 0.683em 0.852em 0 0;
+  content: "X";
+}
+
+mjx-c.mjx-c29::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: ")";
+}
+
+mjx-c.mjx-c1D43F.TEX-I::before {
+  padding: 0.683em 0.681em 0 0;
+  content: "L";
+}
+
+mjx-c.mjx-c1D459.TEX-I::before {
+  padding: 0.694em 0.298em 0.011em 0;
+  content: "l";
+}
+
+mjx-c.mjx-c1D453.TEX-I::before {
+  padding: 0.705em 0.55em 0.205em 0;
+  content: "f";
+}
+
+mjx-c.mjx-c1D431.TEX-B::before {
+  padding: 0.444em 0.607em 0 0;
+  content: "x";
+}
+
+mjx-c.mjx-c2217::before {
+  padding: 0.465em 0.5em 0 0;
+  content: "\2217";
+}
+
+mjx-c.mjx-c2212::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "\2212";
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c1D458.TEX-I::before {
+  padding: 0.694em 0.521em 0.011em 0;
+  content: "k";
+}
+
+mjx-c.mjx-c1D43D.TEX-I::before {
+  padding: 0.683em 0.633em 0.022em 0;
+  content: "J";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c1D7CE.TEX-B::before {
+  padding: 0.654em 0.575em 0.01em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c38::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "8";
+}
+
+mjx-c.mjx-c34::before {
+  padding: 0.677em 0.5em 0 0;
+  content: "4";
+}
+
+mjx-c.mjx-c2C::before {
+  padding: 0.121em 0.278em 0.194em 0;
+  content: ",";
+}
+
+mjx-c.mjx-c2026::before {
+  padding: 0.12em 1.172em 0 0;
+  content: "\2026";
+}
+
+mjx-c.mjx-c32::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "2";
+}
+</style></head><body class="_theme-github _color-light"><link rel="stylesheet" type="text/css" href="themes/github.css" id="_theme"><link rel="stylesheet" type="text/css" href="vendor/prism.min.css" id="_prism"><div id="_html" class="markdown-body" style="visibility: visible;">
+    <meta charset="UTF-8">
+    <title>DDN: Discrete Distribution Networks</title>
+    <meta name="description" content="Novel Generative Model with Simple Principles and Unique Properties">
+    <meta name="keywords" content="DDN, generative model">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
+    <meta property="og:title" content="DDN: Discrete Distribution Networks">
+    <meta property="og:description" content="Novel Generative Model with Simple Principles and Unique Properties">
+    <meta property="og:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="discrete-distribution-networks.github.io">
+    <meta property="twitter:url" content="https://discrete-distribution-networks.github.io/">
+    <meta name="twitter:title" content="DDN: Discrete Distribution Networks">
+    <meta name="twitter:description" content="Novel Generative Model with Simple Principles and Unique Properties">
+    <meta name="twitter:image" content="https://discrete-distribution-networks.github.io/img/ddn-intro.png">
+
+
+<div style="margin-top:-30px">
+
+<p>🥳 Accepted by <strong>ICLR 2025</strong><br>🚀 The code has been <a href="https://github.com/DIYer22/discrete_distribution_networks">released</a>  </p>
+ <!-- <img src="img/logo-ICLR.svg" style="max-height:18px; margin-top:10px">   -->
+
+</div>
+<br>
+
+<div align="center">
+
+<!-- # Discrete Distribution Networks -->
+
+<p style="font-size: 2em; font-weight: bold; margin-top: 20px; margin-bottom: 7px; line-height: 1;">Discrete Distribution Networks</p>
+
+<p><strong>A novel generative model with simple principles and unique properties</strong></p>
+<br>
+
+
+<p><a href="https://github.com/DIYer22">Lei Yang</a>  </p>
+<div style="margin-top:px;font-size:25px">
+  <a target="_blank" href="https://www.stepfun.com/">
+    <img src="img/logo-StepFun.png" style="max-height:20px">
+  </a>
+    &nbsp;
+  <a target="_blank" href="https://en.megvii.com/megvii_research">
+    <img src="img/logo-Megvii.png" style="max-height:20px">
+  </a>
+</div>
+
+
+
+
+<h3 id="paper---code---demo---blog---poster-️"><a class="anchor" name="paper---code---demo---blog---poster-️" href="#paper---code---demo---blog---poster-️"><span class="octicon octicon-link"></span></a><a href="https://arxiv.org/abs/2401.00036">Paper 📄</a> | <a href="https://github.com/DIYer22/discrete_distribution_networks">Code 👨‍💻</a> | <a href="https://ddn-coloring-demo.diyer22.com/">Demo 🎮</a> | <a href="https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/blob/main/blog_en.md">Blog 📝</a> | <a href="https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/2">Poster 🖼️</a></h3>
+<!-- 
+[OpenReview 💬](https://openreview.net/forum?id=xNsIfzlefG) | 
+
+全新的生成模型, 有着简单的原理和独特的性质
+- Code 分为
+    - sddn 库
+    - toy
+    - pretrain
+    - PPT
+    - 中文分享
+ -->
+
+<!-- <img src="img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif" alt="2D density estimation DDN" width=418px height=212px> -->
+
+<a target="_blank" href="2d-density-estimation-gif-with-10000-nodes-ddn.html">
+  <img src="img/frames_bin100_k2000_itern1800_batch40_framen96_2d-density-estimation-DDN.gif" alt="2D density estimation DDN">
+</a>
+
+<details>
+<summary style="margin-top:-4px;color: grey;font-size:15px">
+Details of density estimation
+</summary>
+<div align="left" style="background-color: #eee; color: grey;padding: 12px; border-radius: 10px; width: ;">
+
+<!-- 这段 GIF 展示了 DDN 做二维概率密度估计时的优化过程
+- 左图：当前能生成的所有样本
+- 右图：目标概率密度图
+- 为了展示效果，会周期性切换目标概率密度图
+  - 目标概率图名称和顺序：`gaussian` -> `blur_circles` -> `QR_code` -> `sprial` -> `words` -> `gaussian` -> `uniform` -> `gaussian` (首尾相同，完成闭环)
+- 因此 DDN 也会持续优化参数来拟合新的分布
+- 优化器：Gradient Descent with Split-and-Prune
+- 这里只展示 1000 nodes 的实验结果，为了更加清晰和全面地展示优化过程，请看 [2D Density Estimation with 10,000 Nodes DDN](2d-density-estimation-gif-with-10000-nodes-ddn.html) 页面
+- 实验代码在 [sddn/toy_exp.py](https://github.com/DIYer22/sddn/blob/master/toy_exp.py)，实验环境由 [distribution_playground](https://github.com/DIYer22/distribution_playground) 库提供，欢迎自行把玩 -->
+
+<p>This GIF demonstrates the optimization process of DDN for 2D probability density estimation:</p>
+<ul>
+<li>Left image: All samples that can currently be generated</li>
+<li>Right image: Target probability density map</li>
+<li>For demonstration purposes, the target probability density maps switch periodically. Names and sequence of target probability maps: <ul>
+<li><code>blur_circles</code> -&gt; <code>QR_code</code> -&gt; <code>spiral</code> -&gt; <code>words</code> -&gt; <code>gaussian</code> -&gt; <code>blur_circles</code> (same at beginning and end, completing a cycle)</li>
+</ul>
+</li>
+<li>Therefore DDN continuously optimizes parameters to fit new distributions</li>
+<li>Optimizer: Gradient Descent with Split-and-Prune</li>
+<li>This only shows experimental results with 1,000 nodes; for a clearer and more comprehensive view of the optimization process, see the <a href="2d-density-estimation-gif-with-10000-nodes-ddn.html">2D Density Estimation with 10,000 Nodes DDN</a> page</li>
+<li>The experiment code is in <a href="https://github.com/DIYer22/sddn/blob/master/toy_exp.py">sddn/toy_exp.py</a>, and the experimental environment is provided by the <a href="https://github.com/DIYer22/distribution_playground">distribution_playground</a> library, feel free to play with it yourself</li>
+</ul>
+</div>
+<br>
+</details>
+
+</div>
+
+<p><em><strong>Contributions of this paper:</strong></em></p>
+<ul>
+<li>We introduce a <strong>novel generative model</strong>, termed Discrete Distribution Networks (DDN), which demonstrates a more straightforward and streamlined principle and form.</li>
+<li>For training the DDN, we propose the <strong>Split-and-Prune optimization algorithm</strong>, and a range of practical techniques.</li>
+<li>We conduct preliminary experiments and analysis on the DDN, showcasing its intriguing properties and capabilities, such as <strong>zero-shot conditional generation without gradient</strong> and <strong>distinctive 1D discrete representations</strong>.</li>
+</ul>
+<div align="center">
+
+
+<br>
+<a href="img/ddn-intro.png">
+  <img style="width:40%" src="img/ddn-intro.png">
+</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="img/latent-tree.png">
+  <img style="width:40%" src="img/latent-tree.png">
+</a>
+
+<p style="text-align: justify"> <b>Left:</b> Illustrates the process of image reconstruction and latent acquisition in DDN. Each layer of DDN outputs <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="0" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> distinct images, here <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="1" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>=</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container>, to approximate the distribution <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="2" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container>. The sampler then selects the image most similar to the target from these and feeds it into the next DDN layer. As the number of layers increases, the generated images become increasingly similar to the target. For generation tasks, the sampler is simply replaced with a random choice operation. <br>
+<b>Right:</b> Shows the tree-structured representation space of DDN's latent variables. Each sample can be mapped to a leaf node on this tree.</p>
+</div>
+
+<br>
+<div style="background-color: antiquewhite; padding: 12px; border-radius: 10px; max-width: 1024px;">
+
+<p><em><strong><a href="https://openreview.net/forum?id=xNsIfzlefG&amp;noteId=h0B0GaonHv">Reviews</a> from ICLR:</strong></em></p>
+<blockquote>
+<p>I find the method novel and elegant. The novelty is very strong, and this should not be overlooked. This is a whole new method, very different from any of the existing generative models.</p>
+</blockquote>
+<blockquote>
+<p>This is a very good paper that can open a door to new directions in generative modeling.</p>
+</blockquote>
+</div>
+
+<hr>
+<br>
+<div align="center">
+
+<h3 id="abstract"><a class="anchor" name="abstract" href="#abstract"><span class="octicon octicon-link"></span></a>Abstract</h3>
+</div>
+<p style="text-align: justify"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+We introduce a novel generative model, the Discrete Distribution Networks (DDN), that approximates data distribution using hierarchical discrete distributions. We posit that since the features within a network inherently capture distributional information, enabling the network to generate multiple samples simultaneously, rather than a single output, may offer an effective way to represent distributions. Therefore, DDN fits the target distribution, including continuous ones, by generating multiple discrete sample points. To capture finer details of the target data, DDN selects the output that is closest to the Ground Truth (GT) from the coarse results generated in the first layer. This selected output is then fed back into the network as a condition for the second layer, thereby generating new outputs more similar to the GT. As the number of DDN layers increases, the representational space of the outputs expands exponentially, and the generated samples become increasingly similar to the GT. This hierarchical output pattern of discrete distributions endows DDN with unique properties: more general zero-shot conditional generation and 1D latent representation. We demonstrate the efficacy of DDN and its intriguing properties through experiments on CIFAR-10 and FFHQ.
+</em></p>
+<br>
+<div align="center">
+<a href="img/zscg.png">
+  <img src="img/zscg.png" loading="lazy">
+</a>
+
+<p style="width:90%; text-align: justify"><b>DDN enables more general zero-shot conditional generation.</b> DDN supports zero-shot conditional generation across non-pixel domains, and notably, without relying on gradient, such as text-to-image generation using a black-box CLIP model. Images enclosed in yellow borders serve as the ground truth. The abbreviations in the table header correspond to their respective tasks as follows: “SR” stands for Super-Resolution, with the following digit indicating the resolution of the condition. “ST” denotes Style Transfer, which computes Perceptual Losses with the condition.</p>
+</div>
+
+<hr>
+<br>
+<div align="center">
+
+<h3 id="overview-of-discrete-distribution-networks"><a class="anchor" name="overview-of-discrete-distribution-networks" href="#overview-of-discrete-distribution-networks"><span class="octicon octicon-link"></span></a>Overview of Discrete Distribution Networks</h3>
+<br>
+<a href="img/overview.png">
+  <img src="img/overview.png" loading="lazy">
+</a>
+<p style="width:90%; text-align: justify">
+(a) The data flow during the training phase of DDN is shown at the top. As the network depth increases, the generated images become increasingly similar to the training images. Within each Discrete Distribution Layer (DDL), <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="3" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> samples are generated, and the one closest to the training sample is selected as the generated image for loss computation. These <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="4" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> output nodes are optimized using Adam with the Split-and-Prune method. The right two figures demonstrate the two model paradigms supported by DDN. (b) Single Shot Generator Paradigm: Each neural network layer and DDL has independent weights. (c) Recurrence Iteration Paradigm: All neural network layers and DDLs share weights. For inference, replacing the Guided Sampler in the DDL with a random choice enables the generation of new images.</p><p>
+</p></div>
+
+<hr>
+<br>
+<div align="center">
+
+<h3 id="objective-function"><a class="anchor" name="objective-function" href="#objective-function"><span class="octicon octicon-link"></span></a>Objective function</h3>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The DDN model consists of <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="5" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi></math></mjx-assistive-mml></mjx-container> layers of Discrete Distribution Layers (DDL). For a given layer <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="6" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>l</mi></math></mjx-assistive-mml></mjx-container>, denoted as <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="7" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>f</mi><mi>l</mi></msub></math></mjx-assistive-mml></mjx-container>, the input is the selected sample from the previous layer, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="8" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container>. The layer generates <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="9" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> new samples, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="10" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.06em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-texatom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>f</mi><mi>l</mi></msub><mo stretchy="false">(</mo><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mi>l</mi><mo>−</mo><mn>1</mn></mrow><mo>∗</mo></msubsup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container>, from which we select the sample <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="11" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mi>l</mi><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container> that is closest to the current training sample <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="12" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow></math></mjx-assistive-mml></mjx-container>, along with its corresponding index <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="13" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-texatom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>k</mi><mrow data-mjx-texclass="ORD"><mi>l</mi></mrow><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container>. The loss <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="14" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.078em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>J</mi><mi>l</mi></msub></math></mjx-assistive-mml></mjx-container> for this layer is then computed only on the selected sample <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="15" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.283em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mi>l</mi><mo>∗</mo></msubsup></math></mjx-assistive-mml></mjx-container>.
+
+
+<div align="center">
+
+<br>
+<a href="img/loss.png">
+  <img src="img/loss.png" loading="lazy">
+</a>
+</div>
+
+
+<!-- \begin{equation} \label{eq:k_star}
+k_{l}^* = \underset{k \in \{1, \dots, K\}}{\operatorname{argmin}} \; \left\| f_l(\mathbf{x}^*_{l-1})[k] - \mathbf{x} \right\|^2
+\end{equation}
+\begin{equation} \label{eq:x_star}
+\mathbf{x}^*_l = f_l(\mathbf{x}^*_{l-1})[k_l^*] 
+
+\end{equation}
+\begin{equation}
+J_l = \left\| \mathbf{x}^*_l - \mathbf{x} \right\|^2
+\end{equation} -->
+
+<p>Here, <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="16" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-texatom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-texatom><mjx-script style="vertical-align: -0.263em; margin-left: 0px;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-texatom space="4" texclass="ORD"><mjx-mn class="mjx-b"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mn>0</mn><mo>∗</mo></msubsup><mo>=</mo><mrow data-mjx-texclass="ORD"><mn mathvariant="bold">0</mn></mrow></math></mjx-assistive-mml></mjx-container> represents the initial input to the first layer. For simplicity, we omit the details of input/output feature, neural network blocks and transformation operations in the equations.</p>
+<!-- By recursively unfolding the above equations, we can derive the latent variable $\mathbf{k}^*_{1:L}$ and the global objective function $J$.
+
+\begin{equation} \label{eq:latent}
+\mathbf{k}^*_{1:L} = \left[k_1^*, k_2^*, \dots, k_L^*\right] = \left[ \underset{k \in \{1, \dots, K\}}{\operatorname{argmin}} \; \left\| \mathcal{F}([\mathbf{k}^*_{1:l-1}, k])  - \mathbf{x} \right\|^2 \right]_{l=1}^{L}
+\end{equation}
+
+\begin{equation} \label{eq:J}
+J =  \frac{1}{L} \sum_{l=1}^{L}  \left\| \mathcal{F}(\mathbf{k}^*_{1:l})   - \mathbf{x} \right\|^2
+\end{equation}
+
+Here, $\mathcal{F}$ represents the composite function formed from $f_l$, defined as: $\mathcal{F}(\mathbf{k}_{1:l}) = f_l(f_{l-1}(\dots f_1(\mathbf{x}_0)[k_1] \dots)[k_{l-1}])[k_l]$. Finally, we average the L2 loss across all layers to obtain the final loss for the entire network. -->
+
+<hr>
+<br>
+<div align="center">
+
+<h3 id="toy-examples-for-two-dimensional-data-generation"><a class="anchor" name="toy-examples-for-two-dimensional-data-generation" href="#toy-examples-for-two-dimensional-data-generation"><span class="octicon octicon-link"></span></a>Toy examples for two-dimensional data generation</h3>
+<br>
+<img src="img/2d-density.png" loading="lazy" style="max-width:500px">
+<p style="width:90%; text-align: justify">The numerical values at the bottom of each figure represent the Kullback-Leibler (KL) divergence. Due to phenomena such as “dead nodes” and “density shift”, the application of Gradient Descent alone fails to properly fit the Ground Truth (GT) density. However, by employing the Split-and-Prune strategy, the KL divergence is reduced to even lower than that of the Real Samples. 
+ For a clearer and more comprehensive view of the optimization process, see the <a target="_blank" href="2d-density-estimation-gif-with-10000-nodes-ddn.html">2D Density Estimation with 10,000 Nodes DDN</a> page.</p>
+</div>
+
+<hr>
+<br>
+<div align="center">
+
+<h3 id="random-samples-from-ddn-trained-on-face-image"><a class="anchor" name="random-samples-from-ddn-trained-on-face-image" href="#random-samples-from-ddn-trained-on-face-image"><span class="octicon octicon-link"></span></a>Random samples from DDN trained on face image</h3>
+<br>
+<a href="img/face-gen.png">
+  <img src="img/face-gen.png" loading="lazy">
+</a>
+</div>
+
+<hr>
+<br>
+<div align="center">
+
+<h3 id="zero-shot-conditional-generation-guided-by-clip"><a class="anchor" name="zero-shot-conditional-generation-guided-by-clip" href="#zero-shot-conditional-generation-guided-by-clip"><span class="octicon octicon-link"></span></a>Zero-Shot Conditional Generation guided by CLIP</h3>
+<br>
+<a href="img/clip-exp.jpg">
+  <img src="img/clip-exp.jpg" loading="lazy">
+</a>
+<p style="width:90%;">The text at the top is the guide text for that column.</p><p>
+</p></div>
+
+<!-- ---
+<br>
+<div align="center">
+
+### Zero-Shot Conditional Generation with Multiple Conditions
+<br>
+<a href="img/multi-conditons.png">
+  <img src="img/multi-conditons.png" loading="lazy">
+</a>
+<p style="width:90%; text-align: ">The DDN balances the steering forces of CLIP and Inpainting according to their associated weights.<p>
+</div> -->
+
+<hr>
+<br>
+<div align="center">
+
+<h3 id="conditional-ddn-performing-coloring-and-edge-to-rgb-tasks"><a class="anchor" name="conditional-ddn-performing-coloring-and-edge-to-rgb-tasks" href="#conditional-ddn-performing-coloring-and-edge-to-rgb-tasks"><span class="octicon octicon-link"></span></a>Conditional DDN performing coloring and edge-to-RGB tasks</h3>
+<br>
+<a href="img/conditional-DDN.png">
+  <img src="img/conditional-DDN.png" loading="lazy">
+</a>
+<p style="width:90%; text-align: justify">Columns 4 and 5 display the generated results under the guidance of other images, where the produced image strives to adhere to the style of the guided image as closely as possible while ensuring compliance with the condition. The resolution of the generated images is 256x256.</p><p>
+
+</p><hr>
+<br>
+
+<a href="https://ddn-coloring-demo.diyer22.com/">
+  <img style="margin-bottom:-20px" src="img/astronaut_coloring.gif" loading="lazy">
+</a>
   
-  
-  .video-container {
-      width: 80%;
-      aspect-ratio: 1 / 1;
-      position: relative;
-      margin: auto;
-  }
-  
-  .video-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-  }
-  
-  </style>
-  
-  <!-- Google tag (gtag.js) -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9DFYQJQH58"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-9DFYQJQH58');
-  </script>
-  </div></body></html>
+<!-- <a href="img/coloring_self.gif">
+  <img style="margin-bottom:-20px;margin-left:50px" src="img/coloring_self.gif" loading="lazy">
+</a> -->
+
+<h3 id="online-ddn-coloring-demo"><a class="anchor" name="online-ddn-coloring-demo" href="#online-ddn-coloring-demo"><span class="octicon octicon-link"></span></a><a href="https://ddn-coloring-demo.diyer22.com/"><strong>Online DDN coloring demo</strong></a></h3>
+<p style="margin-top:-15px">To demonstrate the features of DDN conditional generation and Zero-Shot Conditional Generation.</p>
+
+
+</div>
+
+<hr>
+<br>
+<div align="center">
+
+<h3 id="hierarchical-generation-visualization-of-ddn"><a class="anchor" name="hierarchical-generation-visualization-of-ddn" href="#hierarchical-generation-visualization-of-ddn"><span class="octicon octicon-link"></span></a>Hierarchical Generation Visualization of DDN</h3>
+<br>
+<a href="img/tree-latent.mnist-vis-level4.png">
+  <img src="img/tree-latent.mnist-vis-level3.png" style="max-width:512px" loading="lazy">
+</a>
+<p style="width:90%; text-align: justify">We trained a DDN with output level <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="17" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mo>=</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container> and output nodes <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="18" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>=</mo><mn>8</mn></math></mjx-assistive-mml></mjx-container> per level on MNIST dataset, its latent hierarchical structure is visualized as recursive grids. Each sample with a colored border represents an intermediate generation product. The samples within the surrounding grid of each colored-bordered sample are refined versions generated conditionally based on it (enclosed by the same color frontier). The small samples without colored borders are the final generated images. The larger the image, the earlier it is in the generation process, implying a coarse version. The large image in the middle is the average of all the generated images. More detailed visualization of <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="19" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>L</mi><mo>=</mo><mn>4</mn></math></mjx-assistive-mml></mjx-container> is presented <a target="_blank" href="img/tree-latent.mnist-vis-level4.png">here</a>. We also provide a video version of the image above, which dynamically showcases the optimization process during DDN training:
+</p><p>
+
+</p><div class="video-container">
+    <iframe src="https://www.youtube.com/embed/J4aOdyb7A58" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+    </iframe>
+</div>
+
+<p>Uncompressed raw backup of this video is here: <a href="https://github.com/Discrete-Distribution-Networks/DDN_latent_video">DDN_latent_video</a></p>
+</div>
+
+
+<hr>
+<p><em>The following content contains personal opinions and is not included in the original paper</em></p>
+<h2 id="future-research-directions"><a class="anchor" name="future-research-directions" href="#future-research-directions"><span class="octicon octicon-link"></span></a>Future Research Directions</h2>
+<p>Based on the current state of DDN, we speculate on several possible future research directions. These include improvements to DDN itself and tasks suitable for the current version of DDN. Due to my limited perspective, some of these speculations might not be accurate:</p>
+<ul>
+<li><p><strong>Improving DDN through hyperparameter tuning, exploratory experiments, and theoretical analysis:</strong><br>The total time spent developing DDN was less than three months, mostly by a single person. Therefore, experiments were preliminary, and there was limited time for detailed analysis and tuning. There is significant room for improvement.</p>
+</li>
+<li><p><strong>Scaling up to ImageNet-level complexity:</strong><br>Building a practical generative model with Zero-Shot Conditional Generation as a key feature.</p>
+</li>
+<li><p><strong>Applying DDN to domains with relatively small generation spaces.</strong>  </p>
+<ul>
+<li>Conditional training tasks where the condition provides rich information, such as image colorization and super-resolution.</li>
+<li>Generative models for discriminative tasks, such as depth estimation, optical flow estimation, and pose estimation.</li>
+<li>Robotics applications, where DDN could replace diffusion models in <a href="https://anuragajay.github.io/decision-diffuser/">Diffusion Policy</a> and <a href="https://arxiv.org/abs/2211.15657">Decision Diffuser</a> frameworks.</li>
+<li>In these domains, DDN has advantages over diffusion models:<ul>
+<li>Single forward pass to obtain results, no iterative denoising required.</li>
+<li>If multiple samples are needed (e.g., for uncertainty estimation), DDN can directly produce multiple outputs in one forward pass.</li>
+<li>Easy to impose constraints during generation due to DDN's Zero-Shot Conditional Generation capability.</li>
+<li>DDN is fully <a href="https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/blob/main/blog_en.md#end-to-end-differentiable">end-to-end differentiable</a>, enabling more efficient optimization when integrated with discriminative models or reinforcement learning.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Applying DDN to non-generative tasks:</strong>  </p>
+<ul>
+<li>DDN naturally supports unsupervised clustering. And its unique latent representation could be useful in data compression, similarity retrieval, and other areas.</li>
+</ul>
+</li>
+<li><p><strong>Using DDN's design ideas to improve existing generative models:</strong>  </p>
+<ul>
+<li>For example, the first paper citing DDN, <a href="https://arxiv.org/abs/2502.01189">DDCM</a>, applied DDN's idea of constructing a 1D discrete latent to diffusion models.</li>
+</ul>
+</li>
+<li><p><strong>Applying DDN to language modeling tasks:</strong>  </p>
+<ul>
+<li>We made an initial attempt to combine <a href="https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/issues/1">DDN with GPT</a>, aiming to remove tokenizers and let LLMs directly model binary strings. In each forward pass, the model adaptively adjusts the byte length of generated content based on generation difficulty (naturally supporting speculative sampling).</li>
+</ul>
+</li>
+</ul>
+<h2 id="common-questions-about-ddn"><a class="anchor" name="common-questions-about-ddn" href="#common-questions-about-ddn"><span class="octicon octicon-link"></span></a>Common Questions About DDN</h2>
+<p>Q1: Will DDN require a lot of GPU memory?</p>
+<blockquote>
+<p>DDN's GPU memory requirements are slightly higher than conventional GAN generator using the same backbone architecture, but the difference is negligible.</p>
+<p>During training, generating <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="20" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container> samples is only to identify the one closest to the ground truth, and the <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="21" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container> unselected samples do not retain gradients, so they are immediately discarded after sampling at the current layer, freeing up memory.</p>
+<p>In the generation phase, we randomly sample an index from <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="22" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-texatom texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2026"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-texatom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mn>1</mn><mo>,</mo><mo>…</mo><mo>,</mo><mi>K</mi></mrow></math></mjx-assistive-mml></mjx-container> and only generate the sample at the chosen index, avoiding the need to generate the other <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="23" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container> samples, thus not occupying additional memory or computation.</p>
+</blockquote>
+<p>Q2: Will there be a mode collapse issue?</p>
+<blockquote>
+<p>No. DDN selects the output most similar to the current GT and then uses the <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" ctxtmenu_counter="24" style="font-size: 121.4%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>L</mi><mn>2</mn></msub></math></mjx-assistive-mml></mjx-container> loss to make it even more similar to the GT. This operation naturally has a diverse tendency, which can "expand" the entire generation space.</p>
+<p>Additionally, DDN supports reconstruction. Figure 14 in the original paper shows that DDN has good reconstruction performance on the test set, meaning that DDN can fully cover the target distribution.</p>
+<p>The real issue with DDN is not mode collapse but attempting to cover a high-dimensional target distribution that exceeds its own complexity, leading to the generation of blurry samples.</p>
+</blockquote>
+<style>
+html, body {
+width: auto !important;
+max-width: 100% !important;
+padding: 0px !important;
+margin: 0px !important;
+}
+._theme-github {
+background-color: rgb(255, 255, 255);
+}
+.markdown-body {
+min-width: 468px;
+max-width: 1024px;
+background-color: rgb(255, 255, 255);
+overflow: auto;
+border-width: 1px;
+border-style: solid;
+border-color: rgb(221, 221, 221);
+border-image: initial;
+padding: 45px;
+margin: 20px auto;
+}
+
+
+.video-container {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    margin: auto;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9DFYQJQH58"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9DFYQJQH58');
+</script>
+</div></body></html>
