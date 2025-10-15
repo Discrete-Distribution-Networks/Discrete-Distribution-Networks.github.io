@@ -19,7 +19,8 @@
 <div style="margin-top:-30px">
 
 🥳 Accepted by **ICLR 2025**  
-📝 Released a [blog](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/blob/main/blog_en.md) with added insights
+📝 Released a [blog](https://github.com/Discrete-Distribution-Networks/Discrete-Distribution-Networks.github.io/blob/main/blog_en.md) with added insights  
+🔥 Reached #2 on [Hacker News](https://news.ycombinator.com/item?id=45536694) daily rankings  
 
 <!-- 🚀 The code has been [released](https://github.com/DIYer22/discrete_distribution_networks)   -->
  <!-- <img src="img/logo-ICLR.svg" style="max-height:18px; margin-top:10px">   -->
